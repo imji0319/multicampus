@@ -20,10 +20,26 @@ public class StudentVariable {
 				" 전화번호 = "+phone+
 				" 이메일 = "+email+
 				" 성적 = "+grade +
+				" 총 이수학점 = "+total+
 				" 재학상태 = "+state);
 		System.out.println("100 "+200); 
 		// + 연산자 주위에 string이 하나라도 있으면 모두 문자열결합 
-
+		
+		int kor=98;
+		int eng=99;
+		int mat=66;
+		int sum=kor+eng+mat;
+		//java : 정수끼리의 연산결과는 무조건 정수 
+		//sql, javascript,r,python 경우 나눌 경우는 실수
+		int avg=sum/3;
+		
+		System.out.println("총합 = "+sum);
+		System.out.println("정수평균 = "+avg);
+		//실수평균
+		double avg2=(double)sum/3;
+		System.out.println("실수평균 =" +avg2);
+		System.out.println("실수평균 =" + (double)sum/3);
+		
 	}
 
 }

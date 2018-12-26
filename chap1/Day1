@@ -27,3 +27,21 @@ int+double
 2.모두 문자열결합
 String +int,double
 String +String 
+
+데이터 타입 변환
+1. 자동데이터타입변환
+byte -> short,char -> int -> long ->float-> double
+
+int i = 100;
+double d=i; ==> 100.0(자동 형변환)
+
+2.강제(명시) 데이터타입변환(일부값 손실)
+double->int 강제
+double pi=3.14;
+int i=(int)pi; ==> 3(소수점아래 무조건 삭제)
+: 형변환연산자 
+
+3.boolean 제외
+true/false 오직 2가지만 표현 가능 
+int i=0;
+boolean b1=(boolean)i; ==> 오류
