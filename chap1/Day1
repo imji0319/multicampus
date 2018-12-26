@@ -45,3 +45,44 @@ int i=(int)pi; ==> 3(소수점아래 무조건 삭제)
 true/false 오직 2가지만 표현 가능 
 int i=0;
 boolean b1=(boolean)i; ==> 오류
+
+Chap3 연산자
+기호형태 + 문자형태
+기능(비교 산술 논리)
+
+x=5
+y=x++ -> 1.y=x 2.x=x+1 => y=5, x=6 
+y=++x -> 1.x=x+1 2.y=x => y=6, x=6
+
+논리연산
+&& : AND (& :AND연산 그러나 &는 불필요한 연산을 진행 =>&& : 불필요한 연산횟수 단축(cpu,메모리절약)
+true && true : true
+true && false : false
+false && false : false
+false && true : false
+
+|| : OR (| : and연산과마찬가지)
+true || true : true
+true || false : true
+false || false : false
+false || true : true
+
+연산의 우선순위
+변환 > 산술 > 비교 > 논리 > 대입 
+()> 단항 > 이항(산술 > 비교 > 논리 >) > 삼항 > 대입
+
+boolean c =(((a*b)-c)>10) && false);
+
+조건삼항연산
+a?b:c
+a:boolean결과 수식
+b:a가 true일때 결과
+c:a가 false일때 결과
+
+int x=5;
+String result = x>10?"크다":"작다";
+
+int x=5;
+int result = x>=0?1:0;
+int x=5;
+double result = x>=0 && x<10?1.1:0;
