@@ -1,0 +1,29 @@
+기본 데이터 타입 : 정수 실수 논리값 문자
+byte 단위로 데이터 저장 
+논리값 (1byte)
+boolean b1=true
+
+단일문자(2byte)
+char c1 = 'a'
+char c2 = '가'
+char c3 = '\n'
+
+정수
+byte (1byte)
+short (2byte)
+int (4byte) - default 기본 타입
+long (8byte) : 년도->1/1000초
+
+실수
+float (4byte)
+double (8byte) -default 기본타입
+
+
++연산자
+1.기본 산술연산 
+int+int
+double+double
+int+double 
+2.모두 문자열결합
+String +int,double
+String +String 
