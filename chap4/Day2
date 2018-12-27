@@ -73,3 +73,34 @@ switch(int값){
 }
 ==>int변수 위치에 char, byte, short, int 그리고 1.7이후부터 String도 가능 
 
+반복문 :동일 기능 여러번,약간의 변화 수행
+몇 번,기능
+1. for
+	for (시작문장 ; 반복조건문장; 변화식문장) {
+		반복수행 필요문장들;
+		}
+	ex>	
+	int sum=0;	
+	for (int i=1;i<=10,i++){
+		sum+=i
+		}
+2. while
+3. do-while
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

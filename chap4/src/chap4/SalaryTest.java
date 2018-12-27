@@ -1,9 +1,13 @@
 package chap4;
+import java.util.Scanner; //라이브러리 불러올때
 
 public class SalaryTest {
 
 	public static void main(String[] args) {
-		String title ="과장";//사원, 대리,과장,부장
+		
+		Scanner sc = new Scanner(System.in); //키보트 입력박기 위한 방식
+		String title =sc.next();//입력받은 값 저장하는 방법
+		
 		int baseSalary=30000;
 		int totalSalary=0;
 		
