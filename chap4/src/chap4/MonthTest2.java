@@ -10,6 +10,7 @@ public class MonthTest2 {
 		//month = 2 28일까지 존재 
 		
 		switch(month) {
+		//1,3,5,7,8,10,12 일 경우로 여러개가 가능할 때
 		case 1:
 		case 3:
 		case 5:
