@@ -1,0 +1,46 @@
+18.12.28
+
+객체지향언어 : c++, java
+
+5장 참조타입 
+
+자바 변수 타입 : 
+- 자바 기본 데이터 타입(종류, 길이  한정) 
+stack영역 실제값 저장 구조
+	논리값 boolean : 1byte
+	단일문자 char : 2byte
+	정수 byte : 1byte, short : 2byte, int : 4byte, long : 8byte 
+	실수 float : 4byte, double : 8byte
+	
+- 자바 참조 타입(길이 가변)
+stack영역 주소값 저장 구조 -> heap영역 실제값 저장 구조 
+	배열 
+	클래스
+	인터페이스
+	
+	ex>
+	논리값 24개 
+	정수 100개
+	문자열
+	학생정보(학번 : 정수, 이름 : 문자열, 점수 : 실수) - 복합적인 데이터
+	
+	int i = 100;
+	String s = 'java';
+	double d = 3.14;
+	
+자바 메모리 모델 
+- 클래스 영역 : 메소드=함수 문장 이진코드 나열 저장 
+- Stack 영역 : 변수 값 저장 , Last In First Out(LIFO) 
+- heap 영역 : 프로그램 수행 종료 이전 삭제 가능 - 사용여부 체크-> 삭제 가능 ==> garbage collection(gc)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
