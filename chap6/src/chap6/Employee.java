@@ -7,19 +7,19 @@ public class Employee {
 	//사용자 생성자 정의 (기본 생성자 사라짐)
 	
 	//생성자
-	Employee(int i, String n, String d, String t) {
+	Employee(int id, String name, String dept, String title) {
 		System.out.println("생성자호출");
-		id = i;
-		name = n;
-		dept = d;
-		title = t; } //id 변수 초기화
+		this.id = id;   //this : 해당 클래스를 의미하여 필드변수임을 알려줌
+		this.name = name;
+		this.dept = dept;
+		this.title = title; } 
 	
 	//오버로딩
 	//1개 클래스 내부에 생성자 여러개 정의 가능
 	//생성자 이름=클래스 이름 
 	//변수개수, 타입, 순서 중 1개 이상 다르게 정의 
-	 Employee(int i, String n){
-		 id = i;
+	 Employee(int id, String n){
+		 this.id = id;
 		 name = n;
 		 dept = "부서미정";
 		 title = "직급미정";
@@ -32,8 +32,12 @@ public class Employee {
 		 title = "직급미정";
 	 }
 	 
+	 Employee(int id){
+		 this(id,"이순신","부서미정","직급미정"); //같은 클래스 내에서 다른 생성자를 사용하기 위해 this 사용
+	 }
 	 
-	//변수
+	 
+	//필드변수
 	int id ; //사번
 	String name; //이름
 	String dept; //부서

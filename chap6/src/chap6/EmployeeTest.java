@@ -27,6 +27,8 @@ public class EmployeeTest {
 		Employee e3 = new  Employee(); 
 		System.out.println("사번은 "+e3.id+"이고 이름은 "+e3.name+" 부서는 " +e3.dept+"이며 직급은 "+e3.title+"입니다.");
 		
+		Employee e4 = new  Employee(1456); 
+		System.out.println("사번은 "+e4.id+"이고 이름은 "+e4.name+" 부서는 " +e4.dept+"이며 직급은 "+e4.title+"입니다.");
 		
 		
 		
