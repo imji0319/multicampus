@@ -60,6 +60,34 @@ Modifier
 	4> 객체참조변수명.static필드변수 가능 
 		p1.nation == p2.nation == Person.nation
 	
+2. final
+- 클래스, 변수, 메소드 앞 선언 
+- 최종적 = 더 이상 수정 없음
+- 절대 불변의 진리값, 자바 규칙으로 정해진값, 공유값 
+
+	class A{
+		final static int i = 100;
+		//static final int i =100 ; //modifier 의 순서는 중요하지 않음 
+	}
+	
+	static 과  final는 비슷한 성향을 가져 주로 같이 사용함 
+
+3. public
+- 클래스, 변수, 메소드, 생성장
+
+
+
+
+
+패키지 Package
+1> 자바 클래스 모음
+	자바 클래스 => 1개 파일 
+	패키지 => 폴더/디렉토리
+	자바 플랫폼 독립적 - 1개 자바 소스 파일 작성 -> win, linux,..., 모든 환경에서  동일 동작
+	  
+
+	
+
 
 	
 

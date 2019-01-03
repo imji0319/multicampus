@@ -3,7 +3,9 @@ package chap6;
 class Person {
 	String name;
 	int age;
-	static String nation ="대한민국"; //static : 1개 값을 모든 객체가 똑같이 공유 -> 미리 정적 선언 
+	final static String nation ="대한민국"; 
+	//static : 1개 값을 모든 객체가 똑같이 공유 -> 미리 정적 선언 
+	//final : 수정 불가능, 수정이 발생하는 경우를 막기 위함 
 	public Person(String name, int age) {
 		this.name = name;
 		this.age = age;
@@ -21,6 +23,8 @@ public class PersonTest {
 
 		
 		Person p1 = new Person("홍길동",29);
+		// p1.nation ="미국"; //final 선언 변수는 수정 불가능
+ 		
 		System.out.println
 		("p1의 객체 이름은 " + p1.name+"이고 나이는 "+p1.age+"이며 국적은 " +Person.nation+"입니다.");
 		
@@ -34,6 +38,7 @@ public class PersonTest {
 		
 		//static 변수 예 : 원주율 : 3.14
 		System.out.println(Math.PI); 
+		// Math.PI=Math.PI+1; //Math.PI 변수는 final 선언되어 변경 불가능  
 		System.out.println(Integer.MAX_VALUE); //정수int 최대값 2^31-1
 
 	}
