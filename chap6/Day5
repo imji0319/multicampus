@@ -12,5 +12,54 @@ chap6.클래스
 equals.IgnoreCase()
 toUpperCase()-toLowerCase()
 
+클래스 
+1> 객체 분석 - 정적/동족 분석
+2> 클래스 표현  - 필드변수/메소드
+= 객체를 정의
+class 클래스이름{
+	필드변수
+	생성자
+	메소드
+}
+3> 객체 표현 - 생성  
+클래스명 변수명 = new 생성자();
+=> heap 영역에 지정된 클래스 복사본 : 생성된 객체 할당
+=> 필드변수값 초기화 
+4> 변수명.필드변수
+      변수명.메소드명()
 
+
+[modifier]class 클래스이름{
+	[modifier]필드변수
+	[modifier]메소드
+	[modifier]생성자
+}
+
+Modifier
+역할, 어떤 요소 앞에 붙는가
+1. static
+- 변수, 메소드 앞 선언
+- "정적" <--> "동적"
+- 모든 객체 공통 1개값 저장 변수 앞 선언	
+- 객체 내부 필드변수값 모든 객체 동일 static 변수 선언 
+	class 회사원{
+		int 사번 
+		String 이름
+		double 급여
+		static String 회사명="삼성"
+		
+	}
+	=> 회사원 객체 10명 
+	회사원(100,이사원,50000,삼성)
+	회사원(200,박부장,80000,삼성)
+	.....
+	
+	1> 모든 객체 동일 1개 저장 변수   <--> non-static 객체마다 고유값 개별 저장 
+	2> 모든 객체 공유
+	3> 클래스명.static필드변수  <--> non-static 변수일경우 error 
+	4> 객체참조변수명.static필드변수 가능 
+		p1.nation == p2.nation == Person.nation
+	
+
+	
 
