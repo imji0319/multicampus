@@ -164,6 +164,15 @@ modifier : 수정자 한정자  제한자
 
 
 
+f(x) = y
+
+int f(x){
+y=x*10
+return y
+} 
+
+
+ant = f(5) ===> 50
 
 
 
