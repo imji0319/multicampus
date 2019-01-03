@@ -12,7 +12,6 @@ class C1 /*extends Object*/{
 
 class C2 extends C1{
 	int j;
-	
 
 	C2(){
 		super("aaa"); //C1의 생성자가 매개변수 s를 필요로 함 

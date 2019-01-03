@@ -21,8 +21,6 @@ class Manager extends Employee{
 	String title="관리직"; 
 	//상위 클래스와 동일한 변수에 다른 값이 들어있을 때 자신 클래스값 우선
 
-
-	
 }
 public class ManagerTest {
 
