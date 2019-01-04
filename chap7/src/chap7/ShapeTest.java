@@ -54,19 +54,32 @@ public class ShapeTest {
 		// rec 6 8 : 가로 6, 세로 8 Rectangle 객체 생성
 		// 모든 객체들은 면적, 둘레 구하기 가능
 		
+		Shape s = null;
 		if (args.length == 2 && args[0].equals("cir")) {
-			Circle c = new Circle(Integer.parseInt(args[1]));
-			c.area();
-			c.circum();
+			s = new Circle(Integer.parseInt(args[1]));
+			//overriding 한 메소드 이기 때문에 Circle의 메소드 실행
+
+//			Circle c = new Circle(Integer.parseInt(args[1]));
+//			c.area();
+//			c.circum();
 		}
 		
 		else if (args.length ==3 && args[0].equals("rec")) {
-			Rectangle r = new Rectangle(Integer.parseInt(args[1]), 
-										Integer.parseInt(args[2]));
-			r.area();
-			r.circum();
+			s = new Rectangle(Integer.parseInt(args[1]), 
+					Integer.parseInt(args[2]));			
+			
+//			Rectangle r = new Rectangle(Integer.parseInt(args[1]), 
+//										Integer.parseInt(args[2]));
+//			r.area();
+//			r.circum();
 
 		}
+		//객체를 같은 이름 s 지정하면서 각 상황에 맞게 호출
+		//공통 기능 메소드 호출 : 각 상황에 맞게 다른 결과 
+		s.area();
+		s.circum();
+		
+		
 
 	}
 
