@@ -122,10 +122,46 @@ abstract : 추상적, 구체X
 instanceof : 특정 객체에 해당하는 것인지 확인 가능 , boolean 값 
 
 
+chap8. 인터페이스
+
+- 자바 클래스 다중 상속 불가능 -> interface : 다중 상속 가능
+- public abstract 자동 정의 메소드만 포함
+- 인터페이스는 객체 생성 불가능 
+- implements 인터페이스1, 인터페이스2,....
+- 인터페이스 상속, 하위 클래스에서 반드시 메소드 오버라이딩을 해야함	
+- public static final 가 선언된 변수만 포함
+- 생성자 없음 (객체 생성 불가능)
+- 상속받은 메소드가 동일할 경우 한번만 오버라이딩 하면됨
+
+	interface 학생{
+	 (public static final 자동정의) 변수;
+	 (public abstract 자동 정의) 공부하다();
+	 점심먹다();
+	}
+	
+	interface 교직원{
+		일하다();
+		점심먹다();
+	}
+	
+	//implements : interface 상속
+	
+	class 조교 implements 학생, 교직원{
+		//모든 메소드 overriding 
+		공부하다(){}
+		일하다(){}
+		점심먹다(){} 
+	}
+	
+	//interface의 활용
+	
+	class A{}
+	interface B{}
+	interface S{}
+	class C extends A implements B,S {}
+
+
 ** import java.lang.Math
-
-
-
 
 
 
