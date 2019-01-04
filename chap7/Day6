@@ -119,10 +119,7 @@ abstract : 추상적, 구체X
 	b1.i b1.j b1.ma() b1.mb()
 	
 	
-	
-	
-	
-
+instanceof : 특정 객체에 해당하는 것인지 확인 가능 , boolean 값 
 
 
 ** import java.lang.Math
