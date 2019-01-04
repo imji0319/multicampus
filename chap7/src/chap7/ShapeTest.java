@@ -19,10 +19,12 @@ class Rectangle extends Shape{
 	}
 	
 	void area() {
-		System.out.println("가로" + width + "세로" + height + "인 Rectangle의 면적은 " +(width*height));
+		System.out.println
+		("가로 " + width + ", 세로 " + height + "인 Rectangle의 면적은 " +(width*height));
 	}
 	void circum() {
-		System.out.println("가로" + width + "세로" + height + "인 Rectangle의 둘레은 " +2*(width+height));
+		System.out.println
+		("가로 " + width + ", 세로 " + height + "인 Rectangle의 둘레은 " +2*(width+height));
 	}
 }
 
@@ -33,10 +35,12 @@ class Circle extends Shape{
 		this.r = r ;
 	}
 	void area() {
-		System.out.println("반지름 " + r + "인 Circle 의 면적은 " +(r*r*Math.PI));
+		System.out.println
+		("반지름 " + r + "인 Circle 의 면적은 " +(r*r*Math.PI));
 	}
 	void circum() {
-		System.out.println("반지름 " + r + "인 Circle 의 둘레은 " +2*r*Math.PI);
+		System.out.println
+		("반지름 " + r + "인 Circle 의 둘레은 " +2*r*Math.PI);
 	}
 	
 }
