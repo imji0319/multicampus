@@ -26,15 +26,23 @@ class Test{
 
 
 public class ThrowTest {
-	public static void main(String[] args) 
-			throws ArithmeticException{
-		// 예외처리를 시스템에 맞기는 결과, 
-		Test t = new Test();
+	public static void main(String[] args) // throws ArithmeticException : 예외처리를 시스템에 맞기는 결과 
+		{Test t = new Test();
 		try {
 			t.mc();
 		}
 		catch(ArithmeticException e) {
 			System.out.println("0나누기 불가");
 		}
-	}
+		
+		//ClassNotFoundException
+		try {
+		Class.forName(args[0]);
+		System.out.println("존재하는 클래스입니다.");
+		}
+		catch(ClassNotFoundException e) {
+			System.out.println("그런 이름의 클래스는 존재하지 않습니다.");
+		}
+
+}
 }
