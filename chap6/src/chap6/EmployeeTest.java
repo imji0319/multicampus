@@ -13,24 +13,21 @@ public class EmployeeTest {
 		//e1.id = 1234;
 		//e1.name ="홍길동";
 		//e1.dept = "인사부";
-		//e1.title = "사원";
-		System.out.println("사번은 "+e1.id+"이고 이름은 "+e1.name+" 부서는 " +e1.dept+"이며 직급은 "+e1.title+"입니다.");
-		
-		
+		//e1.title = "사원";	
+		System.out.println(e1);
 		Employee e2 = new  Employee(2234,"김유정"); 
 		//e2.id = 2234;
 		//e2.name ="김유정";
 		//e2.dept = "총무부";
 		//e2.title = "대리";
-		System.out.println("사번은 "+e2.id+"이고 이름은 "+e2.name+" 부서는 " +e2.dept+"이며 직급은 "+e2.title+"입니다.");
-		
+		System.out.println(e2);
+
 		Employee e3 = new  Employee(); 
-		System.out.println("사번은 "+e3.id+"이고 이름은 "+e3.name+" 부서는 " +e3.dept+"이며 직급은 "+e3.title+"입니다.");
-		
+		System.out.println(e3);
+
 		Employee e4 = new  Employee(1456); 
-		System.out.println("사번은 "+e4.id+"이고 이름은 "+e4.name+" 부서는 " +e4.dept+"이며 직급은 "+e4.title+"입니다.");
-		
-		
+		System.out.println(e4);
+	
 		
 		//클래스명 주소참조변수 = 복사연산자 생성자호출();
 
