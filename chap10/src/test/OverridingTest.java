@@ -6,9 +6,10 @@ class OverridingTest {
         int j = 20;
         
         MySum ms1 = new MySum(i, j);
-        MySum ms2 = new MySum(i, j);
+        MySum ms2 = new MySum(j, i);
 
         System.out.println(ms1);
+        System.out.println(ms2);
 
         if(ms1.equals(ms2))
             System.out.println
@@ -24,14 +25,11 @@ class MySum {
         this.first = first;
         this.second = second;
     }
+    
     /* 조건1 */
-
 	@Override
-	
-	public String toString() {
-		int result = first + second;
-		
-		return String.valueOf(result);
+	public String toString() {		
+		return String.valueOf(first + second);  //값을 String 으로 변경 
 	}
 
 	
@@ -39,13 +37,13 @@ class MySum {
 	@Override
 	public boolean equals(Object obj) {
 		
-		String s1 = this.toString();
-		String s2 = obj.toString();
-		
-		if (s1.equals(s2)){
-			return true;
+		//obj가 MySum 객체인지 확인 : instanceof
+		if (obj instanceof MySum) {			
+			return toString().equals(obj.toString());
 		}
-		else {return false;}
+		else {
+			return false;
+		}
 	}
 
 }

@@ -11,18 +11,14 @@ class CellPhone{
 	
 	void call(int time) 
 			throws IllegalArgumentException{
-		try {
-			if (time<0) {
-				throw new IllegalArgumentException("통화시간입력오류");
-			}
-		}catch (IllegalArgumentException e){
-			System.out.println(e.getMessage());
+		
+		//의도적 예외 발생
+		if (time<0) {
+			throw new IllegalArgumentException("통화시간입력오류");
 		}
 		
 		System.out.println("통화시간 : "+time+"분");
-		double ls = time * 0.5; 
-		battery -= ls;
-	
+		battery -= (time * 0.5);
 		if (battery < 0) {
 			battery = 0;
 		}
@@ -33,21 +29,18 @@ class CellPhone{
 	void charge(int time) 			
 			throws IllegalArgumentException{
 
-		try {
-			if (time > 100) {
-				throw new IllegalArgumentException("충전시간입력오류");
-			}
-		}catch (IllegalArgumentException e){
-			System.out.println(e.getMessage());
-		}
+		if (time > 100) {
+			throw new IllegalArgumentException("충전시간입력오류");}
+
 		System.out.println("충전시간 : "+time+"분");
-		double ga = time * 3; 
-		battery += ga;
+
+		battery += (time * 3);
 		if (battery > 100 ) {
 			battery = 100;
 		}
 
 	}
+	
 	
 	void printBattery() {
 		System.out.println("남은 배터리 양 : " + battery);
@@ -55,10 +48,8 @@ class CellPhone{
 	}
 	
 	boolean isSame(CellPhone C) {
-		if (model.equalsIgnoreCase(C.model)) {
-			return true;
-		}
-		else {return false;}
+		return model.equalsIgnoreCase(C.model);
+
 	}
 }
 
@@ -82,11 +73,11 @@ public class CallPhoneMain {
 			myPhone.printBattery();
 			
 			myPhone.call( -20 );  //통화시간입력오류
-			
+		
 		}
-		catch (IllegalArgumentException e){
-			System.out.println("IllegalArgumentException 예외가 발생하였습니다");
 
+		catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
 		
 		CellPhone yourPhone = new CellPhone("galaxy-9");
