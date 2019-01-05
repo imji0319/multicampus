@@ -82,7 +82,23 @@ java.lang.*
 		패캐지명.클래스명@16진수주소
 		다른 클래스 오버라이딩하면 다른 내용 출력 변경 가능 
 		출력 문장 내부 자동 호출 
-
+		
+		
+- System 클래스
+	자바 프로그램 실행 컴퓨터 정보 제공 역할 
+	모니터 : System.out
+	모니터 출력 : System.out.print();
+	키보드 : System.in
+	
+	반복문 종료 : break
+	메소드 중단 : return
+	프로그램 중단 : System.exit(0)
+	
+	System.currentTimeNillis(); 
+		//현재 날짜 시간 - 1/1000초 단위로 나타냄
+		1970/1/1/0/0/0 ~ 현재까지 경과
+		프로그램 시간 측정 
+	
 - String 클래스
 	class String extends Object{
 	equals(){오버라이딩 : 문자열 비교}
@@ -90,8 +106,7 @@ java.lang.*
 	
 	1>
 	
-	
-- System 클래스
+
 - Math 클래스
 - Integer 클래스
 
