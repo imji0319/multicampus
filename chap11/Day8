@@ -1,0 +1,71 @@
+19.01.07
+
+chap11.기본 API 클래스
+
+- Object 클래스
+	toString()
+	1. 출력문장 내부 자동 호출
+	2. 오버라이딩 내용 출력
+	3. 패키지명.클래스명@16진수주소암호
+	4. public String toString()
+
+	equals()
+	1. 객체 동등성 비교
+	2. 오버라이딩 다른 부분 동등성 비교 변경 가능 
+	3. == 연산자 : 주소 동등성 비교
+	4. String : equals 오버라이딩 - 문자열의 내용 동등성비교
+
+- System 클래스
+	System.out.println() : 모니터 출력
+	new Scanner (System.ln) : 키보트 입력 
+	System.getProperty("JAVA_HOME") : 컴퓨터의 시스템적 정보를 출력 가능 
+
+- String 클래스
+	역할 : 문자열 표현, 조작 기능 제공 메소드 포함 클래스
+	특징 
+	1> 클래스명 객체참조변수 = new 클래스명();
+		String s1 = new String(); //원래 객체 생성 선언
+		String s2 = "java" ; // 기본 타입 변수 선언 형식을 제공
+	2> heap 영역 String 객체 문자열 내용 불변 
+	3> 문자열 결합 : + 연산자 제공 
+	
+	equals(), equalsIngnoreCase()
+	1. 문자열 비교
+	
+	toUpperCase(), toLowerCase()\
+	1. 모든 문자열 대문자로 변경, 소문자로 변경 
+	
+	replace()
+	1. 문자열 치환
+	2. 변경하는 것이지만 heap영역에 새로운 객체 생성 
+	
+	length()
+	1. 문자열의 길이 
+	2. 배열변수.length
+	
+	substring()
+	1. 범위의 인덱스만큼 문자 반환
+	
+	indexOf()
+	1. 특정문자열이 포함되어 있는지 확인
+	2. 특정문자열 시작지점의 인덱스 위치 리턴
+	3. if (indexOf() > 0) 이면 문자발견 0, else 문자발견x
+	
+	split()
+	1. 특정값을 기준으로 문자열을 분활하는 메소드
+	2. String [] 배열변수로 반환 
+	
+	concat()
+	1. 문자열 결합
+
+
+- Math 클래스
+- Integer 클래스
+
+java.util.*
+- Date, Calendar
+- StringTokenizer
+
+java.text.*
+- SimpleDateFormat
+- DecimalFormat
