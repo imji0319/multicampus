@@ -43,8 +43,9 @@ chap11.기본 API 클래스
 	1. 문자열의 길이 
 	2. 배열변수.length
 	
-	substring()
+	substring(시작인덱스, 끝인덱스)
 	1. 범위의 인덱스만큼 문자 반환
+	2. 시작 인덱스 ~ 끝 인덱스 까지 문자열 반환
 	
 	indexOf()
 	1. 특정문자열이 포함되어 있는지 확인
@@ -57,10 +58,46 @@ chap11.기본 API 클래스
 	
 	concat()
 	1. 문자열 결합
+	
+	chatAt()
+	1. 특정 인덱스 하나만 지정하고 위치가 값 리턴
+	2. return char 하나 타입
+	
+	trim()
+	1. 양쪽 공백 제거
+	
+	valueOf()
+	1. 문자열로 변환
+	
+- StringTokenizer
+	token : 분리 의미잇는 최소 단위
+	String클래스의 split() 메소드와 비슷한 기능
+	여러개의 분리기준 사용 가능
 
 
 - Math 클래스
+
+Wapper class : 
+기본 타입들 연산자 : 참조타입들 = 클래스 정의 = 메소드 사용
+
+- Boolean
+- Character
+- Byte
+- Integer
+- Short 
+- Long
+- Float
+- Double 
+
+
 - Integer 클래스
+	Integer.toBinaryString() -> 2진수
+	Integer.toOctalString() -> 8진수
+	Integer.toHexString() -> 16진수
+	
+	Integer.parseInt()
+	1. 정수로 바꿈
+	
 
 java.util.*
 - Date, Calendar
@@ -69,3 +106,7 @@ java.util.*
 java.text.*
 - SimpleDateFormat
 - DecimalFormat
+
+
+
+
