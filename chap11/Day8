@@ -74,12 +74,9 @@ chap11.기본 API 클래스
 	String클래스의 split() 메소드와 비슷한 기능
 	여러개의 분리기준 사용 가능
 
-
-- Math 클래스
-
-Wapper class : 
+Wrapper class : 
 기본 타입들 연산자 : 참조타입들 = 클래스 정의 = 메소드 사용
-
+값을 객체 형태로 감싸서 사용
 - Boolean
 - Character
 - Byte
@@ -88,6 +85,12 @@ Wapper class :
 - Long
 - Float
 - Double 
+
+Integer in =100 ; //auto boxing 
+int i =new Integer(100) //auto unboxing
+
+Double dd = 3.14 ; //d.메소드(), auto boxing 
+double d =new Double(100) //dd - 연산자, auto unboxing
 
 
 - Integer 클래스
@@ -99,14 +102,32 @@ Wapper class :
 	1. 정수로 바꿈
 	
 
+- Math 클래스
+	0.0 <= Math.random() <1 : return 실수
+	Random.nextInt
+
 java.util.*
 - Date, Calendar
-- StringTokenizer
+	날짜, 시간 데이터 표현 클래스
+	Calendar.getInstance()
+	Calendar.set()
 
 java.text.*
 - SimpleDateFormat
+	SimpleDateFormat("yyyy/MM/dd/HH:mm:ss -E");
+	연도 : y, 월 : M, 일 : d/D, 시 : H/h, 분 : mm, 초 : ss 추출메소드
+		
+
 - DecimalFormat
-
-
+	double d = r*Math.PI;
+	DecimalFormat df = new DecimalFormat("#.##");
+	
+	정수자리에 #의 개수는 중요하지 않음	
+	# : 소수점 1자리 숫자(의미없는 0표시 x)
+	0 : 소수점 1자리 숫자(의미없는 0표시 o)
+	#.00 : 마지막 소수점이 0으로 의미가 없어도 0으로 나타냄
+	주의 > 
+	#.#0 이런식의 포맷을 줄 수 없음.
+	소수점 1자리에도 0이 나타날 수 있기 떄문에 이와 같은 포맷을 오류가 발생
 
 
