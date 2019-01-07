@@ -1,0 +1,88 @@
+19.01.07
+
+chap 15. 자바 컬렉션 프레임워크
+- 배열 : "동일" 타입의 데이터를 "여러개" 모음
+	int []ar = new int[24];
+
+1> 서로 다른 타입의 데이터도 저장 불가능
+2> 길이 결정 : 불변 
+
+java.util패키지 
+1. 날짜, 시간, 토큰 분리 "편리한 기능 " 제공
+2. 서로 다른 타입의 데이터를 여러 개 모음. 갯수 변경가능, 클래스 들 : collection framework
+	ArrayList
+	HashSet
+	HashMap
+
+ArrayList list = new ArrayList();
+==> 서로 다른 타입(참조타입)의 데이터 여러 개 저장, 길이 변경 가능
+자동으로 최초 10개 데이터 저장 + 10개씩 자동 증가
+
+collection framework : java.util.
+- 서로 다른 타입 저장 가능
+- 길이 변경 가능 
+
+1. ArrayList 
+	순서 목록 관리 : index
+	중복값 저장 
+	
+	- 생성자
+	ArrayList list = new ArrayList();   //기본 10개 생성, 10개씩 자동 증가
+	ArrayList list = new ArrayList(5);  //기본 5개 생성, 5개씩 자동 증가
+	ArrayList list = new ArrayList(5,2);//기본 5개 생성, 2개씩 자동 증가
+	ArrayList<객체> list = new ArrayList<객체> (); //해당 객체만 list 에 저장하는 방법
+	--> 특정 객체만 저장하지만 데이터 요소의 개수가 변동이 일어날 때 ArrayList 사용
+	==> generic 활용
+	
+	- 메소드
+	저장 메소드 : add(Object o)
+		list.add("java");
+		list.add(100);       //list.add(new Integer(100));
+		list.add(1,"200") // 매개변수가 2개 줄때 1번 인덱스에 "200"를 추가하는 것,중간에 추가하려고 할 때
+	
+	수정 메소드 : set(index, Object o)
+		list.set(1,"jsp"); //해당 인덱스 값을 o로 변경
+	
+	삭제 메소드 : remove(index)
+		list.remove(1); //해당 인덱스 값 삭제, 그 뒤에 있는 값들이 앞으로 당겨짐
+	
+	조회 메소드 : size(), contains(Object o), indexOf(Object o), get(index)
+		list.size(); //arraylist 안의 데이터 개수 조회
+		list.contains("java") //해당 객체의 포함여부 ->boolean
+		list.indexOf("java") //해당 객체의 위치조회, 음수가 나올 경우 : 없음
+		list.get(1); //위치에 해당하는 객체 반환
+		
+2. HashSet
+	순서 X
+	중복값 저장 불가능
+	
+	
+3. HashMap
+	순서 X
+	key-value 한쌍 구성
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
