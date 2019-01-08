@@ -5,12 +5,13 @@ import java.util.ArrayList;
 class SameSentence{
 
 	String[] compare(ArrayList<String> list1, ArrayList<String> list2) {
-		String[] result;
+		String[] result =new String[0];
 		ArrayList<String> arr = new ArrayList<String>();
 		
 		if (list1.size() == list2.size()) {
 			for (int i =0; i < list1.size();i++) {
-				if (list1.get(i) == list2.get(i)) {
+				if (list1.get(i).equals(list2.get(i))) { 
+					//new String 객체를 선언한 것을 비교할 경우 연산자을 사용하면 다르게 나타남 -> 문자열 비교 : equals() 
 					arr.add(list1.get(i));
 				}
 			}
@@ -19,22 +20,24 @@ class SameSentence{
 		//list1.size() > list2.size()
 		else if (list1.size() > list2.size()){ 
 			for (int i =0; i < list2.size(); i++) {
-				if (list1.get(i) == list2.get(i)) {
+				if (list1.get(i).equals(list2.get(i))) {
 					arr.add(list1.get(i));
 				}
 			}
 		}
 		
+		//list1.size() < list2.size()
 		else {
-			for (int i =0; i < list2.size(); i++) {
-				if (list1.get(i) == list2.get(i)) {
+			for (int i =0; i < list1.size(); i++) {
+				if (list1.get(i).equals(list2.get(i))) {
 					arr.add(list1.get(i));
 				}
 			}
 		}
 
-		result = arr.toArray(new String[arr.size()] );
-		
+		//result = arr.toArray(new String[arr.size()] );
+		result = arr.toArray(result);
+
 		return result;
 
 	}
@@ -66,11 +69,8 @@ public static void main(String[] args) {
 	
 	SameSentence ss = new SameSentence();
 	String[] result = ss.compare(list1, list2);//list1, list2에서 같은 내용 출력
-	
 
-	
-	for (int i=0; i<result.length; i++) {
-		
+	for (int i=0; i<result.length; i++) {		
 		System.out.println(result[i]);
 		}
 
