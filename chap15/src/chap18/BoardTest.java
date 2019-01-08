@@ -1,6 +1,5 @@
 package chap18;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 class BoardVO{
@@ -21,7 +20,7 @@ class BoardVO{
 	@Override
 	public String toString() {
 		
-		return "번호 = "+seq+"제목 = "+title+"내용 = "+contents+"조회수 = "+viewcount ;
+		return "번호 = "+seq+" 제목 = "+title+" 내용 = "+contents+" 조회수 = "+viewcount ;
 	}
 	
 }
