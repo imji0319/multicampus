@@ -113,18 +113,14 @@ chap18. 입출력
 3. 파일 입력/출력 예제
 
 
+******
+XXXVO : XXXDO : XXXDTO
+Value Object : Data Object : Data Transfer Object 
+===> 게시물 1개 표현 여러가지 값 저장 용도 객체 
 
-
-		
-
-
-
-
-
-chap12. 멀티스레드
-
-
-
+XXXDAO 
+Data Access Object (VO 접급 변수 사용)
+===> 게시물 저장/수정/삭제/조회 예제
 
 
 
