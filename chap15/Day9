@@ -61,6 +61,8 @@ List 계열의 java framework
 
 
 
+
+
 chap13. Generic,제네릭		
 
 타입을 유동적으로 사용할 수 있는 문법
@@ -84,6 +86,42 @@ a3.id = "100";
 A<Double> a4 = new A <Double>();
 a4.id=3.14;
 
+
+
+
+
+
+chap18. 입출력 
+
+키보드 입력 new Scanner(System.in)
+모니터 출력 System.out.println()
+--> 표준 입력장치/표준 출력장치 : 표준입출력방법
+
+표준입출력방법
+파일 저장  = 자바 프로그램 파일 출력  
+	java.io.FileOutputStream
+	java.io.FileWriter
+	
+파일 데이터 조회 = 자바 프로그램 파일 입력
+	java.io.FileInputStream
+	java.io.FileReader
+	
+자바 파일+디렉토리 정보 : java.io.File -파일 입출력이 되지 않음
+
+1. 키보드 예제
+2. File 클래스 예제
+3. 파일 입력/출력 예제
+
+
+
+
+		
+
+
+
+
+
+chap12. 멀티스레드
 
 
 
