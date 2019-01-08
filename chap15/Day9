@@ -58,9 +58,31 @@ List 계열의 java framework
 		
 	조최 메소드 : get()
 		get(Object k); //key 값을 입력하고 리턴으로 object v를 받음
-		
 
 
+
+chap13. Generic,제네릭		
+
+타입을 유동적으로 사용할 수 있는 문법
+
+class A <T> {
+	T id;
+	A(T id) {
+	 	this.id = id;
+	}
+	
+}
+
+A a1=new A(); //타입을 전달하지 않아 오류
+
+A<Integer> a2 = new A <Integer> (); 
+a2.id = 100;
+
+A<Sting> a3 = new A <String>();
+a3.id = "100";
+
+A<Double> a4 = new A <Double>();
+a4.id=3.14;
 
 
 
