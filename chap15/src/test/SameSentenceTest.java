@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class SameSentence{
 
 	String[] compare(ArrayList<String> list1, ArrayList<String> list2) {
-		
+		String[] result;
 		ArrayList<String> arr = new ArrayList<String>();
 		
 		if (list1.size() == list2.size()) {
@@ -33,10 +33,9 @@ class SameSentence{
 			}
 		}
 
+		result = arr.toArray(new String[arr.size()] );
 		
-		String[] result2 = arr.toArray(new String[arr.size()] );
-		
-		return result2;
+		return result;
 
 	}
 
