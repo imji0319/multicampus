@@ -1,0 +1,101 @@
+19.01.08
+
+java.ArrayList implements List;
+
+List 계열의 java framework
+- 순서존재, 중복값 허용
+- 서로 다른 타입/동일타입(generic) 데이터 저장
+- 데이터 갯구 동적 변경 가능
+
+		
+2. HashSet
+	순서 X
+	중복값 저장 불가능
+	
+	class HashSet implements Set{
+		add(Object o) ;
+		//기존값과 비교하여 없으면 저장, 없으면 무시
+		iterator(); //반복자
+		size();
+	}
+	
+	- 생성자
+	HashSet set = new HashSet();
+	HashSet<Integer> set = new HashSet<Integer>(); 
+	--> generic 선언 가능
+
+	- 메소드
+	저장 메소드 : add(Object o) 
+		set.add(100); //o 저장값이 이미 존재할 경우 저장하지 않고 없을 경우에 저장 
+	
+	조회 메소드 : iterator()
+		Iterator<Integer> it = set.iterator(); //리턴타입이 Iterator 형태
+			//Set : Iterator의 hasNext, next 메소드를 활용해서 조회하는 방식
+			while (it.hasNext()){
+				Integer i = it.next()
+			}
+
+
+
+3. HashMap
+	순서 X
+	key-value 한쌍 구성
+	key값은 고유해야하나 value는 중복 가능
+	
+	class HashMap implements Map{
+		put();
+		get();
+	}
+	
+	- 생성자
+	HashMap map = new HashMap();
+	HashMap <T1, T2> map = new HashMap<T1, T2> (); //두개의 타입(키,값)을 지정해줘야 generic 활용 가능
+	
+	
+	- 메소드 
+	저장 메소드 : put()
+		put(Object k, Object v); // key로 사용할 객체와 value로 사용할 객체를 모두 가져와야함
+		
+	조최 메소드 : get()
+		get(Object k); //key 값을 입력하고 리턴으로 object v를 받음
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
