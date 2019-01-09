@@ -179,24 +179,42 @@ chap12. 멀티스레드
 ==> 자바 멀티스레드 api + 규칙 
 
 1. java.lang.Thread 클래스
+
 	1-1. Thread 상속
 		class A extends Thread{}
+	
 	1-2. run() 오버라이딩
 		class A extends Thread{
-		필드변수 + 생성자 + 메소드 추가 정의
-		public void run(){
-		//다른 스래드와 동시에 진행할 동작 내용 정의
-		} 
+			필드변수 + 생성자 + 메소드 추가 정의
+			
+			public void run(){
+			//다른 스래드와 동시에 진행할 동작 내용 정의
+			} 
 		}
 	1-3. A 클래스 객체 생성 -> start() 메소드 호출
 		A a1 = new A();
 		a1.start(); //run() 호출 실행역할 
 		
 2. java.lang.Runnable 인터페이스	
-	2-1.
-	2-2.
-	2-3.	
-	
+- 메소드 구현(x)/선언(o) : 다중 상속
+
+	2-1. Runnable 상속
+		class A extends B implements Runnable{}
+	2-2.run() 오버라이딩
+		class A extends B implements Runnable{
+			필드 + 생성자 + 메소드 추가 정의
+			public void run(){
+			//다른 스레드와 동시에 진행할 동작 정의
+			}
+		}
+
+	2-3. A 클래스 객체 생성 -> start() 생성
+		A a1 = new A();
+		Thread ta = new Thread(Runnable a1); //Runnable 객체 -> Thread 객체로 변환 
+		ta.start(); //run() 호출 실행역할 
+		
+		
+servlet.jsp : 웹서버 실행 자바프로그램	
 	
 	
 	
