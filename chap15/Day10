@@ -89,12 +89,65 @@ java.io.File 클래스
 	fl.length() -> 파일의 길이 byte타입으로 리턴
 	f1.lastModified -> 최종 수정 시간 
 	f1.list() -> 디렉토리의 세부 목록
+
+파일입출력
+try{
+1> 파일 열기
+2> 파일 입력 - write
+}
+catch(Exception e){
+	sysout(e.getMessage());
+}
+finally{
+3> 파일 닫기
+}
+
+	
+java.io.FileInputStream 클래스	
+1> 1byte로 다룸, 영문자, 숫자만 속한 파일 
+2> 다국어 사용에는 부적합
+	
+	- 생성자
+	FileInputStream fi = new FileInputStream("a.gif");
+		
+		int result = 0;
+		while ( (result = fi.read()) != -1 ){ //파일 처음-끝 입력
+			
+		}
+		fi.close();
+		
+
+	- 메소드
+	fi.read();
+	fi.close();
+	
+	
+	
+	
+java.io.FileReader 클래스
+1> 2byte로 다룸, 영문자, 숫자, 다국어 등의 구성의 파일 
+2> 다국어 사용이 적합
+	
+	- 생성자
+	FileReader fr = new FileReader("a.txt");
+	
+		int result = 0;
+		while ( result = fr.read() != -1 ){ //파일 처음-끝 입력
+			
+		}
+		fr.close();
+		
+	- 메소드 
+	fr.read();
+	fr.close();
 	
 	
 	
 	
 	
 	
+	
+		
 java.net.*
 java.servlet.*
 java.sql.*	
