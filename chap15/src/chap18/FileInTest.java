@@ -34,6 +34,10 @@ public static void main(String[] args) {
 		
 	//2. 파일 처음 - 끝 입력
 		int result = 0;
+		int num = 1; 
+		
+		fw.write(num+" : ");
+		
 		while ( (result=fr.read()) != -1) {
 			//모니터 출력
 			
