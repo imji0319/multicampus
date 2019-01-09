@@ -140,20 +140,62 @@ java.io.FileReader 클래스
 	- 메소드 
 	fr.read();
 	fr.close();
-	
-	
-	
-	
-	
-	
-	
+
+============================
+
+BoardTest.java 키보드 입력
+- BoardVO : 객체 생성
+- BoardDAO : 
+	insertBoard(BoardVO vo){
+		파일 저장
+	}
+	updateBoard("java","python"){
+		title, contents에 "java" 문자열 있으면 python으로 변경;
+	}
+	viewBoard(1){
+	}
+
 		
 java.net.*
 java.servlet.*
 java.sql.*	
 	
 	
-	
+============================
+
+chap12. 멀티스레드
+
+프로그램 program 
+	컴퓨터 CPU가 인식 실행 가능한 이진 코드 집합체
+프로세스 process
+	현재 CPU가 실행중인 프로그램
+스레드 thread
+	프로세스를 구성하는 작은 작업 단위들
+싱글스레드 single thread
+	단 하나의 thread 만 수행하는 과정 
+멀티스레드 multi thread
+	여러 스레드들이 동시에 수행하는 과정 
+
+==> 자바 멀티스레드 api + 규칙 
+
+1. java.lang.Thread 클래스
+	1-1. Thread 상속
+		class A extends Thread{}
+	1-2. run() 오버라이딩
+		class A extends Thread{
+		필드변수 + 생성자 + 메소드 추가 정의
+		public void run(){
+		//다른 스래드와 동시에 진행할 동작 내용 정의
+		} 
+		}
+	1-3. A 클래스 객체 생성 -> start() 메소드 호출
+		A a1 = new A();
+		a1.start(); //run() 호출 실행역할 
+		
+2. java.lang.Runnable 인터페이스	
+	2-1.
+	2-2.
+	2-3.	
 	
 	
 	
