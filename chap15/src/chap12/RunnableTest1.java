@@ -11,6 +11,11 @@ class B implements Runnable{
 	
 	public void run() {
 		for (int i=1; i<=20; i++) {
+			try {
+				Thread.sleep(500); //Thread.sleep : static Thread 
+			}catch(InterruptedException e) {
+				System.out.println(e.getMessage());
+			}
 			System.out.println(msg+" : "+ i);
 		}
 	}

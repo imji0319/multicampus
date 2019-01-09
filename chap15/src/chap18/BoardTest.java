@@ -28,20 +28,26 @@ class BoardDAO{
 	public void insertBoard(BoardVO vo) {
 		//번호 =1 제목 =게시물 저장 내용=1개의 게시물을 저장합니다.조회수=0
 		System.out.println(vo + "  ===> 게시물 저장을 완료했습니다.");
+		
 	}
 	
 	
 }
 
+
 public class BoardTest {
 public static void main(String[] args) {
 
-	//1. 게시물저장
+	//1. 게시물저장 
 	//2. 게시물수정
 	//3. 게시물조회
+	
 	//각 번호에 맞는 기능수행
 	//조회 기능
 	//제목으로 검색, 내용으로 검색 ... 
+	
+	
+	
 	
 	System.out.println("게시물 정보를 입력하시오.");
 	
