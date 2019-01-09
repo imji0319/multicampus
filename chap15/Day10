@@ -1,0 +1,124 @@
+19.01.09
+
+java.long.*
+
+java.util.* : 
+	Data, Calendar 날짜 시간 편리
+	List, Map, Set 여러 데이터 저장 
+			  
+java.text.* :
+	SimpleDateFormat : yyyy MM dd hh mm ss
+	DecimalFormat : #.## #.00 #,###.00
+
+chap18. 입출력
+대부분 메소드 : throws IOException
+
+키보드입력
+
+System클래스 : 자바 클래스 컴퓨터 정보
+System.in : System 클래스의 변수 
+	class System{
+		java.io.InputStream in;    	//java.io.*
+	}
+	System.in.read();               //InputStream의 메소드 read()
+
+
+System.in.read() 
+	- 영문자, 숫자들 읽어서 풀력
+	- 한글, 정수, 실수 연산 X
+	
+new Scanner(System.in)
+	- next() : 문자열, 공백 이전까지
+	- nextLine() : 문자열, 공백 포함
+	- nextInt() 
+	- nextDouble()
+	- 한글, 정수, 실수 연산 O
+
+java.io.* : 입출력에 관련한 50여개 클래스(파일, 키보드, 모니터, 메모리 버퍼 등)
+	입력
+	1byte : InputStream, FileInputStream, BufferedInputStream ( extends InputStream )
+		read()
+		close()
+		-> 1byte
+		
+	2byte : Reader, FileReader
+		read()
+		close()
+		-> 2byte
+	
+	출력 
+	1byte : OutputStream, FileOutputStream, BufferedOutputStream
+		write()
+		close()
+		-> 1byte
+		
+	2byte : Writer, FileWriter
+		write()
+		close()
+		-> 2byte
+	
+	
+	File클래스 - 파일 디렉토리 정보 제공 
+
+java.io.File 클래스
+1> 파일입출력 기능 메소드 없음
+2> windows = 파일 관리 기능 = 파일 시스렘
+	=> 파일과 폴더(디렉토리) 정보 제공 클래스  
+	
+	- 생성자
+	File f1 = new File("a.txt");
+	==> 프로젝트폴더\a.txt -> 자바 프로그램파일 프로젝트 폴더 default : 상대주소 
+	File f2 = new File("c:\test\a.txt")
+	==> 파일 위치 직접 지정 : 절대주소
+	File f3 = new File(".") //현재 작업 디렉토리
+	File f4 = new File("..") //상위 디렉토리 -> workspace
+	
+	chap18\src\A.java
+	File f1 = new File("chap18\src\A.java");  //A.java만 주면 읽지 못함
+	File f1 = new File("src\A.java"); 
+	==> IOException, FileNotFoundException 발생
+	
+	- 메소드
+	f1.isFile() -> T/F
+	f1.exists() -> T/F
+	f1.canRead() -> T/F
+	f1.canWrite() -> T/F
+	
+	f1.getXXXPath() -> 위치
+	f1.getName() -> 파일 이름
+	fl.length() -> 파일의 길이 byte타입으로 리턴
+	f1.lastModified -> 최종 수정 시간 
+	f1.list() -> 디렉토리의 세부 목록
+	
+	
+	
+	
+	
+	
+java.net.*
+java.servlet.*
+java.sql.*	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

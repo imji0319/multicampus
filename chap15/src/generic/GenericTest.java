@@ -1,7 +1,7 @@
 package generic;
 
 
-class Box<T,E>{				//변수 타입 별도 지정하지 않을때	
+class Box<T,E> {				//변수 타입 별도 지정하지 않을때 : Generic	
 	T contents;
 	E classid; //-> 제네릭에 추가로 선언해주면 가능
 

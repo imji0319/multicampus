@@ -51,6 +51,9 @@ public static void main(String[] args) {
 	//한줄 내용 입력
 	//1:게시물 저장:1개의 게시물을 저장합니다.:0
 	String line = s1.nextLine();
+	
+	
+	s1.close();//입력을 닫음
 
 	// 입력받은 거 ":" 로 분할
 	String[] ar = line.split(":");
