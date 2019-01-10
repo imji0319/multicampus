@@ -46,6 +46,7 @@ SQL
 	
 SQL*PLUS : sql 작성 - 실행 - 결과 출력 소프르웨어 ( like 이클립스 )
 	(SQL developer, orange, toad)
+		
 
 
 
@@ -72,7 +73,8 @@ SQL(Structured Query Language)
 DQL 문법 
 	SELECT column명, 연산식, 키워드, ALIAS, *, 함수
 	FROM 테이블명
-	[WHERE] 조회 조건 (칼럼명 연산자 값)
+	
+	[WHERE 조회조건] (칼럼명 연산자 값) 조건 만족 데이터 추출 -> row 줄어듬 
 		비교연산자 : > >= <= = !=
 		산술연산자 : + - * /
 		논리연산자 : 2개 이상 조건 논리 결합 
@@ -81,24 +83,63 @@ DQL 문법
 				  모두 불만족 NOT 
 		NULL 비교 연산자 : IS NULL, IS NOT NULL
 			NULL값의 데이터 연산 -> NULL
-		like : 패턴 유사 비교 연산자
+		like : 패턴 유사 비교 연산자, 문자타입,날짜타입에만 사용 가능 
 			오라클 문자열 --> 'Jennifer'
 			% : 글자객수 무관, 글자내용 무관
 			'%a', 'a%', '%a%', 'a%a' 
-		in :
-		
-		
+		between and : 구간 지정 
+		in : 어떤 배열 안 요소에 속한 것을 찾고자 할때
+	
 	[GROUP BY]
-	[HAVING]
-	[ORDER BY]
-
+		특정 속성값에 따라 집계함수를 구하고자 할때 
+		그룹함수를 지정할 경우 select에 그 칼럼과 집계함수적용값만 조회할 수 있음	
+	
+	[HAVING 집계함수값 조회조건] 집계함숙밧 조건 만족 데이터 추출 -> row 줄어듬 	
+		집계함수값에 대한 조건을 적용할때 
+		
+	[ORDER BY 정렬기준]
+		사전식 순서 : 숫자 -> 소문자-> 대문자-> ...
+		asc : 오름차순 default 
+		desc : 내림차순 
+		여러 기준은 줄 수 있음.먼저 오는 것이 우선기준
+		
 
 
 	SQL 함수
 	nvl(commission_pct,0) : commission_pct에 0이 있다면 null갑을 0으로 변경
+	sysdate : 현재 시스템의 날짜와 시간  
+		오라클 의 날짜 기본 형식 RR/MM/DD 
+		RR : 0-49(2000년대), 50-99(1900년대)
+	substr('javaprogram', 4,6);	
+		1부터 인덱스 시작
+		4번째 인덱스부터 6개 문자 반환
+		수는 byte를 의미 
+		select substr("자바 프로그램과정입니다.") from dual;
+	substrb('javaprogram', 4,6);	
+		4번째 인덱스 부터 6번째 인덱스 전까지
+		
+	- 그룹 함수
+	통계 
+	합계 sum
+		select sum(salary) from employees;
+	평균 avg
+		select avg(salary) from employees;
+	데이터개수 count
+		select count(salary) from employees;
+	최대값 max
+		select max(salary) from employees;
+	최소값 min
+		select min(salary) from employees;
 	
-	
-	
+	1> 여러개 데이터 모아서 통계 결과 1개 리턴
+	2> sum, avg : 숫자데이터
+	3> count, max, min : 모든 타입 
+		count : null 값 제외  -> null개수 포함하려면  count(*)
+	4> select절 다른 컬럼값 동시 조회 부라
+		select salary, sum(salary) from employees; -> ERROR
+		
+		
+
 	
 	EX) 
 	1. EMPLOYEES 테이블 EMPLOYEE_ID, FIRST_NAME 조회
@@ -150,10 +191,59 @@ DQL 문법
 		FROM EMPLOYEES
 		WHERE FIRST_NAME like 'Je%';	
 	
+	12. 입사날짜 조회
+		select employee_id, hire_date 
+		from employees; 
 
+	13. 2008년만 입사자 조회
+		select employee_id, hire_date 
+		from employees 
+		where hire_date like '08/%';
+		
+		select employee_id, hire_date 
+		from employees 
+		where hire_date >= '08/01/01' 
+			AND hire_date <='08/12/31';
+			
+		select employee_id, hire_date 
+		from employees 
+		where hire_date between '08/01/01' 
+			AND '08/12/31';
+			
+		select employee_id, hire_date 
+		from employees 
+		where substr(hire_date,1,2) = '08';
 
+	14. 1월에 입사자 조회
+		select employee_id, hire_date 
+		from employees 
+		where hire_date like '%/01/%';		
+		
+		select employee_id, hire_date 
+		from employees 
+		where substr(hire_date,4,2) = '01';		
+		
+	15. employees 사번 : 100/150/200/250/일때 사번, 이름 조히
+		select employee_id, hire_date 
+		from employees 
+		where employee_id in  (100,150,200,250) ;
 
-
+	16. 1월에 입사자 조회하되 사번 내림차순으로 
+		select employee_id, hire_date 
+		from employees 
+		where hire_date like '%/01/%'
+		order by employee_id desc
+	
+	17. 각 부서별 속한 사원들의 급여 총합 조회
+		select department_id, sum(salary)
+		from employees
+		group by department_id;
+		
+	18. 각 부서별 속한 사원들의 급여 총합 중 50000만 이상만 조회
+		select department_id, sum(salary)
+		from employees
+		group by department_id
+		having sum(salary)>=50000;
 
 
 
