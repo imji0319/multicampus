@@ -1,11 +1,13 @@
 package main;
 
+import java.io.IOException;
 import java.util.Scanner;
+
 import view.BoardInsertView;
+import view.BoardSelectView;
 
 public class BoardMain {
-public static void main(String[] args) {
-	
+public static void main(String[] args) throws IOException {
 	
 	while (true) {
 	System.out.println("-----게시물메뉴-----");
@@ -27,6 +29,9 @@ public static void main(String[] args) {
 	}
 	else if (menu ==2) { //2. 게시물 조회
 		System.out.println("게시물 조회 기능을 선택하셨습니다.");
+		BoardSelectView view = new BoardSelectView();
+		view.input();
+		
 	}
 	else if (menu ==3) { //3. 프로그램 종료
 		System.out.println("프로그램을 종료합니다.");
@@ -36,7 +41,6 @@ public static void main(String[] args) {
 	else {
 		System.out.println("잘못 입력하셨습니다.");
 	}
-	
 	}
 	
 	

@@ -9,16 +9,16 @@ public class BoardVO {
 	int viewcount;   //조회수
 	
 	
-	public BoardVO(int seq, String title, String contents, int viewcount) {
+	public BoardVO(int seq, String c, String d, int viewcount) {
 		this.seq = seq;
-		this.title = title;
-		this.contents = contents;
+		this.title = c;
+		this.contents = d;
 		this.viewcount = viewcount;
 	}
 
 	@Override
 	public String toString() {
-		return "번호 = "+seq+" 제목 = "+title+" 내용 = "+contents+" 조회수 = "+viewcount ;
+		return seq+"="+title+"="+contents+"="+viewcount ;
 	}
 	
 	//타 패키지에서 사용하기 위해 getter/setter 메소드 필요

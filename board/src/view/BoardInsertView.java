@@ -1,12 +1,13 @@
 package view;
 
+import java.io.IOException;
 import java.util.Scanner;
 import dao.BoardDAO;
 import vo.BoardVO;
 
-public class BoardInsertView {
+public class BoardInsertView{
 	
-	public void input() {
+	public void input() throws IOException {
 		System.out.println("게시물 저장할 내용을 입력하세요");
 		
 		Scanner sc = new Scanner(System.in);
@@ -21,8 +22,9 @@ public class BoardInsertView {
 								Integer.parseInt(tokens[3]));
 		
 		BoardDAO dao = new BoardDAO();
-		dao.insertBoard(vo);
 		
+		dao.insertBoard(vo);
 
-	}
+
+}
 }
