@@ -5,10 +5,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import vo.BoardVO;
 
 public class BoardDAO {
+	
 	public void insertBoard(BoardVO vo) throws IOException {
 		// 번호 =1 제목 =게시물 저장 내용=1개의 게시물을 저장합니다.조회수=0
 
@@ -27,16 +29,39 @@ public class BoardDAO {
 		// 게시물 번호 전달 -> 게시물 전체 내용 리턴 ==> BoardVO 리턴
 
 		FileReader fr = new FileReader("board.txt");
-		int total = 0;
+		
+		Scanner sc = new Scanner(fr);
+		ArrayList <BoardVO> list=new ArrayList<BoardVO>(); 
+		
+		while (sc.hasNextLine()) {
+			String line = sc.nextLine();
+			String field [] = line.split("=");
+			BoardVO vo = new BoardVO(Integer.parseInt(field[0]),
+						field[1],field[2],
+						Integer.parseInt(field[3]));
+			list.add(vo);
+		}
+		
+		for (int i =0 ; i <=list.size(); i++) {
+			BoardVO vo = list.get(i);
+			int voseq = vo.getSeq();
+			if (voseq == seq) {
+				return vo;
+			}
+		}
+		return null;
+		
+
+		
+/*		int total = 0;
 		String st = "";
-
-		ArrayList<String> list = new ArrayList<String>();
-
-		while ((total = fr.read()) != -1) {
+  		while ((total = fr.read()) != -1) {
 			st = st + (char) total;
 		}
 
 		String[] arr = st.split("\n");
+		
+		ArrayList<String> list = new ArrayList<String>();
 
 		for (String i : arr) {
 			list.add(i);
@@ -48,10 +73,9 @@ public class BoardDAO {
 			String[] ar = i.split("=");
 			BoardVO vo = new BoardVO(Integer.parseInt(ar[0]), ar[1], ar[2], Integer.parseInt(ar[3]));
 			list1.add(vo);
-
 		}
 		
-
+		
 		for (int i = 0; i <= 5; i++) {
 			if (list1.get(i).getSeq() == seq) {
 				return list1.get(i);
@@ -60,7 +84,7 @@ public class BoardDAO {
 		
 		System.out.println("해당 번호가 없습니다");
 		BoardVO vo2 = new BoardVO(0, "N", "N", 0);
-		return vo2;
+		return vo2;*/
 
 		/*
 		 * 1. board.txt 파일 입력받을 객체 생성 FileReader fr= new FileReader("board.txt"); 2. 첫번째
