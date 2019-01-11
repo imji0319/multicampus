@@ -45,16 +45,42 @@ rr: 0-49:2000년대/50-99:1900년대
 			       특정값에 함수만 적용하기 위해 dual 임시 테이블 활용
 	months_between() : 두 날짜의 사이의 개월수       
 	
-	to_date() : 날짜값이나 기본 날짜형 타입이 아닌 값을 Oracle 날짜 타입으로 변환(문자열->날짜)		   
-			
+	to_date(string,양식) : string을 해당 양식으로 되어있음을 이야기하고, 날짜값이나 기본 날짜형 타입이 아닌 값을 Oracle 날짜 타입으로 변환(문자열->날짜)		   
+		to_date('19/01/01','yy/mm/dd')	
 	
 - 타입변환 함수
-	
+	to_number(string,string의 양식) : 문자 -> 숫자 
+		string을 숫자로 바꿀 때 원래 string의 양식를 알려주고 이를 기준으로 숫자로 바꿈 
+		숫자 + 문자 => 자동으로 문자가 숫자로 변경. 단, 문자 포함 내용은 숫자 표현 가능 
+		to_number('100,000','000,000')
+			
+	to_char(num,양식) : 숫자 -> 문자, 날짜 -> 문자 
+		날짜나 num를 해당 양식의 문자로 변환
+		to_char(100) : '100'
+		to_char(100000,'000,000')
+		to_char(hire_date,'mm:dd:yyyy') : 지정 양식의 문자열로 변환
+		to_char(hire_date,'fmmm:dd:yyyy') : fm 불필요한 0 제거
+		to_char(hire_date,'fmmm"월" dd"일" yyyy"년도"') : 양식에 일반 문자열을 넣으려 할 때 "" 사용
+		
+	to_date(string,양식) : 문자 -> 날짜
+		string을 해당 양식으로 되어있음을 이야기하고, 날짜값이나 기본 날짜형 타입이 아닌 값을 Oracle 날짜 타입으로 변환(문자열->날짜)		   
+		to_date('19/01/01','yy/mm/dd')
+		
 
 - 기타 함수 
 	nvl(col,?) : col의 null -> ?  
+		?로 변환할 때 col의 타입과 동일해야 함
 
 
+SQL 
+- join : 2개 이상 테이블에 나누어져 있는 칼럼을 한번에 조회하고자 할 때 
+
+	사원이름과 부서이름 조회
+	select employee_id, e.department_id,department_name
+	from employees e, departments d
+	where e.department_id = d.department_id
+
+3개 이상의 테이블을 join할 떄 각 테이블을 연결할 수 있는 칼럼에 대한 조건을 주어야 함.
 
 
 

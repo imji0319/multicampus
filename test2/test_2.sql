@@ -74,10 +74,38 @@ from employees
 select first_name, hire_date, trunc(months_between(sysdate,hire_date)) ||'개월 경과' as 개월수
 from employees
 
+select '100'+1 from dual
+
+select to_number('100,000','000,000')+1 from dual
+
+select to_char(100000,'000,000') from dual
+
+select round(sysdate-to_date('19/01/01','yy/mm/dd')) from dual
+
+select hire_date, to_char(hire_date,'fmmm:dd:yyyy') from employees
+select hire_date, to_char(hire_date,'fmmm"월" dd"일" yyyy"년도" hh-mi-ss') from employees
+
+-- 사원의 이름, 부서코드 조회하되 부서코드 null이면 '미배정'으로 출력
+select first_name, nvl(to_char(department_id),'미배정') 
+from employees where department_id is null
 
 
+-- 사원 이름과 부서이름 조회 : join 
+select employee_id, e.department_id,department_name
+from employees e, departments d
+where e.department_id = d.department_id
 
 
+-- 사원 이름과 부서이름 조회 단, 사원명 Jennifer
+select employee_id, first_name,department_name
+from employees e, departments d
+where e.department_id = d.department_id AND upper(first_name) = upper('jennifer')
+
+
+-- 모든 사원 이름, 근무 도시명 출력
+select first_name, city
+from employees e, departments d,locations l
+where e.department_id = d.department_id AND d.location_id = l.location_id
 
 
 
