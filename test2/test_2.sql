@@ -89,7 +89,7 @@ select hire_date, to_char(hire_date,'fmmm"월" dd"일" yyyy"년도" hh-mi-ss') f
 select first_name, nvl(to_char(department_id),'미배정') 
 from employees where department_id is null
 
-
+-- join
 -- 사원 이름과 부서이름 조회 : join 
 select employee_id, e.department_id,department_name
 from employees e, departments d
@@ -102,16 +102,63 @@ from employees e, departments d
 where e.department_id = d.department_id AND upper(first_name) = upper('jennifer')
 
 
--- 모든 사원 이름, 근무 도시명 출력
+-- 모든 사원 이름(employees), 근무 도시명(locations) 출력
 select first_name, city
 from employees e, departments d,locations l
 where e.department_id = d.department_id AND d.location_id = l.location_id
 
+-- 각 사원의 사번, 이름, 상사사번, 상사이름 : 자기 자신테이블을 조인
+select me.employee_id, me.first_name, manager.employee_id, manager.first_name
+from employees me, employees manager
+where me.manager_id = manager.employee_id;
 
+--outer join : null이 없는 쪽에 (+) -> 상사가 없어도 
+select me.employee_id, me.first_name, nvl(to_char(manager.employee_id),'사장님'), nvl(manager.first_name,'BOSS')
+from employees me, employees manager
+where me.manager_id = manager.employee_id(+);
 
+-- 사원 이름, 부서이름 조회  outer join 으로 부서가 없어도 출력.
+select first_name, nvl(department_name,'미배정')
+from employees e, departments d
+where e.department_id = d.department_id(+)
 
+-- Sharh 와 같은 부서에 근무하는 사원의 이름, 부서코드
+select first_name, department_id
+from employees
+where department_id = (select department_id
+					from employees 
+					where upper(first_name) = upper('sarah'))
 
+-- Sharh 와 같은 부서, 같은 급여인 사원의 이름, 부서코드
+select first_name, department_id
+from employees
+where (department_id,salary) = (select department_id,salary
+					from employees 
+					where upper(first_name) = upper('sarah'))
 
+-- jennifer 와 같은 부서에 근무하는 사원의 이름, 부서코드
+select first_name, department_id
+from employees
+where department_id in (select department_id
+					from employees 
+					where upper(first_name) = upper('jennifer'))
 
+-- sarah 급여보다 많은 사원이름 급여
+select first_name, salary
+from employees
+where salary > (select salary
+				from employees
+				where upper(first_name) = upper('sarah'))
 
-
+-- jennifer 급여보다 많은 사원이름 급여
+select first_name, salary
+from employees
+where salary > ALL (select salary
+				from employees
+				where upper(first_name) = upper('jennifer'))
+order by first_name
+					
+					
+					
+					
+					

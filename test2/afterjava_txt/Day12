@@ -73,25 +73,55 @@ rr: 0-49:2000년대/50-99:1900년대
 
 
 SQL 
-- join : 2개 이상 테이블에 나누어져 있는 칼럼을 한번에 조회하고자 할 때 
+- join query: 2개 이상 테이블에 나누어져 있는 칼럼을 한번에 조회하고자 할 때 
+
+1> equi join : 다른 테이블.칼럼 = 
 
 	사원이름과 부서이름 조회
 	select employee_id, e.department_id,department_name
 	from employees e, departments d
 	where e.department_id = d.department_id
 
-3개 이상의 테이블을 join할 떄 각 테이블을 연결할 수 있는 칼럼에 대한 조건을 주어야 함.
+	3개 이상의 테이블을 join할 떄 각 테이블을 연결할 수 있는 칼럼에 대한 조건을 주어야 함.
+
+2> self join : 같은 테이블.칼럼 = 
+	같은 테이블을 조인하려고 할 때 alias 를 꼭 주어야 함
+	
+	각 사원의 사번, 이름, 상사사번, 상사이름 : 자기 자신테이블을 조인
+	select me.employee_id, me.first_name, manager.employee_id, manager.first_name
+	from employees me, employees manager
+	where me.manager_id = manager.employee_id;
+
+3> outer join : where 조건 만족하지 못하는 테이터도 조인해서 조회, 모든 데이터 출력 
+	null이 없는 쪽에 (+)
+		null 존재 칼럼 = null 존재 X (+)
+	
+	사원 이름, 부서이름 조회  outer join 으로 부서가 없어도 출력.
+	select first_name, department_name
+	from employees e, departments d
+	where e.department_id = d.department_id(+)
 
 
+- sub query
+	select (select)
+	from (select)
+	where (select)
+	
+	단일행 subquery : = < > 
+	Sarah 와 같은 부서에 근무하는 사원의 이름, 부서코드
+		
+	select first_name, department_id
+	from employees
+	where department_id = (select department_id
+						from employees 
+						where upper(first_name) = upper('sarah'))
 
-
-
-
-
-
-
-
-
+	다중행 subquery : IN, <ANY|ALL, >ANY|ALL
+	subquery 값이 여러개 있을 때 IN 연산자 활용 
+		비교 연산자 사용 :> ANY - 최소보다 크다 min
+					< ANY - 최대보다 작다 max
+					> ALL - 모든 것보다 크다 max
+					< ALL - 모든 것보다 작다 min
 
 
 
