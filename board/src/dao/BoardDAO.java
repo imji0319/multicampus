@@ -94,6 +94,9 @@ public class BoardDAO {
 		 * 객체로 생성, 그 객체들을 ArrayList<BoardVO>() 생성 5. if ArrayList.get(0).getSeq() ==
 		 * seq; return ArrayList's BoardVO
 		 */
+		
+		
+		
 
 	}
 
