@@ -38,6 +38,8 @@ DDL
 		2. not null : NULL 불가, nn
 		3. check : 사용자 정의 조건, ck
 		4. unique : 중복 불가, uk
+		5. foreign key : 특정 테이블의 특정 칼럼값들만 참조 가능 - foreign key references 테이블명(칼럼),fk
+	
 	
 	테이블복사	
 		create table 테이블명 as select * from 테이블명;
@@ -45,12 +47,12 @@ DDL
 	회원가입정보 저장 테이블
 	테이블명 MEMBER
 	정보 : 아이디, 암호, 이름, 폰번호, 이메일, 가입날짜
-		id : null X, 중복 안됨 -> PRIMARY KEY
+		id : null X, 중복 안됨 -> PRIMARY KEY, 
 		password : null X
 		name : 특별한 조건 X 
 		phone : 010 시작
 		email : 중복 안됨
-		indate :
+		indate : 특별한 조건 X 
 		
 	create table member( id varchar2(10) constraint member_id_pk primary key,
 						 password number(12) constraint member_pw_nn not null,
@@ -58,6 +60,8 @@ DDL
 						 phone varchar2(20) constraint member_phone_ck check(phone like '010%') ,
 						 email varchar2(25) constraint member_email_uk unique,
 						 indate date);
+						 
+	
 
 2> 테이블 수정 ALTER
 	칼럼 추가
@@ -166,18 +170,7 @@ DML(Data Manipulation Language)
 											  from member
 											  where phone like '%0987')
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
-		
+			
 ** select (select)
    create table ~ as select 
    insert into ~ select
@@ -190,10 +183,26 @@ DML(Data Manipulation Language)
 ** rollback : 명령취소 
 
 
+오라클 데이터 삭제
+drop table 테이블명 : 복구X
+delete 테이블명 : 테이블명 O, 데이터 X, 자동 commit X -> 복구 가능 ROLLBACK 
 
 
+자바-sql 연동 :JDBC
+API : java.sql.* 이용
 
+자바 - JDBC DRIVER 설치 - SQL 
 
+자바 SQL 활용순서
+	0. JDBC DRIVER 호출
+	1. DB 연결
+	2. SQL 전송
+	3. SQL 결과 검색
+	4. DB 연결해제
+	
+
+JDBC DRIVER 설치 -> oracle 11G xe 에 포함
+	if not www.oracle.com -> 다운로드 -> database& utility -> JDBC DRIVER
 
 
 
