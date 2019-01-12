@@ -92,6 +92,7 @@ DDL
 
 DML(Data Manipulation Language)
 1> 데이터 추가  INSERT
+	1개의 레코드저장
 	insert into 테이블명(컬럼리스트)
 				values (값리스트)
 	
@@ -106,26 +107,87 @@ DML(Data Manipulation Language)
 				
 	insert into member(id, password, name, phone, email, indate)
 		values('oracle3',11111,NULL,NULL,NULL,NULL);  //NULL값으로 지정도 가능
-
-	한번에 여러개의 데이터를 추가할 수 있음 _ sql query
+	
+	N개의 레코드저장
+	한번에 여러개의 데이터를 추가할 수 있음 _ sql query  
+	insert into 테이블명
+		select from 
+		
 	insert into member(ID, PASSWORD)
 			select substr(first_name, 1,5), employee_id 
 			from employees;
 		-> 문법의 문제는 없지만 테이블 컬럼제약조건에 걸리기 때문에 error(PK) 발생
 	
 	insert into member(ID, EMAIL,PASSWORD)
-			select EMPLOYEE_ID,EMAIL, manager_id 
-			from employees where first_name !='Steven';
+		select EMPLOYEE_ID,EMAIL, manager_id 
+		from employees where first_name !='Steven';
 		-> 제약조건을 모두 만족하는 경우
+	
+	모든 컬럼리스트를 다 넣는 경우 컬럼리스트 생략 가능
+	insert into member
+		values('oracle4',11111,'홍길도','010-1452-4152','tbjh@multi.com',sysdate); 
 		
+2> 데이터 삭제 DELETE
+데이터만 삭제하고 테이블은 남아있음
+	delete 테이블명 [where 조건]
+	
+	- 테이블 전체 데이터 삭제
+	delete member
+	
+	- id 1,2,3 시작하면 삭제
+	delete member where ID like '1%' or ID like'2%' or ID like'3%'
+	
+	rollback/Commit 
+		commit 하면 삭제 복구 불가 
+		그전에 rollback 하면 복구 가능
 
+3> 데이터 수정 UPDATE
+	테이블의 컬럼의 모든 값에 적용
+	update 테이블명
+		set 변경컬럼명 = 변경값
 
+	칼럼의 특정값에 적용
+	update 테이블명
+		set 변경컬럼명 = 변경값
+		where 수정조건식
+		
+	update 테이블명
+		set 변경컬럼명 = 변경값
+		where (select)
+		
+	member 테이블에서 id = oracle 회원의 폰번호,이름 변경 -> 010-9999-0987, '이길도'
+	update member set name = '이길동', phone = '010-9999-0987'
+		where id = 'oracle4';
+	commit;
+	
+	member 테이블에서 전화번호 뒤 4자리가 0987인 회원과 같은 날짜의 회원이 있으면 이 회원의 가입날짜를 내일로 변경
+	update member set indate = sysdate+1
+		where to_char(indate,'yyyy-mm-dd') = (select to_char(indate,'yyyy-mm-dd)
+											  from member
+											  where phone like '%0987')
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+** select (select)
+   create table ~ as select 
+   insert into ~ select
+   
 
-
-
-
-
-
+실제 DB 영구반영
+** commit : 그동안 작업을 저장하는 명령어, DB영구반영
+	이클립스에서 실행시 AUTO COMMIT; #rollback불가
+	
+** rollback : 명령취소 
 
 
 
