@@ -60,7 +60,8 @@ insert into member
 insert into member
 		values('oracle5',11111,'이자바','010-1452-4152','orda1@multi.com',sysdate); 
 
-		
+insert into member
+		values('html',11111,user,'010-2222-4444','html@multi.com',sysdate); 		
 
 			
 delete member where ID like '1%' or ID like'2%' or ID like'3%'

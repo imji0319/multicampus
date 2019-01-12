@@ -2,7 +2,6 @@ package jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConnectionTest {
@@ -21,10 +20,8 @@ public static void main(String[] args) {
 	System.out.println("DB 연결성공");
 	
 	//2. SQL 전송
-	
 	//3. SQL 결과 검색
 
-	
 	
 	//4. DB 연결해제
 	con.close();

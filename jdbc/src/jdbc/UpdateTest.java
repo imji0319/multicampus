@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class InsertTest {
+public class UpdateTest {
 public static void main(String[] args) {
 
 	try {
@@ -22,38 +22,36 @@ public static void main(String[] args) {
 	System.out.println("DB 연결성공");
 	
 	//2. SQL 전송
-	//member 테이블에 저장 
-	//java 22222 염정아 010-7452-4563 yum@multi.com sysdate
-	//jdbc 3333 곽미향 010-777-8888 me@multi.com sysdate
-	//sql 4444 이자바 010-777-8965 lee@multi.com
 	//sql 명령문 String 으로 저장 
+	//member 테이블에 있는 데이터 수정
+	//java 22222 염정아 010-7452-4563 yum@multi.com sysdate
 	
 	
-	//키보드입력
+	//키보드입력 : java 한서진
+	//id =java 인 회원의 이름을 한서진으로 변경 
+	
 	Scanner sc = new Scanner(System.in);
 	System.out.println("회원정보를 입력하세요");
-	String[] st = sc.nextLine().split(" ");
-
-	String sql = "insert into member "
-				+ " values(?,?,?,?,?,sysdate)"; //아직 모르겠다. 키보드로 받으면 변경하겠다. 등등 초기화 
-			/*String sql = "insert into member "
-					+ " values('java',3333,'곽미향','010-777-8888','me@multi.com',sysdate)";*/
+	System.out.print("아이디 : ");
+	String id = sc.nextLine();
+	System.out.print("이름 : ");
+	String name = sc.nextLine();
+	
+	//데이터 수정
+	String sql = "update member set name = ?"
+				+ "	where id = ? ";
+			
 	
 	//sql저장 -> 전송역할 : 객체 api connection.prepareStatement -> PreparedStatement 객체 리턴
 	PreparedStatement pt = con.prepareStatement(sql);
 	
-	
-	// ? 값 세팅 setXXX(?의 순서,값)
-	pt.setString(1,st[0]);
-	pt.setInt(2,Integer.parseInt(st[1]));
-	pt.setString(3,st[2]);
-	pt.setString(4,st[3]);
-	pt.setString(5,st[4]);
+	pt.setString(1, name);
+	pt.setString(2, id);
 	
 	
 	//3. SQL 결과 검색
 	int insertRow = pt.executeUpdate(); //sql 실행명령 -> DB 변경사항 수정
-	System.out.println("삽입행의 갯수 = "+ insertRow);
+	System.out.println("변경된 행의 갯수 = "+ insertRow);
 	
 	
 	//4. DB 연결해제
