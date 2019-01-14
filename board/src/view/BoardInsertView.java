@@ -16,6 +16,7 @@ public class BoardInsertView{
 		//분리
 		String[] tokens = line.split(":");
 		
+		
 		//BoardVO 객체 생성 = 필수변수 분리 저장 
 		BoardVO vo = new BoardVO(Integer.parseInt(tokens[0]),
 								tokens[1],tokens[2],

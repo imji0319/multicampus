@@ -1,103 +1,102 @@
 package dao;
 //Data access object 
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 
 import vo.BoardVO;
 
 public class BoardDAO {
 	
-	public void insertBoard(BoardVO vo) throws IOException {
-		// 번호 =1 제목 =게시물 저장 내용=1개의 게시물을 저장합니다.조회수=0
+	//DB 추가
+	public void insertBoard(BoardVO vo) {
+		try {
+			//jdbc driver 호출
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//DB 연결
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr"); 
+			System.out.println("DB 연결성공");
+			
+			//vo(키보드입력)board -> BoardInsertView.input();
 
-		// 게시물 저장
-		FileWriter fw = new FileWriter("board.txt", true);
-
-		fw.write(vo.toString() + "\n"); // 한번에 여러 문장 저장 가능 , 매개변수 선언해야함, +"\n" : 줄바꿈
-		fw.close();
-
-		System.out.println(vo + "  ===> board.txt 파일에 게시물 저장을 완료했습니다.");
+			//테이블 저장 sql정의			
+			String sql ="insert into board values(?,?,?,?)";
+			
+			//sql 저장 실행 객체 생성 
+			PreparedStatement pt = con.prepareStatement(sql);
+			pt.setInt(1,vo.getSeq());
+			pt.setString(2,vo.getTitle());
+			pt.setString(3, vo.getContents());
+			pt.setInt(4,vo.getViewcount());
+			
+		
+			//sql 실행메소드 호출 
+			int insertrow = pt.executeUpdate();
+			System.out.println("추가된 행의 수"+insertrow);
+			//DB 해제
+			con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
-
-	public BoardVO selectBoard(int seq) throws IOException {
-		// 게시물 번호 전달 -> 게시물 조회 수 리턴
-		// 게시물 번호 전달 -> 게시물 전체 내용 리턴 ==> BoardVO 리턴
-
-		FileReader fr = new FileReader("board.txt");
+	//DB 조최
+	public BoardVO selectBoard(int seq) {
 		
-		Scanner sc = new Scanner(fr);
-		ArrayList <BoardVO> list=new ArrayList<BoardVO>(); 
-		
-		while (sc.hasNextLine()) {
-			String line = sc.nextLine();
-			String field [] = line.split("=");
-			BoardVO vo = new BoardVO(Integer.parseInt(field[0]),
-						field[1],field[2],
-						Integer.parseInt(field[3]));
-			list.add(vo);
+		try {
+			//jdbc driver 호출
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//DB 연결
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr"); 
+			System.out.println("DB 연결성공");
+			
+			//seq매개변수와 같은 번호 게시물 조회
+			String sql ="select * from board where seq =?";
+			//sql 저장 실행 객체 생성 
+			PreparedStatement pt = con.prepareStatement(sql);
+			//seq에 대해 ?로 하고 setXX()
+			pt.setInt(1, seq);
+
+			//sql 실행메소드
+			ResultSet rs = pt.executeQuery(); 
+			
+			//resultset rs
+			rs.next();
+			int num = rs.getInt("seq");
+				String title = rs.getString("title");
+				String contents = rs.getString("contents");
+				int count = rs.getInt("viewcount");
+			
+			//rs의결과를 boardvo 객체로 변화	
+			BoardVO vo = new BoardVO(num,title,contents, count);
+			return vo;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		
-		for (int i =0 ; i <=list.size(); i++) {
-			BoardVO vo = list.get(i);
-			int voseq = vo.getSeq();
-			if (voseq == seq) {
-				return vo;
-			}
-		}
+		
 		return null;
 		
 
-		
-/*		int total = 0;
-		String st = "";
-  		while ((total = fr.read()) != -1) {
-			st = st + (char) total;
-		}
-
-		String[] arr = st.split("\n");
-		
-		ArrayList<String> list = new ArrayList<String>();
-
-		for (String i : arr) {
-			list.add(i);
-		}
-
-		ArrayList<BoardVO> list1 = new ArrayList<BoardVO>();
-
-		for (String i : list) {
-			String[] ar = i.split("=");
-			BoardVO vo = new BoardVO(Integer.parseInt(ar[0]), ar[1], ar[2], Integer.parseInt(ar[3]));
-			list1.add(vo);
-		}
-		
-		
-		for (int i = 0; i <= 5; i++) {
-			if (list1.get(i).getSeq() == seq) {
-				return list1.get(i);
-			} 
-		}	
-		
-		System.out.println("해당 번호가 없습니다");
-		BoardVO vo2 = new BoardVO(0, "N", "N", 0);
-		return vo2;*/
-
-		/*
-		 * 1. board.txt 파일 입력받을 객체 생성 FileReader fr= new FileReader("board.txt"); 2. 첫번째
-		 * 라인읽고 마지막 라인까지 읽기 (반복)
-		 * 
-		 * 3. "="로 분할 -> 결과 ArrayList 저장 (int, String, String, int); 4. 한 라인씩 BoardVO
-		 * 객체로 생성, 그 객체들을 ArrayList<BoardVO>() 생성 5. if ArrayList.get(0).getSeq() ==
-		 * seq; return ArrayList's BoardVO
-		 */
-		
-		
-		
-
 	}
 
+	//DB 삭제
+	public void deleteBoard() {
+		
+	}
+	
+	//DB 수정
+	public void updateBoard() {
+		
+	}
+	
+	
+	
+	
+	
 }
