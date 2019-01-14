@@ -124,7 +124,7 @@ public class BoardDAO {
 			
 			//title - contents 컬럼 둘중 하나에 있으면 수정
 			String sql="update board set title= ?, contents=? "
-					+ " where contents =? OR title = ? ";
+					+ " where contents like '%'||?||'%' OR title like '%'||?||'%' ";
 
 			PreparedStatement pt = con.prepareStatement(sql);
 			pt.setString(1,newString);
