@@ -49,7 +49,7 @@ public static void main(String[] args) {
 	
 	//3. SQL 결과 검색
 	int insertRow = pt.executeUpdate(); //sql 실행명령 -> DB 변경사항 수정
-	System.out.println("변경된 행의 갯수 = "+ insertRow);
+	System.out.println("삭제된 행의 갯수 = "+ insertRow);
 	
 	
 	//4. DB 연결해제
