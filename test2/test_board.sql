@@ -8,3 +8,5 @@ insert into board (seq,title,contents,viewcount)values(1,'테스트제목','테�
 --commit; 
 
 select * from board
+
+select * from board where contents ='자바' or title ='자바'

@@ -2,9 +2,10 @@ package main;
 
 import java.io.IOException;
 import java.util.Scanner;
-
+import view.BoardDeleteView;
 import view.BoardInsertView;
 import view.BoardSelectView;
+import view.BoardUpdateView;
 
 public class BoardMain {
 public static void main(String[] args) throws IOException {
@@ -32,18 +33,17 @@ public static void main(String[] args) throws IOException {
 	}
 	else if (menu ==2) { //2. 게시물 수정
 		System.out.println("게시물 수정 기능을 선택하셨습니다.");
+		BoardUpdateView view = new BoardUpdateView();
+		view.input();
 
-		
-		
-		
 		
 	}
 	else if (menu ==3) { //3. 게시물 삭제
 		System.out.println("게시물 삭제 기능을 선택하셨습니다.");
+		BoardDeleteView view = new BoardDeleteView();
+		view.input();
+		
 
-		
-		
-		
 	}
 	else if (menu ==4) { //4. 게시물 조회
 		System.out.println("게시물 조회 기능을 선택하셨습니다.");
