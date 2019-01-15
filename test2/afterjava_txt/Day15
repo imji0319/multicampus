@@ -60,6 +60,9 @@ html5 : 대소문자 구분하지 않음
 html5 선언
 <!DOCTYPE html>
 
+heading 헤딩태그
+	h1,h2,h3,h4,h5,h6
+
 
 
 

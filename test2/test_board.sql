@@ -10,3 +10,5 @@ insert into board (seq,title,contents,viewcount)values(1,'테스트제목','테�
 select * from board
 
 select * from board where contents ='자바' or title ='자바'
+
+select * from board where title like ('JA'||'VA')
