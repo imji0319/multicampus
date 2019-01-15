@@ -113,7 +113,7 @@ public class BoardDAO {
 	}
 	
 	//DB 수정
-	public void updateBoard(String oldString,String newString) {
+	public void updateBoard(String oldString, String newString) {
 		try {
 			//드라이버 호출
 			Class.forName("oracle.jdbc.driver.OracleDriver");
