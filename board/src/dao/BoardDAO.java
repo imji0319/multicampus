@@ -43,7 +43,7 @@ public class BoardDAO {
 		
 	}
 
-	//DB 조최
+	//DB 조회
 	public BoardVO selectBoard(int seq) {
 		BoardVO vo= null;
 		try {
