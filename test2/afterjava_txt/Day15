@@ -1,0 +1,74 @@
+19.01.15
+
+WEB_HTML5
+
+0. web server 설치
+	자바 프로그램 실행 가능  ex) tomcat 
+	www.apache.org -> download -> tomcat -> 버전 -> 
+	127.0.0.1:8080 -> 오라클 웹서버접속 
+	127.0.0.1:8081 -> 톰캣웹서버접속
+	IP : port번호
+		port번호는 유니크해야함
+		지정 가능, 5000 이내 사용 자제
+
+<톰캣 단독 실행시>
+1. web server 시작 
+
+2. 브라우저 주소 표시줄 입력
+	http://localhost:포트번호/html주소및파일명
+	http://127.0.0.1:포트번호/html주소및파일명
+
+3. web server 중단
+
+<이클립스 톰캣 연결 실행시>
+1. 이클립스 실행
+2. 설치된 web server 등록
+3. dynamic web project : html, javascroipt, css, *.java,*.jsp
+	src폴더 : *.java
+	webContent :*.html,*.jsp,...
+	tomcat 디렉토리 생성 / dynamic web module version(2.5)
+	
+4. 브라우저 주소 표시줄 입력
+	http://localhost:포트번호/dynamic web project 이름/파읾명
+	http://127.0.0.1:포트번호/dynamic web project 이름/파읾명
+5. 이클립스 내장 브라우저 / ie /Chrome
+
+
+
+WWW : 인터넷 - 네트워크 통신
+	다른 컴퓨터 접속 서비스를 받는 컴퓨터 : 클라이언트 컴퓨터
+	다른 컴퓨터에게 서비스 제공 컴퓨터 : 서버 컴퓨터
+	
+	웹클라이언트 - 서버요청, 서비스표현 : web browser
+	웹서버  : tomcat
+	
+	클라이언트(http설치) - 통일 언어(약속,규칙) - 서버(http설치)
+	=> 통일언어: 네트워크 프로토콜 protocol (http, telnet(21), ftp(23),...)
+	웹프로토콜 = http 프로토콜
+	
+http 프로토콜 
+	텍스트 + 링크 + 멀티미디어 표현가능
+	http 프로토콜 동작언어 : HTML(hyper text markup language)
+	
+
+html5 : 대소문자 구분하지 않음
+	webcontent/*.html
+
+<!-- 주석내용  -->
+<태그 속성명=값> 내용 </태그>
+
+html5 선언
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
