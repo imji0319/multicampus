@@ -66,10 +66,14 @@ heading 헤딩태그
 Web 표준 : 모든 사람들이 사용할 수 있도록 약속을 많이 함
 	EX) 시각장애인 등 정보를 줄 수 있도록 alt 속성을 사용
 	
-	
+html4이전 멀티미디어 태그가 없음 -> 외부요소 : FLASH 
+=>브라우저종류,버전을 생각해야했음
 
-
-
+html5 : 멀티미디어 내부요소포함
+멀티미디어 태그
+<img src="이미지파일명(jpg,png,gif)" alt="" width height>
+<audio src="오디어파일명(mp3)">
+<video src="비디오파일명(mp4)">
 
 
 
