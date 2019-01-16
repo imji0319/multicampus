@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>양식태그</title>
+</head>
+<body>
+	<h1>여러가지 폼 태그들</h1>
+	
+	<form action="loginServlet">
+	<table border=2>
+	<caption>기본HTML타입</caption>
+		<tr>
+			<td>아이디입력 :</td>
+			<td><input type="text" name="name" size=5 maxlength=10 autofocus="autofocus"></td> <!-- autofocus : 자동포거스이동 -->
+		</tr>
+		<tr>
+			<td>암호입력 : </td>
+			<td><input type=password name=pw size=5 maxlength=10 value=aaa></td>
+		</tr>
+		<tr>
+			<td>성별입력 : </td>
+			<!-- type="radio" : name의 속성을 같은 것으로 줘야함, 같은 name 중 하나만 선택 -->
+			<td> 
+			<input type="radio" name=gender value=남>남자
+			<input type="radio" name=gender value=여>여자
+			</td>
+		</tr>
+		<tr>
+			<td>취미(복수)선택 : </td>
+			<!-- type="checkbox" : name의 속성을 같은 것으로 줘야함, 같은 name 중 복수 선택가능 -->
+			<td> 
+			<input type="checkbox" name=habby value=java>java
+			<input type="checkbox" name=habby value=sql>sql
+			<input type="checkbox" name=habby value=html>html
+			<input type="checkbox" name=habby value=servlet>servlet
+			</td>
+		</tr>
+		<tr>
+			<td>파일전송 : </td>
+			<!-- type=file : 파일 업로드 전송  -->
+			<td><input type=file name=f></td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			<!-- submit -> <form action> -->
+			<input type=submit value=로그인>
+			<!-- button : 기능 X -->
+			<input type=button value=로그인2>
+			</td>
+		</tr>
+		
+		<tr>
+			<!--<textarea rows=n1 cols=n2> 여러글을 입력받을때,한번에 n1줄씩 배치, 한줄에 n2만큼 작성하고 그 이상이 되면 자동 다음줄 -->
+			<td colspan=2>
+			<textarea rows=5 cols=50>
+			여기에 입력하세요
+			</textarea>>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			<!-- <select> : 드롭다운 , <option>을 통해 목록 지정, multiple="multiple" : 다중 선택속성 -->
+			<select multiple="multiple">
+				<option>짜장면</option>
+				<option selected=selected>짬뽕</option> <!-- selected="selected" : 기본선택 속성  -->
+				<option>군만두</option>
+				<option>탕수육</option>
+				<option>울면</option>
+			</select>
+		</tr>
+	</table>
+	</form>
+	
+	<h2>html5 추가타입들(크롬 최적)</h2>
+	<form action="HTML5Servlet">
+		색상 : <input type=color value=#0000ff><br> <!-- value=기본컬러 -->
+		범위 : <input type=range ><br>
+		숫자 : <input type=number max=100 min=0 step=5 required="required"><br> <!-- required : 필수입력 -->
+		이메일 : <input type=email><br> <!-- 이메일형태로 입력 제한 -->
+		홈페이지 주소 : <input type=url><br> <!-- url형태로 입력 제한 -->
+		폰번호 : <input type=tel pattern=(010|011|016|019)-[0-9]{3,4}-[0-9]{4}><br> <!-- 입력양식 지정가능 -->
+		날짜시간 :<input type=datetime-local><br>
+		검색어 : <input type=text name=search><br> <!-- autocomplete : 자동완성기능,default -->
+		
+		<input type=submit value=전송>
+	</form>
+	
+</body>
+<!-- html에서 자바 프로그램을 활요하는 방법 <script> : 자바 문법과 거의 비슷 -->
+<!-- <script type="text/javascript">
+	alert(document.getElementById("name").value);
+</script> -->
+
+</html>
+
+

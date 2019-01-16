@@ -1,0 +1,39 @@
+19.01.16
+
+
+html form 태그
+1> 입력 양식 제공 태그
+	입력도구 : 키보드, 마우스 입력 가능
+2> 검색어, 로그인id,pw입력 -> 서버에 입력 전송
+
+<form>
+	아이디입력:<input type = text id="name"> //텍스트타입의 입력받을 수 있는 빈칸 공간
+</form>
+
+	* <input>
+		type : 입력형태 지정
+			text/password/checkbox/radio/file/hidden/submit/button
+			(html5추가->)/date/color/range/email/phone/url/number/search
+		id : 입력내용저장 이름
+
+form
+input type= "
+textarea : 여러라인 입력
+select : 목록개수를 한 화명에 보여주기 곤란한 경우, 드롭다운
+
+html 색상표현
+-> RGB (red green blue)
+	각 요소별 00~ff(16진수)
+	#000000 : black
+	#ffffff : white
+	
+
+
+CSS : cascading style sheet
+
+
+
+
+
+
+
