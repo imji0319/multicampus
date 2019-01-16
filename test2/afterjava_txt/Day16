@@ -30,6 +30,23 @@ html 색상표현
 
 
 CSS : cascading style sheet
+	문서의 스타일을 지정
+
+태그별 동일한 서식을 적용하고자 할 때 
+<style type="text/css">
+	1> css선택자문법
+		태그명 {css속성명:값;;;}
+			p{color:blue;}
+			h1,h2,h3 {}  : h1,h2,h3 모두 적용
+			table input {} : table태그의 포함된 모든 iuput태그 적용
+			table>input {} : table태그 다음 바로 나오는 input태그 적용
+		#id명 {css속성명:값;;;}
+			#special {color:red;}
+		.class명 {css속성명:값;}
+			.target {color:green;}
+			다양한 태그들이 동일한 서식을 지정하고 싶을 때 
+</style>
+	
 
 
 

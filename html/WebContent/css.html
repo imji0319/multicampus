@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css연습</title>
+<!-- <style> : CSS 적용하기 위함 -->
+<style type=text/css>
+	p {color :blue; background-color:yellow;
+	   font-family: 맑은고딕 ; /*서체*/
+	   font-size:30px; /*크기*/
+	   font-style:italic; /*기울기*/
+	   font-weigth:bolder; /*글씨두께*/
+	   /* text-decoration:line-through; */
+	   text-transform: uppercase;
+	   text-shadow: 10px 10px 3px #ff0000; /*오른쪽 아래 : 글자에서 떨어진 그림자 위치, 선명도(작은수록 선명) , 그림자 색깔*/
+	   } 
+	#special {color:red;}
+	.target {color:green; text-align:center;}
+	
+	h2,h3 {color:navy;} /*복수 태그지정*/
+	body > h1 {color:aqua;} /*태그의 포함관계로 지정*/
+	
+	/*a 태그는 상태를 나눌 수 있음 a:link a:visited a:hover*/
+	/*a:link 방문한 적이 없다 =링크이동전 default : {color:blue;text-decoration:underline;}*/
+	a:link {color:blue; text-decoration:none;
+			background-color:white; cursor: crosshair;}
+	/*a:visited 방문한 적이 있다 = 링크이동후*/
+	a:visited{color:green; text-decoration: line-through;
+			background-color: silver;}
+	/*마우스를 올려놓은 상태*/
+	a:hover {color:red; background-color: pink;}
+	
+	/*속성별 서식지정 : 태그명[속성명=값]{}*/
+	input[type=text] {color:aqua;}
+	input[value=자바] {color:aqua;}
+	
+	ol, ul {list-style-type: decimal; color: #1111ff;}
+	ul > li{display: inline;} /*inline 지정시 번호 사라짐 */
+	body{background-image:url("images/html5.jpg");
+		 background-repeat: no-repeat; }
+		 
+	
+</style>
+</head>
+<body>
+	<p id=special> id 단락입니다2</p>
+	<p>정상적인 단락입니다3</p>
+	<p class=target> class 단락입니다</p>
+	<h1 class=target> target class h1태그</h1>
+	
+	<h2>h2 태그입니다</h2>
+	<h3>h3 태그입니다</h3>
+	
+	<h1>h1 태그입니다</h1>
+	<center><h1>h1태그입니다.</h1></center>
+	
+	<a href="http://google.com">구글 이동</a>
+	
+	
+	<input type=text value=자바>
+	<input type=email value=a@b.com>
+	
+	<ul>
+		<li>커피</li>
+		<li>커피2</li>
+		<li>커피3</li>
+	</ul>
+	
+	<ol>
+		<li>커피</li>
+		<li>커피2</li>
+		<li>커피3</li>
+	</ol>
+	
+</body>
+</html>
