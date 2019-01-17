@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+onload=function(){
+	/*1. id=btn 요소 클릭
+	  2. id, pw, pw2 변수 저장
+	  3. id : idlist 존재하는 것만 가능
+	  4. 존재하면 pw1 == pw2 체크
+	  5-1. 모두 만족하면 id=result 요소 내부에 "정상 로그인 사용자입니다" 출력
+	  5-2. 만족하지 못하면 id=result 요소 내부에 "id조건을 만족하지 못했습니다." /"비밀번호가 같지 않습니다."
+	*/
+	var btn = document.getElementById("btn");
+	
+	btn.onclick = function(){
+		var idlist=["java",'oracle','servelt'];
+		
+		var id = document.getElementById("id");
+		var pw1 = document.getElementById("pw1");
+		var pw2 = document.getElementById("pw2");
+		
+		var result = document.getElementById("result");
+		if (idlist.indexOf(id.value) != -1){
+			if (pw1.value == pw2.value){
+				result.innerHTML="정상 로그인 사용자입니다.";
+			}
+			else{
+				result.innerHTML="비밀번호가 같지 않습니다."
+			}
+		}
+		else{
+			result.innerHTML="id조건을 만족하지 못했습니다.";
+		}
+		
+		
+	}
+
+}
+</script>
+</head>
+<body>
+	<form>
+	아이디입력 : <input type=text id=id><br>
+	암호입력 : <input type=password id=pw1><br>
+	암호입력확인 : <input type=password id=pw2><br>
+	로그인 : <input type=button id=btn value='로그인'><br>
+	<h3 id=result> 여기에 결과를 출력합니다.</h3>
+	</form>
+</body>
+</html>

@@ -26,3 +26,39 @@ html <script> 여러번 사용 가능
 '',"" 모두 사용가능
 
 
+데이터타입 연관 내장 객체
+String Array Date
+BOM : browser object model
+자바스크립스 변수 = 객체
+브라우저  : 문서
+
+[window.]document
+
+자바스크립트에서 html 태그 접근해서 정보 조회
+속성변경 : html 태그 -> 자바객체변환(dom)
+	document.getElementById("id")
+	document.getElementsByClassName("클래스명")
+	document.getElementsByTagName("태그명")
+	document.querySelector("h1")
+	document.querySelector(".id명")
+	document.querySelector("#클래스명")
+	
+	tag.innerHTML="변경"
+	tag.innerHTML+="추가"
+
+	
+키보드, 마우스 입력 동작 => 이벤트 발생
+	키보드 입력 - ????
+	마우스 클릭	- ????
+	자바스크립트 정해진 종류 이벤트 
+	이벤트 발생시 동작 지시 - 사용자 정의 
+	===> 이벤트 핸들하다/처리하다 : 함수 정의
+	XXX.on이벤트명 = function(){}
+	 
+
+	
+	
+	
+	
+	
+	

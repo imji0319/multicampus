@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	var now = new Date();
+	//document.write("바로 출력합니다."+ now.toLocaleTimeString());
+	
+	//setTimeout/setInterval)(함수, 1/1000초단위 시간)
+	//setTimeout : 일정 시간 지정 후에 실행 동작  -> 실행하는 동시 새로 호출
+	/* setTimeout(function(){
+		document.write("2초 후에 출력합니다.")
+	},2000);*/
+	
+	//setInterval : 일정 시간 마다 주기적으로 실행 동작, 기본 무한 실행
+	var timer = setInterval(function(){
+		var now = new Date();
+		document.write("<h1>"+now.toLocaleTimeString()+"</h1>")
+	},1000);
+	
+	//clearInterval : setInterval기능을 멈춤 
+	
+	setTimeout(function(){
+		clearInterval(timer); //setInterval 변수
+		},10000);
+	
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

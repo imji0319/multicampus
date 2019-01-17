@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	window.onload=function(){ //[window.]onload : 로딩되고 나면 함수 실행
+		var first = document.getElementById("first")
+		var second = document.getElementById("second")
+		
+		//onclick : 컴퓨터가 알아서 실행하는 것이 아닌 사용자의 선택에 따라 실행, 클릭할 때 마다 실행
+		first.onclick = function(){
+			var result = document.getElementById("result");
+			result.innerHTML = window.navigator.userAgent; //navigtor.userAgent : 브라우저 이름 호출
+		}
+	
+		second.onclick = function(){
+			var result = document.getElementById("result");
+			window.location.href = "http://www.multicampus.com"; //location.href : 브라우저 주소
+		}
+		
+	}
+	
+
+</script>
+</head>
+<body>
+	<input id=first type=button value="브라우저정보" >
+	<input id=second type=button value="이동" >
+	
+	<h3 id=result>여기에 결과를 출력합니다.</h3>
+
+
+</body>
+
+</html>

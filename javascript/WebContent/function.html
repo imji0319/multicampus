@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//함수 정의  1. var 함수명 = function(){} 
+	var br = "<br>"
+	
+	/* var result = area();  => 변수로 정의한 함수는 함수정의 이전에 사용 불가*/
+	var area = function(w,h){
+		//var w = 6;
+		//var h = 10;
+		return (w*h); 
+	}
+	
+	var result = area(5,6);  //매개변수 존재하는 function
+	document.write(result + br);
+	
+	result = area(7,8); 
+	document.write(result + br);
+	
+	
+	//함수 정의  2. function 함수명(){} 
+	print(); 
+	function print(){ //script 전체 영역에서 호출 가능
+		document.write("print함수입니다"+br)
+	}
+	print();
+	
+	document.write(typeof area+br);  //function
+	document.write(typeof print+br); //function
+	
+	function test(f){ //매개변수를 함수 사용 가능 -> 변수처럼 사용 가능 
+		document.write(f+br); //f의 코드 출력
+		f();
+	}
+	
+	var userf = function(){
+		alert('userf함수입니다');
+	}
+	
+	test(userf);
+	
+	
+</script>
+</head>
+
+<body>
+
+</body>

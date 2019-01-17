@@ -61,17 +61,22 @@
 	var st2="100";
 	document.write("값비교 (==) : "+(st1==st2)+br); //ture
 	document.write("타입&값비교 (===) : "+(st1===st2)+br); //false
-
+	
+	
+	//javascript object notation (json)
 	//object 객체 생성방법
 	var mystu = {
 		id:1000,
 		name:'홍길동',
 		toString:function(){
-			return this.id+'-'+this.name;
+			return this.id+'-'+this.name; //return 라인에 \n 주의
 		}
 	};
 	document.write('mystu의 타입:'+typeof mystu+br); 
-	document.write(mystu+br); //toString 가능
+	document.write(mystu+br); //toString 자동 호출
+	
+	
+	
 	
 	
 	

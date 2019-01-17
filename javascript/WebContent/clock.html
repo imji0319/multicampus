@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>시계만들기</title>
+<script type="text/javascript">
+
+	setInterval(function(){
+		var clock = document.getElementById("clock"); // id 속성인 clock 인 내용을 가져옴 => getElementsByClassName /getElementsByTagName
+		var now = new Date();
+		clock.innerHTML = now.toLocaleTimeString();  //<h1 id=clock> innerHTML </h1>
+	}, 1000);
+	
+</script>
+</head>
+<body>
+	<h1 id=clock>곧 시간을 출력할께요</h1>
+	<input type=text value=test문자열 id=in>
+</body>
+<script type="text/javascript">
+ 	var input = document.getElementById("in");
+ 	alert(input.value); //alert : 브라우져를 가리고 앞에 가장 먼저 출력
+ 	
+ 	
+</script>
+</html>

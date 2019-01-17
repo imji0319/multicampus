@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var br="<br>" 
+	var id = prompt("아이디 입력하세요");
+	var confirm = confirm("20세 이상입니까?");
+	document.write(id); //string
+	document.write(confirm); //boolean
+	
+	confirm = 100; //변수의 타입 변경이 자유로움
+	document.write(confirm+br);
+	newvar = 100;
+	document.write(newvar+br); //var 없이 변수 선언 
+	
+	//함수를 변수로 정의
+	var print = function(){
+		//지역변수 : var
+		var local = 'local';
+		document.write(local+"<br>");
+		//전역변수 
+		global='global';
+		document.write(global+br);
+	}
+	print(); //함수변수 호출
+	document.write(global+br);
+	// document.write(local+br); -> 지역변수 사용 불가
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

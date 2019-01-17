@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var br ="<br>";
+	
+	var arr1 = [10,'java',false,undefined, 3.14]; //10 : 값 
+	var arr2 = new Array(10); //10 : 개수
+	
+	document.write(arr1.length + br);
+	document.write(arr2.length + br);
+	
+	arr1[5]=100;
+	document.write(arr1.length + br);
+	
+	for (var i=0; i<arr2.length;i++){
+		arr2[i] = (i+1)*10;
+		document.write(arr2[i]+' - ');
+	}
+	
+	
+	//unshift
+	arr1.unshift(100); //맨 앞 첫자리에 삽입하고 기존 요소들을 뒤로 하나씩 밀림 
+	document.write("<br>");
+	
+	for (var i=0; i<arr1.length;i++){
+		document.write(arr1[i]+' - ');
+	}
+	
+	//shift
+	arr1.shift();  //맨앞자리 삭제, 요소들 앞으로 당김
+	document.write("<br>");
+	
+	for (var i=0; i<arr1.length;i++){
+		document.write(arr1[i]+' - ');
+	}
+	
+	//push
+	arr1.push(1000);  //맨 뒤에 삽입 
+	document.write("<br>");
+	
+	for (var i=0; i<arr1.length;i++){
+		document.write(arr1[i]+' - ');
+	}
+	
+	//pop
+	arr1.pop();  //맨 뒤 요소 삭제
+	document.write("<br>");
+	
+	//join함수 (구분자)-> 요소들 연결해서 출력  => undefined 무시
+	document.write(arr1.join(' - ')+br); 
+	
+	//sort
+	document.write(arr1.join(' - ')+br);  
+	arr1.sort(); //정렬 -오름차순:요소를 모두 문자열로 처리 
+	document.write(arr1.join(' - ')+br); 
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
