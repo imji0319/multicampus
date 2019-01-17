@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*팝업창  함수 -> 브라우저를 가림 */
+	//alert("출력1") /*alert : 정보 출력 */
+	//prompt('아이디를 입력하세요.') /*prompt : 값을 직접 입력받음*/
+	//confirm('20세 이상입니까?') /*confirm : yes/no의 결과값*/
+	
+	/*document 내장객체 : write : 본문에 넣을 내용 작성, html 태그 사용 가능 -> 태그는 문자열처리*/
+	document.write("<h1>브라우저 출력</h1>"); 
+	document.write("<h1>"+(100+200)+"</h1>"); /*브라우저의 연산, 함수등 결과를 출력하기 위해 사용 가능 */
+	
+	/*변수선언  : 무조건 var 로 시작*/
+	var i=100;
+	var d=3.14;
+	var c='a';
+	var s="javascript";
+	var b= false;
+	var br="<br>" //태그를 문자열 변수로 저장하여 계속 사용 가능 
+	var no;       //undefined : 
+	var arr = [1,'2',3,4,5] ; //배열[] :object, 여러 타입 가능
+	arr[5]=6 ; //자동 확장
+	arr[5]=7 ; //값 변경
+	var f = function(){ //함수 변수로 선언 가능
+		alert("f");
+	}
+	
+	var num = 9/2; //4.5
+	var title="oracle jaVa SCRIPT"
+	
+	//js 변수 타입 : number / string / boolean / undefined /object / function
+	document.write(typeof i+br);
+	document.write(typeof d+br);
+	document.write(typeof c+br);
+	document.write(typeof s+br);
+	document.write(typeof b+br);
+	document.write(no*10+br);    //NaN : Not a Number
+	document.write(typeof arr+arr.length+br);
+	document.write(typeof f+br);
+	document.write(num+br); 
+	document.write(parseInt(num)+br); //소수점아래 버림
+
+	document.write('문자열개수'+title.length+br); //length : 문자열개수
+	document.write('대문자변경'+title.toUpperCase()+br); 
+	document.write('소문자변경'+title.toLowerCase()+br); 
+	document.write('문자변경'+title.replace('a','b')+br);  // -> 첫문자만 변경
+	document.write('특정문자위치'+title.indexOf('SCRIPT')+br); 
+	document.write('특정위치문자'+title.charAt(0)+br);
+	
+	// === : 타입&값 비교 ,== : 값비교
+	if(title.charAt(0)==='o'){ 
+		document.write("<style> body {color:red} </style>"); 
+	}else{
+		document.write("<style> body {color:blue} </style>"); 
+	}
+	
+	var st1=100;
+	var st2="100";
+	document.write("값비교 (==) : "+(st1==st2)+br); //ture
+	document.write("타입&값비교 (===) : "+(st1===st2)+br); //false
+
+	//object 객체 생성방법
+	var mystu = {
+		id:1000,
+		name:'홍길동',
+		toString:function(){
+			return this.id+'-'+this.name;
+		}
+	};
+	document.write('mystu의 타입:'+typeof mystu+br); 
+	document.write(mystu+br); //toString 가능
+	
+	
+	
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

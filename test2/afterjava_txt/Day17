@@ -1,0 +1,28 @@
+19.01.17
+
+JSP (java script)
+
+<script> java script문법 </script>
+
+<script scr ="*.js"></script>
+	*.js : 자바스크립트 파일 
+	java script문법 문장 블록
+	
+	
+
+1. 같은 html 내부
+2. 다른 js파일 작성, 연결
+3. java 와 유사
+	- 연산자, 조건문, 반복문, 이동문 문법 동일  
+	- 객체 (클래스구조x)
+	- 변수종류 일부 차이
+	- function 정의 = 기능 1개 (메소드와 동일한 기능)
+	- 이벤트처리
+	- 내장함수/내장객체기능
+
+
+head, body 태그내 모두 사용 가능
+html <script> 여러번 사용 가능
+'',"" 모두 사용가능
+
+
