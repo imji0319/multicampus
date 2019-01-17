@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <title>글쓰기 웹페이지</title>
 <style type="text/css">
+	td{font-family:굴림}
+	table{margin:auto; text-align: center;
+		border:3px solid purple;}
 	form{text-align: center;}
-	#send{background-color: aqua;
-		color:blue;}
-	#cancel{background-color: aqua;
-		color:blue;}
+	input[type=button] , input[type=reset] {background-color: aqua; color:blue;}
 </style>
 </head>
 <body>
@@ -22,8 +22,8 @@
 	<tr><td>암호</td><td><input type=password></td></tr>
 	<tr><td>시간</td><td><input type="datetime-local" value="2019-01-16T16:00"></td></tr>
 	</table>
-	<input type=submit value=저장버튼 id=send>
-	<input type=reset value=취소버튼 id=cancel>
+	<input type=button value=저장버튼 >
+	<input type=reset value=취소버튼 >
 	</form>
 </body>
 </html>
