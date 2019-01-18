@@ -14,28 +14,27 @@ onload=function(){
 	  5-2. 만족하지 못하면 id=result 요소 내부에 "id조건을 만족하지 못했습니다." /"비밀번호가 같지 않습니다."
 	*/
 	var btn = document.getElementById("btn");
+	var idlist=["java",'oracle','servelt'];
+	
+	var id = document.getElementById("id");
+	var pw1 = document.getElementById("pw1");
+	var pw2 = document.getElementById("pw2");
+	
+	var result = document.getElementById("result");
 	
 	btn.onclick = function(){
-		var idlist=["java",'oracle','servelt'];
-		
-		var id = document.getElementById("id");
-		var pw1 = document.getElementById("pw1");
-		var pw2 = document.getElementById("pw2");
-		
-		var result = document.getElementById("result");
 		if (idlist.indexOf(id.value) != -1){
 			if (pw1.value == pw2.value){
-				result.innerHTML="정상 로그인 사용자입니다.";
+				inform="정상 로그인 사용자입니다.";
 			}
 			else{
-				result.innerHTML="비밀번호가 같지 않습니다."
+				inform="비밀번호가 같지 않습니다."
 			}
 		}
 		else{
-			result.innerHTML="id조건을 만족하지 못했습니다.";
+			inform="id조건을 만족하지 못했습니다.";
 		}
-		
-		
+		result.innerHTML = inform;
 	}
 
 }
