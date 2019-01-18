@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#first {color:blue;};
+	.jquerycls {background-color:gray;};
+</style>
+<script src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){ //window.onload = function(){} 같음 
+		//바디 완료 후 실행 문장
+		//$("#first").css("color","red");   //id 선택
+		//$("input").css("color","red");    //태그 선택
+		//$(".green").css("color","green"); //class 선택 
+		
+		//$("INPUT[type=text]").css("background-color","yellow");
+		//$("INPUT:text").css("background-color","yellow");        //form태그에 사용 가능한 질의방식          
+		//$("INPUT[value $= 입력]").css("background-color","pink"); //$= "" : ""으로 끝나는거
+		//$("INPUT[value ^= 입력]").css("background-color","navy"); //^= "" : ""로 시작되는 거
+		
+		//점심메뉴 기본 선택 : 글시색상 빨강 변경
+		//$("select option[selected=selected]").css("color","red");
+		//$("select option:selected").css("color","red");
+		
+		//h1 태그 포함 a 태그 문자열 색상 : green
+		//$("h1 a").css("color","green");
+		
+		//option 태그 중 첫번쨰 태그만 글씨 색상  :orange - 태그 순서는 인덱스 0 ~
+		//$("option:eq(0)").css("color","orange");
+		//$("option:first").css("color","orange");
+		
+		//option 태그 중 3번 인덱스  전에 나온 태그만 글씨 색상  :orange 
+		//$("option:lt(3)").css("color","orange");
+		
+		//option 태그 중 2번  인데스 이후 태그만 글씨 색상  :orange 
+		//$("option:gt(2)").css("color","orange");
+		
+		//마지막 태그 
+		//$("option:last").css("color","orange");
+		
+		//태그 순서 짝수 인것 -> 인덱스 0,2,4
+		//$("option:even").css("color","orange");
+		
+		//태그 순서 홀수  인것 -> 인덱스 1,3
+		//$("option:odd").css("color","orange");
+		
+		//class 속성 추가
+		//$("h1, a").addClass("jquerycls");
+		//class 속성 제거
+		//$("a").removeClass("jquerycls");
+		
+		/* setTimeout(function(){
+			$("h1, a").addClass("jquerycls");
+		}, 2000);
+		setTimeout(function(){
+			$("a").removeClass("jquerycls");
+		}, 4000); */
+		
+		//a 태그 문자열 조회
+		//alert($("a").html());    //getter
+		//$('a').html('<strong>링크문자변경</strong>') 
+		
+		//option 태그 문자열 조회
+		//alert($('option').get(4).innerHTML);
+		
+		/* for (var i=0; i < $('option').length; i++){
+			alert($('option').get(i).innerHTML);
+		} */
+		
+		//반복문결과와 동일 
+		/* $('option').each(function(){ //each : 반복문내장함수 -option만큼해 
+			alert($(this).html());
+		});  */
+		
+		/* $('option').each(function(index){ //each : 반복문내장함수 -option만큼해 
+			alert(index+'-'+$(this).html());
+		});  */
+		
+		//value 조회 
+		//alert($('input[type=text]').val());
+		
+		//attr(속성명) : 속성별 호출 
+ 		//id= output 의 inner에 나타내기 html()
+		$("#output").html($('a').attr('href'));
+		
+		
+		$('a').attr('href','http://www.google.com');
+		$("#output").html(
+				$('#output').html()+"<br>"+$('a').attr('href'));
+		
+		$('a').removeAttr('href')
+		
+		//슬라이드 효과
+		/* $('#first').hide(2000,function(){
+			$('#output').html("숨기기 완료")
+		})
+		$('#first').show(4000,function(){//3초동안 천천히 나타남
+			$('#output').html("보이기 완료") //실행이 끝나면
+		}) */
+		
+		/* //슬라이드 효과X
+		$('#first').fadeOut(2000,function(){
+			$('#output').html("숨기기 완료")
+		})
+		$('#first').fadeIn(4000,function(){
+			$('#output').html("보이기 완료") 
+		})
+		 */
+		// 마우스 클릭 
+		$('input[id=hide]').on('click',function(){ //on(이벤트이름,함수)
+			$('#first').fadeOut(2000,function(){
+				$('#output').html("숨기기 완료")
+			})
+		}); 
+		
+		$('input[id=show]').on('click',function(){ //on(이벤트이름,함수)
+			$('#first').fadeIn(2000,function(){
+				$('#output').html("보이기 완료")
+			})
+		});
+		
+		//키보드 입력 
+		var cnt=0;
+		$('input[type=text]').on('keyup',function(){ 
+			//키 입력 : 누르다(keydown)-누름 (keypressed)-떼어내다(keyup)
+			$('#output').html($('input[type=text]').val())
+			cnt++;
+			if(cnt>=10) {
+				$('#output').html("그만~~")
+				$('input[type=text]').attr('readonly','readonly')
+				
+			}
+			
+		})
+		$('input[value=입력중단]').on('click',function(){
+			$('input[type=text]').off('keyup')
+		})
+		
+		
+		
+		
+	}); //ready end
+</script>
+</head>
+<body>
+<h1 id=first> jquery 연습</h1>
+<a class ="green" href ="www.daum.net">링크동작테스트태그</a><br>
+<input class ="green" type=text value=텍스트입력>
+<input type=button value=입력중단><br>
+
+<input type=password value=암호입력><br>
+<input type=button value=감추기 id=hide>
+<input type=button value=보이기 id=show>
+
+
+<h1>점심 메뉴는?</h1>
+<select>
+	<option> 한식</option>
+	<option> 분식 </option>
+	<option selected=selected> 중식 </option>
+	<option> 일식 </option>
+	<option> 양식 </option>
+</select>
+<h3 id=output> </h3>
+</body>
+</html>

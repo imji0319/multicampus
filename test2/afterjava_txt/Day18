@@ -1,0 +1,108 @@
+19.01.18
+
+
+html5 파일 = html 태그 +css + java script
+		화면 구성 + 크기 	배치규칙 생상 동적 + 클릭 ,키보드입력시 후속 동작
+
+java script
+- 변수명, 연산자, 제어문구조
+- 변수 선언 문장
+	function(){
+		var 변수명 -> 지역변수 
+		변수명 -> 전역변수
+	}	
+
+- 함수
+	function 함수명(){...} -> 스트립트전채 영역 호츌 
+	var a = function(){} -> 정의 이후 호출 가능
+
+- 객체 (java script object natation : json)
+	var 객체명 = {
+		필드변수명:값
+		함수명 : function(){}
+	}
+
+	* Object, Array, String, Date
+	* BOM : browser object model
+	Window 타입 생성 내장 함수 : window
+	window.document
+	window.navigator
+		navigator.userAgent : 브라우저 이름 
+	window.location
+		location.href="" : url 이동
+	
+	alert
+	prompt
+	confirm
+	setTimeout
+	setInterval
+	parseInt
+	 
+	 * DOM : document object model
+	 	html태그 -> 자바스크립트의 객체로 변환 
+	 document.getElementById("")	 
+
+- 이벤트 처리
+	마우스 클릭, 키보드 입력 = 이벤트 발생 
+	이벤트 종류 : click, dbclick, keypressed, submit, load ....
+	이벤트 발생 시 (개발자마다 원하는) 실행방법이 상이함  -> 이벤트 handler 함수
+		
+		window.onload = function(){}
+		btn.onclick = function(){}
+		id.onkeypressed = function(){}
+		sub.onsubmit = function(){}
+	 
+	 
+	 
+jquery : java script 언어 문법  + 내장라이브러리
+추가 라이브러리 
+
+dom 객체 : document.getElementId("id").innerHTML="" 
+< = > jquery 객체 :$("#id").html("") 	 
+	 
+$(jquery selector).jquery함수()
+
+1> 표현간결
+2> css selector 문법 사용 가능
+
+1. jquery 라이브러리 설치
+code.jquery
+2. jquery 문장 html파일에서
+<script src = "jquery-3.2.1.min.js"></script>
+<script>자바스트크립문장</script>
+
+
+$(자바스크립트객체).함수();
+	$("css selector").함수(function());
+- css selector
+	#id값 / .class값 / 태그이름
+	태그[속성=값] 태그[속성$=값종료] 태그[속성^=값시작] 태그[속성*=값포함]
+	"a b"
+	"a, b, c"
+	"a#id"
+	a.target"
+	
+	태그 사용 순서 
+	"a:eq(0)" / "a:lt(2)" / "a:gt(3)"
+	"a:first" / "a:last"
+	"a:even"  / "a:odd"
+	
+	
+- 함수
+	ready(function(){});
+	html() - getter / html("...") - setter(dom객체.innerHTML);
+	css("속성") - getter / css("속성", "값") - setter;
+		css("color","blue")
+		
+	$('selector').on(이벤트,function(){})
+	$('selector').off(이벤트)
+		
+	
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
