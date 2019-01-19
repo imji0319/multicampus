@@ -20,42 +20,39 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	//id, pw 이름 파라미터 2개 입력 
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
-	
+	String result="";
+
 	//로그인 처리 : jdbc
 	//DB member 테이블 id,pw 조사 sql
-	String result="";
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr"); 
 		System.out.println("DB 연결성공");
 		
-		String sql = "select id, password from member where id=?";
+		String sql = "select password from member where id=?";
 		
 		PreparedStatement pt= con.prepareStatement(sql);
 		pt.setString(1,id);
 		
 		ResultSet rs = pt.executeQuery();
 		
-		String db_id="";
-		String db_pw="";
 		if (rs.next()) {
-			db_id =rs.getString("id");
-			db_pw =rs.getString("password");
-		}
-		con.close();
-		System.out.println("연결 해제 성공");
-		
-		if (id.equals(db_id)) {
+			String db_pw =rs.getString("password");
+			
 			if (pw.equals(db_pw)) {
 				result ="정상 로그인 사용자입니다.";
 			}
 			else {
 				result="암호를 확인하세요";
 			}
+			
+		}else {
+			result="회원이 아닙니다.<a href='insertform_db.html'>회원가입</a>";
 		}
-		else {
-			result ="회원이 아닙니다.";
-		}
+		
+		con.close();
+		System.out.println("연결 해제 성공");
+
 
 	}catch(Exception e) {
 		e.printStackTrace();
