@@ -12,6 +12,11 @@ onload=function(){}
 <form action="login"> <!-- web.xml mapping 값 login으로 꼭 지정 해야함 -->
 	아이디입력 : <input type=text name="id"><br>
 	암호입력 : <input type=password name="pw"><br>
+	<input type=checkbox name= habby value=자바 checked=checked>자바
+	<input type=checkbox name= habby  value=R >R
+	<input type=checkbox name= habby  value=파이썬 checked=checked>파이썬
+	<input type=checkbox name= habby  value=하둡 >하둡
+	
 	<input type=submit value=로그인>
 	<!-- 
 	button : 기능 (자바스크립트), 내장 구현 X
@@ -22,9 +27,8 @@ onload=function(){}
 	버튼모양
 	1. 입력양식 제공
 	2. 지정 서버(action 속성) 전송
-	
 	-->
-		 
 </form>
+	<a href="login?id=orcale&pw=aaaa">로그인 결과</a>
 </body>
 </html>

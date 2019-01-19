@@ -59,10 +59,40 @@ request.getMethod(); // get-post
 *PrintWriter out = respnse.getWrite() // 각 2바이트씩 출력 객체
 
 
+서블릿 호출 실행 방법
+http 프로토콜 정의 방법
+<get방식>
+1. url 입력 호출
+2. <a href="">
+3. <form action="" [method="get(기본)"]>
+4. url뒤 입력파라미터 노출 
+	url?name1=value1&name2=value2&name3=value3
+5. 특수문자, 한굴(인코딩: %16진수2자리), 영문자 그대로, 공백 + 
+6. get 요청 처리 서블릿 : doGet()
+
+<post 방식>
+1. url뒤 입력 파라미터 안보임
+2. url 별도 분리 전송
+3. <form action="" method="post">
+4. 전송 규칙은 동일 
+5. 노출주의(암호), 게시물내용 전송  
+6. post 요청 처리 서블릿 : doPost()
+	
+	request.setCharacterEncoding("utf-8"); //다국어 처리하기 위해 post방식에는 꼭 필요함
 
 
+	
+서블릿 요청 서버 오류
+405
+500
 
 
+로그인 기능
+1. localhostDB:member 테이블 조회
+2. 입력받은 id 존재하면 pw 비교
+	t : 정상 로그인 사용자
+	f : 암호를 확인하세요
+3. id 존재하지 않으면 "회원이 아닙니다"출력
 
 
 
