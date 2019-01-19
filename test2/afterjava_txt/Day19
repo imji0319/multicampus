@@ -37,3 +37,41 @@ servlet 실행
 URL : 프로젝트이름/클래스이름
 	자체적으로 패키지.클래스이름 이 클래스이름만으로 alias 
 
+등록과 매팅의 설정 :web.xml 파일( WebContent/WEB-INF/web.xml )
+	version 3.0 이전으로 잡아야 생성하여 이 파일을 사용함
+
+http 요청 (url : 브라우저 정보, 클라이언트ip,xxx 정보들) 
+-> 자바 객체 : HttpServletRequest
+http 응답 ( 결과물, 인코딩 방식, 컨텐츠 파일 타입,...)
+-> 자바 객체 : HttpServletResponse
+
+요청 -> 처리 -> 응답 
+
+doGet()
+- HttpServletRequest : 요청 
+request.getRemoteAddr(); //클라이언트 IP
+request.getHeader("useragent"); //브라우저 리턴 
+*request.getParameter("id") // id 리턴 -> <form> 연관 
+request.getMethod(); // get-post
+
+- HttpServletResponse : 응답 
+*response.setContentType("text/html;charset=utf-8") //응답할 형태 
+*PrintWriter out = respnse.getWrite() // 각 2바이트씩 출력 객체
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

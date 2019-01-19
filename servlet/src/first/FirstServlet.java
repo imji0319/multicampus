@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class FirstServlet extends HttpServlet {
-	
-	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
 		//다국어 처리  - html태그 외에도 xml과 같은 태그가 있을 수 있음 

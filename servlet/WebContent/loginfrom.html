@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인화면</title>
+<script type="text/javascript">
+onload=function(){}
+</script>
+</head>
+<body>
+<h1>로그인화면</h1>
+<form action="login"> <!-- web.xml mapping 값 login으로 꼭 지정 해야함 -->
+	아이디입력 : <input type=text name="id"><br>
+	암호입력 : <input type=password name="pw"><br>
+	<input type=submit value=로그인>
+	<!-- 
+	button : 기능 (자바스크립트), 내장 구현 X
+	reset  : 내장기능, 입력 양식 지움 -> 범위를 <form> 정의
+	submit : 내장기능, 입력을 전달 -> 범위를 <form> 정의 
+	=> reset, submit 타입은 <form> 내부에 존재해야함 
+	
+	버튼모양
+	1. 입력양식 제공
+	2. 지정 서버(action 속성) 전송
+	
+	-->
+		 
+</form>
+</body>
+</html>
