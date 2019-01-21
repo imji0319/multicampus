@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class MypageSessionServlet extends HttpServlet {
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, 
+		HttpServletResponse response) throws ServletException, IOException {
 		//1. 생성된 HttpSession 부름  
 		HttpSession session = request.getSession();
 		

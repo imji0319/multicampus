@@ -40,16 +40,28 @@ session
 	HttpSession
 	
 	doGet(HttpServletRequest request ...
+	
 	1> 세션 생성 
 	HttpSession session = request.getSession(); 
 	
 	브라우저 열고 서블릿 최초 요청시 세션 생성 (id 저장)
-	
 	2번째 이후 서블릿 요청시 이미 세션이 생성되어 있어서 getter 용도 (id 호출)
 	
 	2> session.setAttribute("sessionid", 사용자id)
 	3> session.getAttribute("sessionid")
-	4> session.removeAttribute("sessionid")
+	4> session.removeAttribute("sessionid") : 세션 수동 삭재
+
+
+	세션 (자동) 삭제
+	- 사용한 브라우저 종료 
+	- 브라우저 미종료시 무액션 상태에서 30분 경과
+	
+	세션 (수동) 삭제
+	- session.removeAttribute("sessionid")
+	- session.invalidate()
+	
+	세션 : 같은 클라이언트(같은 ip 같은 브라우저)가 같은 서버에 정보를 전송함에 있어 1번 전송 -> 서버 유지 
+	
 	
 	
 login.html
@@ -58,6 +70,67 @@ mypage.html
 LoginServlet
 LogoutServlet
 MyPageServlet
+
+
+
+html태그 서버 파일 url
+<form action ="">
+<a href="">
+	action = "http://ip:port/프로젝트명/경로명/파일명" //기본방식
+	action = "파일명"    //작성중인 html파일과 똑같은 경로에 있는 파일 
+	action = "../파일명" //현재 파일상위url, 프로젝트명까지 동일한 경로, 즉 상위 디렉토리에 있는 경우 
+	action = "/파일명"   //현재 서버 동일  port번호까지 동일한 경우
+
+
+
+서블릿 파일 객체 공유
+1. 현재 서블릿 파일에서만 사용 (공유 X)
+2. 현재 브라우저의 다른 서블릿 파일과 공유
+3. 현재 서블릿이 지정한 특정 서블릿 파일과 공유
+
+
+1> 1개의 서블릿 : 클라이언트 요청 - 처리 - 응답
+2> 서블릿 1 : 클리이언트 요청 - 처리 
+       서블릿 2 : 응답 
+ => 여러개의 서블릿
+
+<include> : oneServlet 출력결과 + shardServlet 출력결과
+RequestDispatcher rd = request.getRequestDispathcher("공유다른서블릿");
+	rd.include(request,response);
+- 공통된 코드(공유서블릿)가 있다면 정의 
+- request.setAttribute("공유속성변수명",object)
+- (공유속성변수형변환)request.getAttribute("공유속성변수명") 
+
+<forward> : oneServlet 로직실행 + sharedServlet 결과출력
+RequestDispatcher rd = request.getRequestDispathcher("공유다른서블릿");
+	rd.forward(request,response);
+
+
+
+자바 구현 웹서버 기술 
+1. servlet
+	- 자바 클래스 구조 : 상속, 오버라이딩 (doGet/doPost)
+	- html태그 직접적 사용 불가 -> response.getWriter - println 활용
+	- html태그 문자열 취급 - 부속물 출력 
+	
+2. jsp
+	- html파일 내부 자바문장 기술 구조 
+	- html태그 표현 쉬움
+	- *.jsp
+	
+	<html>
+	<h1>
+	<% 자바 문장 %>
+	<form>
+	<% 자바 문장 %>
+
+
+
+
+
+
+
+
 
 
 
