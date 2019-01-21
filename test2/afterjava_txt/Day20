@@ -116,18 +116,53 @@ RequestDispatcher rd = request.getRequestDispathcher("공유다른서블릿");
 2. jsp
 	- html파일 내부 자바문장 기술 구조 
 	- html태그 표현 쉬움
-	- *.jsp
+	- 상속, 오버라이딩 불가 
+	- 내부 웹서버가 서블릿 변환 방식 채택 
+	- *.jsp 
+		--> 내부 서블릿 소스 변경 -> 서블릿 컴파일 -> 클래스 실행 (tomcat 웹서버에서 수행)
+		
+		C:\eclipse\workspace\.metadata\.plugins\
+		org.eclipse.wst.server.core\tmp0\work\
+		Catalina\localhost\servlet\org\apache\jsp\jsp
 	
 	<html>
 	<h1>
 	<% 자바 문장 %>
 	<form>
 	<% 자바 문장 %>
+	
+	- get/post 구분하지 않고 request 하기 때문에 getMethod()로 확인해야함
 
 
+요청 - 처리 - 응답 
+(servlet 1개 로 처리)
+(servlet - forward/include 여러개로 처리)
+
+각 과정에 적절한 프로그램을 화용 
+==> servlet : 요청 /처리 과정 구형  + jsp : 응답 과정 구현 
 
 
-
+JSP
+태그
+1. <% %>
+	- <% 스크립트 태그 : 자바문장  %>
+	- <%= 표현문 : 브라우저출력/다른속성값출력 %>
+		= <% out.println(출력내용); %> //자바 문장 없이 태그만 활용해서 쓰는 용도
+		자바 문장을 같이 쓸 수 있음
+		
+	- <%! 변수/메소드 선언 %>
+		<%! String s = "global"; %>
+		전역변수
+		 
+	- <%@page %> : page 지시자 
+		import ='lib1, lib2, package.lib3,...'; //import 속성은 계속 추가 작성 가능함 
+	
+	- <%-- --%> : 주석문
+		<% %>태그 종류  주석처리 
+		
+		
+2. <jsp:xxxx /> 
+3. 내장객체 
 
 
 
