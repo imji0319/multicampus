@@ -1,0 +1,66 @@
+19.01.21
+
+웹 관련 기술 (html, css, js, jquery, : -> *.html
+		+ servlet, jdbc (sql), : -> *.java
+		+ jsp : -> *.jsp )
+		
+서블릿 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.*
+
+class A extends HttpServlet;
+	둘 중 하나만 overridding 
+	 	doPost() - post방식 처리결과 전송
+	 	doGet() - get방식 처리결과 전송
+	 	
+	 	HttpServletRequest request
+	 		request.getMethod();
+	 		request.getHeader('userAgent');
+	 		request.getRemoteAddr();
+	 		
+	 		String <- request.getParameter("파라마티이름");
+	 		String[] <- request.getParametersValues("파라마티이름");
+	 	
+	 	HttpServletResponse response : http응답정보객체
+	 		response.setContentType("text/html;charset=utf-9")
+	 		PrintWriter out = response.getWriter()
+	 		
+	 		out.println("<h1>...</h1>") -> 브라우저에 정보 전송 
+	 	
+	 	서블릿에서 DB 이용 
+	 	-> jdbc 와 같은 방식
+	 	
+session 	
+1. http 프로토콜 stateless 프로코로
+2. 이전 클라이언트 전송 정보 - 응답 이후 삭제
+3. 다수개 클라이언트 -> 1개의 서버 메모리의 제한
+4. 이전 클라이언트 전송 정보 - 서버 저장 - 응답이후 - 같은 클라이언트 : 정보 전송필요X 
+5. 클라이언트 전송 정보를 서버에 저장 하는 기술 : session
+6. servlet - > HttpSession 라이브러리 활용 
+	HttpSession
+	
+	doGet(HttpServletRequest request ...
+	1> 세션 생성 
+	HttpSession session = request.getSession(); 
+	
+	브라우저 열고 서블릿 최초 요청시 세션 생성 (id 저장)
+	
+	2번째 이후 서블릿 요청시 이미 세션이 생성되어 있어서 getter 용도 (id 호출)
+	
+	2> session.setAttribute("sessionid", 사용자id)
+	3> session.getAttribute("sessionid")
+	4> session.removeAttribute("sessionid")
+	
+	
+login.html
+logout.html
+mypage.html
+LoginServlet
+LogoutServlet
+MyPageServlet
+
+
+
+
+
+

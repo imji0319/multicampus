@@ -42,9 +42,12 @@ public class MemberInsertServlet extends HttpServlet {
 			ResultSet rs = pt.executeQuery();
 			
 			if (rs.next()) {
+				
 				result="다른 아이디를 입력하세요.";
+				
 			}
 			else {
+				
 				sql = "insert into member values (?,?,?,?,?,sysdate)";
 				pt = con.prepareStatement(sql);
 			
