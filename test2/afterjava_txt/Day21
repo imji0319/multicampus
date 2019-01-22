@@ -44,3 +44,7 @@ response : http.HttpServletResponse
 		<jsp:param name ="a" value="al">
 	</jsp:forward>  
 
+
+** <input type= id= name= value=>
+	id : 같은 파일내 태그 사용 
+	name : form 내 사용하며 다른 파일에서  value 값을 사용하기 위해
