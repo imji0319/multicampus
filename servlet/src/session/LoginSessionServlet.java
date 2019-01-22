@@ -39,6 +39,7 @@ protected void doGet(HttpServletRequest request,
 		out.println(html);
 		out.println("<a href='mypagesession'> 마이페이지로 이동하기 </a> <br>"); //servlet <-> servlet 연결 가능 
 		out.println("<a href='logoutsession'> 로그아웃하기 </a>"); //servlet <-> servlet 연결 가능 
+		out.println("<a href='http://localhost:8081/servlet/jsp/boardwrite_session.jsp'> 글쓰러 이동하기  </a>");
 
 }
 }

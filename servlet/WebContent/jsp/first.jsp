@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page 
+language="java" 
+contentType="text/html; charset=UTF-8" 
+pageEncoding="UTF-8"
+import="java.sql.Connection"
+%>
+ <!-- 지시자태그 : 톰캣에 지시하는 태그  -->
+ 
 <!DOCTYPE html>
 <html>
 <head>

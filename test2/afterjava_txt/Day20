@@ -41,14 +41,16 @@ session
 	
 	doGet(HttpServletRequest request ...
 	
-	1> 세션 생성 
+	1> 세션 생성 / 리턴
 	HttpSession session = request.getSession(); 
 	
 	브라우저 열고 서블릿 최초 요청시 세션 생성 (id 저장)
 	2번째 이후 서블릿 요청시 이미 세션이 생성되어 있어서 getter 용도 (id 호출)
 	
 	2> session.setAttribute("sessionid", 사용자id)
+		세션 실행 중 저장하고 싶은 내용을 저장
 	3> session.getAttribute("sessionid")
+		세션 내 저장한 내용을 가져올 때 
 	4> session.removeAttribute("sessionid") : 세션 수동 삭재
 
 

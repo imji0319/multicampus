@@ -1,0 +1,46 @@
+19.01.22
+
+JSP
+자바문장태그
+<% 자바문장 : for (){} ....
+	out.println();
+%>
+<%= 브라우저 출력/다른속성값표현 %>
+<%-- 주석문 --%>
+<%! 변수 및 메소드 선언  >
+<%@ page 지시문 %>
+	- import 속성만 중복 선언 가능 그외 속성은 불가능
+	- contentType, pageEncoding, language : 기본 속성
+	
+내장객체
+javax.servlet 패키지
+out : JspWriter(=PrintWriter)
+session : http.HttpSession
+request : http.HttpServletRequest
+response : http.HttpServletResponse
+
+액션태그 : 자바문장 태그 정의
+<jsp:xxxx /> : 바디 없는 태그
+<jsp:xxx > : 바디 있는 태그
+	<jsp:zzz />
+/jsp:xxx>
+
+- Servlet
+	request.setAttribute("", );
+	RequestDispacher rd =request.getR...("include할 파일명")
+	rd.include(request, response)
+
+- JSP
+	<jsp:include page="include할 파일명 " />
+	
+	<jsp:include page="include할 파일명 " >
+		<jsp:param name ="a" value="al"> //include 태그 안에 사용함 
+	</jsp:include>  
+	
+	
+	<jsp:forward page="include할 파일명 " />
+	
+	<jsp:forward page="include할 파일명 " >
+		<jsp:param name ="a" value="al">
+	</jsp:forward>  
+
