@@ -1,3 +1,4 @@
+<%@page import="vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.sql.*"%>
@@ -11,6 +12,10 @@
 	String name = request.getParameter("name");
 	String phone = request.getParameter("phone");
 	String email = request.getParameter("email");
+	
+	//MemberVO 객체생성
+	MemberVO vo = new MemberVO(id,pw,name,phone,email);
+	
 	
 	//2. db에 insert
 	String result="";
@@ -60,6 +65,9 @@
 forward 이전의 버퍼 삭제
 -->
 
+<% request.setAttribute("memberinform", vo); //객체 전달  %>
+
+
 <jsp:forward page="login2.jsp">
 	<jsp:param value="<%= result %>" name="a"/>
 </jsp:forward>
@@ -71,5 +79,6 @@ forward 이전의 버퍼 삭제
 <title>로그인 처리</title>
 </head>
 <body>
+	<h1> login1.jsp 내용입니다.</h1> <!-- forward 하면 안나타남 -->
 </body>
 </html>
