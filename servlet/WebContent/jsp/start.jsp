@@ -15,11 +15,11 @@ $(document).ready(function(){
 	})
 	
 	$("#b").on('click',function(){
-		location.href="cart.jsp"; //클릭 -> cart.jsp 파일로 이동 
+		location.href="jsp/cartview.jsp"; //클릭 -> cartview.jsp 파일로 이동 
 	})
 	
 	$("#c").on('click',function(){
-		location.href="pay.jsp"; 		 
+		location.href="jsp/pay.jsp"; 		 
 	})
 	
 })
@@ -29,7 +29,7 @@ $(document).ready(function(){
 <h1> 우리 쇼핑몰에 오신 것을 환영합니다. </h1>
 
 	<input type=button id="a" value="상품리스트">
-	<input type=button id="b" value="장바구니">
+	<input type=button id="b" value="장바구니보기">
 	<input type=button id="c" value="결제">
 
 <h1> 오늘은 생필품을 세일하고 있습니다. </h1>
