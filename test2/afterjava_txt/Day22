@@ -1,0 +1,14 @@
+19.01.23
+
+
+<jsp:useBean id='a1' class='test.A'/>
+
+<jsp.setProperty name='a1' property='name' value='10 /> //name =호출할 객체 이름 , property = 변수 value=변경할 값 
+
+<jsp:getProperty name='a1' property='name'/> //name='a1'인 useBean 객체의 value 값 추출 & 출력
+
+ 
+
+
+
+
