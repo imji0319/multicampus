@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+	$("#general").on('click',function(){
+		location.href= "ajax_login.jsp?id=" + $("#id").val() + "&pw=" + $("#pw").val();
+	});
+	
+	$("#ajax").on('click',function(){
+		requestAjax();
+	});
+	
+	
+})//ready end
+
+function requestAjax(){
+	$.ajax({      //ajax의 요소
+		url : 'ajax_login.jsp', //json형태 응답할 파일 
+		type : 'POST',          //전송방식
+		data : {'id':$("#id").val() ,'pw':$("#pw").val()},
+		//전송받은 결과에 대한 요소
+		success : function(server_output){
+			//server_output : json 모양의 전송받은 결과
+			var jsonobj = JSON.parse(server_output) //json형태 문법확인 검증 : JSON.parse() -> json 으로 리턴
+			if (jsonobj.auth == true){
+				alert("ok");
+				$("#here").html(jsonobj.time +"에 정상적으로 로그인하셨습니다.");
+				$("#here").css('border','2px solid green');
+			}else{
+				$("#here").html("로그인정보를 확인하세요.");
+				$("#here").css('border','2px solid red');
+			}
+		},//success end
+		error : function(){alert("오류발생")},
+		complete :function(){alert("통신완료")}
+
+	}); //ajax end
+
+}//requestAjax end
+
+</script>
+</head>
+<body>
+
+<form>
+	아이디 : <input type=text name=id id=id><br>
+	암호 : <input type=password name=pw id=pw><br>
+	<input type=button value="로그인요청" id=general><br>
+	<input type=button value="AJAX 로그인요청" id=ajax><br>
+</form>
+<h3 id=here> 결과출력 </h3>
+
+</body>
+</html>

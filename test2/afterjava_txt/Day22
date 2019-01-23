@@ -7,8 +7,31 @@
 
 <jsp:getProperty name='a1' property='name'/> //name='a1'인 useBean 객체의 value 값 추출 & 출력
 
- 
+AJAX(Asynchronous javascript and xml)
+: 재로드 하지 않고 웹페이지의 일부만을 갱신
+- 페이지가 변화하지만 새로운 페이지가 아닌 그 페이지에서 일부만 변화
+- javascript 호출 요청 : 자바스크립트 에서만 AJAX에서만 가능 
+json : java script object notation
+	{
+	"name":"1",
+	"age":"100",
+	"toString":"<h1>"
+	}
+	블록 안에 ":" 을 중심으로 변수와 값을 표현하고 "," 로 구분
+	
 
+MVC패턴
 
+servlet (Controller역할 )
+- 요청 입력 : 처리 -> 메소드, 입력파마리터 결정 
+
+jsp (View역할)
+: html
+- 응답
+
+vo :value object
+
+dao (Model 역할)
+:data access object 
 
 
