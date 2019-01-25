@@ -1,0 +1,95 @@
+Board Project
+
+사전 설정 
+1. 서버 설치
+tomcat 설치 및 설정
+
+2. 인코딩 변경 (-> UTF-8)
+preference -> general -> workspace
+		   -> web -> jsp, html
+
+3. tern project 설정 
+4. web browser 변경 ( -> chrome)
+5. jquery library 위치 설정 
+
+DB 계정 추가
+- runtime comment line
+1. 시스템으로 연결 
+conn system/system;
+2. 새로운 계정 추가
+create user board identified by board;
+3. 만든 계정이 소스 사용 가능하도록 권한 부여
+grant resource, connect to board;
+
+2. 이클립스 Data Source Explorer 설정 
+오라클 11 -> ojdbc6.jar 설정 
+connection url 주소 확인 
+
+게시판
+1. servlet, jsp, html, css, javsscript & jquery 
+
+2. 웹 게시판 저장 & 조회
+	board table 
+	
+	connection pool -> context.xml 파일 content 태그  안 
+	<Resource name="jdbc/myoracle" 
+          auth="Container"
+          type="javax.sql.DataSource" 
+          driverClassName="oracle.jdbc.driver.OracleDriver"
+          url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+          username="hr" 
+          password="hr"
+          initialSize="5" 
+          maxTotal="20" 
+          maxIdle="10"
+          maxWaitMillis="-1"/>
+
+게시판 웹페이지
+- 기능
+	0. 로그인 기능 
+		loginform -> id & pw 입력
+		member 테이블 확인 
+		id session 저장 
+		-> 작성자 == id 일 경우에만 수정 & 삭제 가능 
+		
+	1. 게시판 리스트 전체 출력 (-> 페이지 출력) : getBoardList
+		리스트 sql 
+			select boardseq, boardtitle,boardwriter, to_char(boardtime,'yyyy-mm-dd hh24:mi-ss') as boardtime
+			from board order by boardtime desc;
+		화면 설계
+			테이블 태그 (번호, 제목, 작성자, 작성시간(연월일 시분초)
+			제목 링크 -> 제목별 상세 페이지 
+			
+			<input type=button id=write name=write value=글쓰기 버튼> 
+			-> js : $("#write").on('click',function(){location.href="글쓰기 화면"})
+			
+	2. 제목 선택시 상세 내용 출력 : getBoardDetail
+		상세내용 조회 sql
+		
+	3. 게시물 저장 : insertBoard 
+		게시물 저장 sql
+
+	4. 게시물 수정 : updateBoard
+		게시물 수정 sql
+		
+	5. 게시물 삭제 : deleteBoard
+		게시물 삭제 sql
+	
+	6. 게시물 검색 
+	
+	
+- 화면 설계
+	리스트
+	상세내용 조회
+	게시물 저장 
+	게시물 수정 
+	게시물 삭제
+		
+- DAO, VO, Servlet 파일  
+BoardDAO
+-> 기능들 선언 
+BoardVO
+-> 변수들 선언 
+
+
+
