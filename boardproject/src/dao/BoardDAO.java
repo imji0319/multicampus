@@ -265,42 +265,78 @@ public class BoardDAO {
 	}
 
 	//페이지 분할 
-	public ArrayList<BoardVO> divBoardList(int page){
-		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+	public ArrayList<BoardVO> getBoardList(int page){
+		ArrayList<BoardVO> list = 
+				new ArrayList<BoardVO>();
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			//1. DB 연결
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","board","board"); 
-			System.out.println("DB 연결성공");
-			
-			String sql="select X.boardseq, X.boardtitle, X.boardcontents, X.boardwriter" + 
-					  " from (select rownum as rnum, A.boardseq, A.boardtitle, A.boardcontents, A.boardwriter" + 
-					  " 	  from (select boardseq, boardtitle, boardcontents,boardwriter" + 
-					  "	  	        from board order by boardseq) A" + 
-					  "	  	  where rownum < ? ) X" + 
-					  " where X.rnum > ?";
-			PreparedStatement pt= con.prepareStatement(sql);
-			pt.setInt(1, page*5);
-			pt.setInt(2, (page*2-4));
-			
+			Class.forName
+			("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection
+			("jdbc:oracle:thin:@localhost:1521:xe"
+			, "board", "board");
+			System.out.println("연결성공");
+	String sql = 
+	"select r, boardseq, boardtitle, "
+	+" boardwriter, boardtime"
+	+" from"
+	+"	(select rownum r, boardseq, boardtitle, "
+	+"   boardwriter, boardtime"
+	+"	from "
+	+"	(select * from board order by "
+	+"   boardtime desc)"
+	+"	)"
+	+" where r>= ? and r<=?";	
+
+			PreparedStatement pt =
+					con.prepareStatement(sql);
+			//1페이지당 2개 : page변수=2페이지
+			int start = (page - 1)*5 + 1;
+			int end = page * 5;
+			pt.setInt(1, start);
+			pt.setInt(2,  end);
 			ResultSet rs = pt.executeQuery();
-			
 			while(rs.next()) {
+				int seq = rs.getInt("boardseq");
+				String title = rs.getString("boardtitle");
+				String writer = rs.getString("boardwriter");
+				String time = rs.getString("boardtime");
 				BoardVO vo = new BoardVO();
-				vo.setBoardseq(rs.getInt("boardseq"));
-				vo.setBoardtitle(rs.getString("boardtitle"));
-				vo.setBoardcontents(rs.getString("boardwriter"));
-				vo.setBoardtime(rs.getString("boardtime"));
+				vo.setBoardseq(seq);
+				vo.setBoardtitle(title);
+				vo.setBoardwriter(writer);
+				vo.setBoardtime(time);
 				list.add(vo);
 			}
 			
-			
+			con.close();
+			System.out.println("연결해제성공");			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 		return list;
+	}
+	public int getTotalBoard() {
+		int total = 0;
+		try {
+			Class.forName
+			("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection
+			("jdbc:oracle:thin:@localhost:1521:xe"
+			, "board", "board");
+			System.out.println("연결성공");
+			String sql = 
+					"select count(*) from board";	
+			PreparedStatement pt =
+					con.prepareStatement(sql);
+			ResultSet rs = pt.executeQuery();
+			rs.next();
+			total = rs.getInt("count(*)");
+			con.close();
+			System.out.println("연결해제성공");			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return total;
 	}
 
 }
