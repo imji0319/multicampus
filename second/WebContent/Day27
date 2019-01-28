@@ -18,3 +18,6 @@
 2> java 실행 
 	javac HelloWorld.java : jdk 컴파일 -> class 파일 생성
 	java HelloWorld : 실행
+
+리눅스 설치  for hadoop
+
