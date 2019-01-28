@@ -1,0 +1,20 @@
+19.01.28 
+
+리눅스 
+
+환경설정
+* jdk 8.0.1 파일 java 로 바로가기 설정한 상태
+1> echo $PATH : PATH 확인
+2> vi /etc/profile 
+	shift + g : 마지막 라인으로 이동 
+	i : insert edit 
+	export JAVA_HOME=/usr/local/java 
+	export PATH=$JAVA_HOME/bin:$PATH
+	:wq 저장후 나가기 
+
+리눅스 상의 java
+1> vi 에디터  - java 파일 생성
+	vi HelloWorld.java
+2> java 실행 
+	javac HelloWorld.java : jdk 컴파일 -> class 파일 생성
+	java HelloWorld : 실행
