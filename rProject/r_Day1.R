@@ -227,12 +227,14 @@ View(iris)
 str(iris)
 summary(iris)
 
+
+
 #Dataframe
 no <- c(1,2,3,4)
 name <- c('Apple','Banana','Peach','Berry')
 qty <- c(5,2,7,9)
 price <- c(500,200,200,500)
-fruit <- data.frame(no, name, qty, price)
+fruit <- data.frame(no, name, qty, price)    #데이터프레임 변환 : data.frame 
 str(fruit)
 View(fruit)
 #vector form
@@ -244,11 +246,10 @@ fruit[, c(3,4)]
 fruit[3,2]
 fruit[3,1]
 
-fruit[,3]
-fruit[3]
+fruit[3]        # 데이터프레임 구조 유지 -> 굳이 유지할 필요는 없음 
 
 #vector form
-fruit$qty
+fruit$qty       # dataframe의 column 값으로 추출  
 fruit[[3]]
 
 str(fruit$qty)
@@ -261,23 +262,25 @@ classnum <- c(1,1,2,2)
 df_midterm <- data.frame(english, math, classnum)
 df_midterm
 str(df_midterm)
-colnames(df_midterm); rownames(df_midterm); names(df_midterm)
+colnames(df_midterm); rownames(df_midterm); names(df_midterm) # colnames == names 
 mean(df_midterm$english)
 mean(df_midterm$math)
+
 df_midterm2 <- data.frame(
   c(90, 80, 60, 70), c(50, 60, 100, 20), c(1,1,2,2))
-colnames(df_midterm2); rownames(df_midterm2); names(df_midterm2)
+colnames(df_midterm2); rownames(df_midterm2); names(df_midterm2) 
 df_midterm2
+
 df_midterm2 <- data.frame(
   영어=c(90, 80, 60, 70), 수학=c(50, 60, 100, 20), 
   클래스=c(1,1,2,2))
 df_midterm2
 df_midterm2$영어
 
-df <- data.frame(var1=c(4,3,8), var2=c(2,6)) # 오류
+df <- data.frame(var1=c(4,3,8), var2=c(2,6))    #모든 열은 데이터의 개수가 동일해야 함 -> 오류
 df <- data.frame(var1=c(4,3,8), var2=c(2,6,1))
 str(df)
-df$var_sum <- df$var1 + df$var2
+df$var_sum <- df$var1 + df$var2  #데이터 프레임에 새로운 변수를 추가: 파생변수 
 df$var_mean <- df$var_sum/2
 df$result <- ifelse(df$var1>df$var2, 
                     "var1이 크다", "var1이 작다")
@@ -289,7 +292,7 @@ score <- read.csv("score.csv")
 score
 str(score)
 score$sum <- score$math+score$english+score$science
-score$result <- ifelse(score$sum >= 200, "pass", "fail")
+score$result <- ifelse(score$sum >= 200, "pass", "fail") #조건식 
 score
 
 summary(score$result)
