@@ -1,0 +1,336 @@
+nums <- c(10, 5, 3, 9, 7)
+print(nums)
+c(10,"ABC")     # 자동 형변환 숫자->문자열
+c(10,T)         # 자동 현변환 문자 -> 숫자
+c(10,"ABC",T)   # -> 모두 문자열 리터럴 
+
+
+x <- c(10,2,7,4,15)
+x
+print(x)
+class(x)
+rev(x)
+range(x)
+sort(x)
+sort(x, decreasing = TRUE)
+sort(x, decreasing = T)
+length(x)
+x<- c(1,4,6,8,9); x
+x[2]
+x[-2]
+x[c(1,3,5)]
+x[3] <- 10
+x
+x+1  # x + c(1) -> x + (1,1,1,1,1)
+x
+x <- x+1
+x
+max(x)
+min(x)
+mean(x)
+sum(x)
+x>5
+x[x>5]  # x[c(T,F,T,F,T)]
+x[c(F,F,T,T,T)] # x[c(3,4,5)]
+x[2<x & x<10]; x[2<x && x<10]
+# R의 builtin constants
+letters
+LETTERS
+month.name
+month.abb
+pi
+names(x) <- LETTERS[1:5] # LETTERS[c(1,2,3,4,5)]
+x[3]
+x["C"]
+z <- -5:5; names(z)
+z1 <- 10:20; z11 <- 20:10
+z;z1;z11
+z2 <- seq(from=1, to=20, by=3);
+z2 <- seq(by=3,from=1, to=20)
+z3 <- seq(10,20,2)
+?seq
+sample(1:20, 5)
+sample(1:45, 6)
+sample(1:10, 10)
+sample(1:10, 10, replace=T)
+r1 <- sample(10:20, 5)
+r2 <- sample(1:9, 5)
+r1;r2
+r4 <- append(r2, r1)
+r3 <- replace(r1, c(2,3), c(100,200))
+rep(9,5)
+rep(1:5,3)# rep(1:5,times=3); 
+rep(1:5, each=3)
+
+x <- 1:3; y <-c(4,2,8)
+x;y
+x>y
+x>=y
+x==y
+y >3 # y > c(3,3,3)
+
+#연산기호 비교
+c(T,T,F,F) & c(T,F,T,F)
+c(T,T,F,F) | c(T,F,T,F)
+c(T,T,F,F) && c(T,F,T,F)
+c(T,T,F,F) || c(T,F,T,F)
+#논리 + 숫자 --> 논리 T = 1, F = 0
+c(T,T,F,F) + 1:4
+
+a1 <- LETTERS[1]
+a2 <- LETTERS[c(1,3,5,7)]
+a3 <- LETTERS[1:10]
+a4 <- LETTERS
+a1;a2;a3;a4
+100->v1
+v1
+r1
+sum(r1); median(r1); mean(r1); max(r1); min(r1)
+summary(r1)
+summary(LETTERS)
+a<- -3:3
+ls()
+rm(a)
+w1 <- c(1,2,3,NA,4,5)
+length(w1)
+sum(w1)
+sum(w1, na.rm =T)
+w2 <- na.omit(w1);w2;length(w2)
+w2[1]
+sum(w2)
+rainfall<-c(21.6,23.6,45.8,77.0,
+            102.2,133.3,327.9,348.0,
+            137.6,49.3,53.0,24.9)
+rainfall >100
+rainfall[rainfall > 100]
+which(rainfall >100)
+which.max(rainfall)
+which.min(rainfall)
+month.name[which.max(rainfall)]
+month.name[which(rainfall>100)]
+
+
+
+
+
+
+month.korname <-c("1월","2월","3월","4월",
+                  "5월","6월","7월","8월",
+                  "9월","10월","11월","12월")
+month.korname[which.max(rainfall)]
+month.korname[which(rainfall>100)]
+
+
+# MATRIX 테스트
+vec1 <- c(1,2,3)
+vec2 <- c(4,5,6)
+vec3 <- c(7,8,9)
+mat1 <- rbind(vec1,vec2,vec3); mat1
+mat2 <- cbind(vec1,vec2,vec3); mat2
+mat1[1,1]
+mat1[2,];mat1[,3]
+mat1[1,1,drop=F]
+mat1[2,,drop=F];mat1[,3,drop=F]
+
+rownames(mat1) <- NULL
+colnames(mat2) <- NULL
+mat1;mat2
+rownames(mat1) <- c("row1","row2","row3")
+colnames(mat1) <- c("col1","col2","col3")
+
+chars <- letters[1:10]
+
+mat1 <-matrix(chars)
+mat1; dim(mat1)
+mat2 <-matrix(chars, nrow=1)
+mat2
+mat3 <-matrix(chars, nrow=5)
+mat3
+mat4 <-matrix(chars, nrow=5, byrow=T)
+mat4
+mat5 <- matrix(chars, ncol=5)
+mat5
+mat6 <- matrix(chars, ncol=5, byrow=T)
+mat6
+mat7 <- matrix(chars, nrow=3, ncol=5)
+mat7
+mat8 <- matrix(chars, nrow=3)
+mat8
+
+x1 <-matrix(1:8, nrow = 2)
+x1
+x1<-x1*3;x1
+
+sum(x1); min(x1);max(x1);mean(x1)
+
+x2 <-matrix(1:8, nrow =3)
+x2
+
+mat1;max(mat1);min(mat1);sum(mat1);mean(mat1);median(mat1)
+
+mean(x2); sum(x2)
+mean(x2[2,])
+sum(x2[2,])
+rowSums(x2); colSums(x2)
+apply(x2, 1, sum); apply(x2, 2, sum)  
+?apply
+apply(x2, 1, max)
+apply(x2, 1, min)
+apply(x2, 1, mean)
+
+apply(x2, 2, max)
+apply(x2, 2, min)
+apply(x2, 2, mean)
+
+
+#배열
+a1 <- array(1:30, dim=c(2,3,5))
+a1
+
+a1[1,3,4]
+
+a1[,,3]
+
+a1[,2,]
+
+a1[1,,]
+
+
+
+#factor
+score <-c(1,3,2,4,2,1,3,5,1,3,3,3)
+summary(score)
+
+#factor 만드는 방법: factor함수 호출
+f_score <- factor(score)
+score;f_score
+
+#summary of factor show the number of each levels
+summary(f_score)
+levels(f_score)
+data <- c("월","수","토","월","목","화")
+summary(data)
+day <- factor(data)
+summary(day)
+iris
+View(iris)
+str(iris)
+summary(iris)
+
+#Dataframe
+no <- c(1,2,3,4)
+name <- c('Apple','Banana','Peach','Berry')
+qty <- c(5,2,7,9)
+price <- c(500,200,200,500)
+fruit <- data.frame(no, name, qty, price)
+str(fruit)
+View(fruit)
+#vector form
+fruit[1,]
+fruit[-1,]
+fruit[,2]
+fruit[,3]
+fruit[, c(3,4)]
+fruit[3,2]
+fruit[3,1]
+
+fruit[,3]
+fruit[3]
+
+#vector form
+fruit$qty
+fruit[[3]]
+
+str(fruit$qty)
+str(fruit[3])
+
+# dataframe exam1
+english <- c(90, 80, 60, 70)
+math <- c(50, 60, 100, 20)
+classnum <- c(1,1,2,2)
+df_midterm <- data.frame(english, math, classnum)
+df_midterm
+str(df_midterm)
+colnames(df_midterm); rownames(df_midterm); names(df_midterm)
+mean(df_midterm$english)
+mean(df_midterm$math)
+df_midterm2 <- data.frame(
+  c(90, 80, 60, 70), c(50, 60, 100, 20), c(1,1,2,2))
+colnames(df_midterm2); rownames(df_midterm2); names(df_midterm2)
+df_midterm2
+df_midterm2 <- data.frame(
+  영어=c(90, 80, 60, 70), 수학=c(50, 60, 100, 20), 
+  클래스=c(1,1,2,2))
+df_midterm2
+df_midterm2$영어
+
+df <- data.frame(var1=c(4,3,8), var2=c(2,6)) # 오류
+df <- data.frame(var1=c(4,3,8), var2=c(2,6,1))
+str(df)
+df$var_sum <- df$var1 + df$var2
+df$var_mean <- df$var_sum/2
+df$result <- ifelse(df$var1>df$var2, 
+                    "var1이 크다", "var1이 작다")
+
+getwd()
+
+#csv파일열기
+score <- read.csv("score.csv")
+score
+str(score)
+score$sum <- score$math+score$english+score$science
+score$result <- ifelse(score$sum >= 200, "pass", "fail")
+score
+
+summary(score$result)
+table(score$result)
+summary(factor(score$result))
+
+summary(score)
+
+
+#dataframe exam3
+emp <- read.csv(file.choose())
+emp
+str(emp)
+# 1. emp에서 직원 이름
+emp$ename
+emp[,2]
+emp[,"ename"] 
+emp[,2, drop=FALSE] 
+emp[,"ename",drop=F] 
+emp[2]
+emp["ename"] 
+# 2. emp에서 직원이름, 잡, 샐러리
+emp[,c(2,3,6)]
+emp[,c("ename","job","sal")]
+subset(emp,select = c(ename, job, sal))
+# 3. emp에서 1,2,3 행 들만
+emp[1:3,]
+emp[c(1,2,3),]
+# 4. ename이 "KING"인 직원의 모든 정보
+emp[9,] 
+subset(emp,subset= emp$ename=="KING")
+subset(emp,emp$ename=="KING") 
+emp[c(F,F,F,F,F,F,F,F,T,F,F,F,F,F),]
+emp[emp$ename=="KING",] 
+# 5. select ename,sal from emp where sal>=2000
+subset(emp, select=c("ename","sal"), subset= emp$sal>= 2000)
+emp[emp$sal>=2000,c("ename","sal")]
+
+# 6. select ename,sal from emp where sal between 2000 and 3000
+subset(emp, select=c("ename","sal"), subset=(sal>=2000 & sal<=3000))
+emp[emp$sal>=2000 & emp$sal <=3000, c("ename","sal")]
+
+
+score$grade <- ifelse(score$sum >= 230,"A",
+                      ifelse(score$sum >= 215,"B", 
+                             ifelse(score$sum >=200,"C","D")))
+score
+subset(score, subset="row(score)>=3 & row(score)>=5")
+
+v1 <- c(30, 10, 20, 15, 40)
+order(v1)
+sort(v1)
+
+# emp 데이터셋에서 월급이 적은순으로 직원이름과 월급을 추출한다.
