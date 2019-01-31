@@ -74,7 +74,7 @@ lds
 lds+100
 lds[1]
 lds[1]+10
-lds[[1]]+10
+lds[[1]]+10     # [[]] 사용 
 names(lds) <- LETTERS[1:3]
 lds
 lds[[2]]
@@ -82,25 +82,28 @@ lds[["B"]]
 lds$B
 
 
-a<-list(
+a<-list(        #list : 모든 데이터 타입 & 함수 저장 가능 
   a = 1:3,
   b= "a string",
   c=pi,
   d=list(-1,-5)
 )
-
+a
 a[1]
-a[[1]]
+a[[1]]          #list의 데이터를 사용하기 위해서 [[]] 또는 $ 를 써야함 -> vector반환 
 a$a
 a[[1]][1]
 a$a[1]
 
-a[1]+1
+a[1]+1          #[] 로는 list상의 데이터를 access 할 수 없음 
 a[[1]]+1
 
-unlist(a[1])
+unlist(a[1])    #unlist() : list형태를 해제하고 vector로 반환 (names 존재)
 
-paste("I'm","Duli","!!")
+cat(100,200)              #cat : 여러 값을 출력, 가변 매개변수 지원 
+cat(100,200,"\n")
+
+paste("I'm","Duli","!!")  #paste : 문자열 결합 
 
 fruit <- c("Apple", "Banana", "Strawberry")
 food <- c("Pie","Juice", "Cake")
@@ -108,14 +111,14 @@ paste(fruit, food)
 
 paste(fruit, food, sep="")
 paste(fruit, food, sep=":::")
-paste(fruit, food, sep="", collapse="-")
+paste(fruit, food, sep="", collapse="-") #원소 전체를 합칠 때 collapse 지정 
 paste(fruit, food, sep="", collapse="")
 paste(fruit, food, collapse=",")
 
 site<-"http://movie.naver.com/movie/point/af/list.nhn?page="
 pageNum <- 10
 url <- paste(site, pageNum, sep="")
-
+url
 
 #지금까지 만들어진 데이터set와 함수 저장
 ls()
@@ -127,13 +130,16 @@ load("all.rda")
 ls()
 
 #read file data
-nums <- scan("sample_num.txt")
-word_ansi <- scan("sample_ansi.txt",what="")
-words_utf8 <- scan("sample_utf8.txt", what="",encoding="UTF-8")
-lines_ansi <- readLines("sample_ansi.txt")
+nums <- scan("sample_num.txt")               #token 단위의 글을 읽는 경우, 
+nums                                         #기본 number 데이터타입으로 저장  
+word_ansi <- scan("sample_ansi.txt",what="") #문자열일 경우 what 옵션 
+word_ansi                                    #외부 파일을 읽을 때 기본 : CP979, MS949, EUC-KR, ANSI
+words_utf8 <- scan("sample_utf8.txt", what="",encoding="UTF-8")  #encoding="UTF-8" 주어야 한글깨짐 방지 
+
+lines_ansi <- readLines("sample_ansi.txt")   #행단위로 읽음 
 lines_utf8 <- readLines("sample_utf8.txt",encoding="UTF-8")
 
-df2 <- read.table("product_click.log")
+df2 <- read.table("product_click.log")       #read.table : tab으로 분류 되어 있을 때 
 str(df2)
 summary(df2$V2)
 summary(df2$V2)[1]
@@ -147,7 +153,7 @@ if(randomNum>5){
   cat(randomNum,":5보다 작거나 같군요","\n")
 }
 
-if(randomNum%%2){
+if(randomNum%%2){       #조건식에서 1: True, 0: False
   cat(randomNum,";홀수","\n")
 }else{
   cat(randomNum,";짝수","\n")
@@ -265,6 +271,11 @@ for(num in 1:10){
   cat(num,":",switch(EXPR = num,"7"="A","8"="B","9"="C","10"="D", "ㅋㅋ"),"\n")
 }
 
+for(num in 1:10){
+  cat(num,":",switch(EXPR = as.character(num),"7"="A","8"="B","9"="C","10"="D", "ㅋㅋ"),"\n")
+}
+
+
 #break 와 next
 #next는 java에서 continue와 비슷하다.
 sum <-0
@@ -320,11 +331,13 @@ func4(y=11,z=22,x=33)
 func4(z=1000)  
 
 # 쉬트에 있는 함수 코드
-f1 <- function() print("TEST")
+f1 <- function() print("TEST")     #한줄에 나타낼 때 {} 안써도 됨  
 f2 <- function(num) {print("TEST"); print(num) }
-f3<- function (p="R") print(p)
+f3<- function (p="R") print(p)     
+#arg가 하나일경우 지정하지 않아도 됨 f3(), f3(p="python"),f3(p="java") default 값이 있어도 arg 변경 가능  
 f4<- function (p1="ㅋㅋㅋ",p2) for(i in 1:p2) print(p1)
 f5<- function(...) { print("TEST"); data <- c(...); print(length(data))}
+#매개변수를 가변적으로 처리 가능 
 f6<- function(...) {
   print("수행시작")
   data <- c(...)
@@ -333,6 +346,7 @@ f6<- function(...) {
   }
   return(length(data))
 }
+f6();
 f7<- function(...) {
   data <- c(...)
   sum <- 0;
