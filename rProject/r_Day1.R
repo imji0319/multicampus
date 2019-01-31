@@ -212,7 +212,7 @@ score <-c(1,3,2,4,2,1,3,5,1,3,3,3)
 summary(score)
 
 #factor 만드는 방법: factor함수 호출
-f_score <- factor(score)
+f_score <- factor(score) # factor : 범주형 데이터 => levels 
 score;f_score
 
 #summary of factor show the number of each levels
@@ -285,65 +285,3 @@ df$var_mean <- df$var_sum/2
 df$result <- ifelse(df$var1>df$var2, 
                     "var1이 크다", "var1이 작다")
 
-getwd()
-
-#csv파일열기
-score <- read.csv("score.csv")
-score
-str(score)
-score$sum <- score$math+score$english+score$science
-score$result <- ifelse(score$sum >= 200, "pass", "fail") #조건식 
-score
-
-summary(score$result)
-table(score$result)
-summary(factor(score$result))
-
-summary(score)
-
-
-#dataframe exam3
-emp <- read.csv(file.choose())
-emp
-str(emp)
-# 1. emp에서 직원 이름
-emp$ename
-emp[,2]
-emp[,"ename"] 
-emp[,2, drop=FALSE] 
-emp[,"ename",drop=F] 
-emp[2]
-emp["ename"] 
-# 2. emp에서 직원이름, 잡, 샐러리
-emp[,c(2,3,6)]
-emp[,c("ename","job","sal")]
-subset(emp,select = c(ename, job, sal))
-# 3. emp에서 1,2,3 행 들만
-emp[1:3,]
-emp[c(1,2,3),]
-# 4. ename이 "KING"인 직원의 모든 정보
-emp[9,] 
-subset(emp,subset= emp$ename=="KING")
-subset(emp,emp$ename=="KING") 
-emp[c(F,F,F,F,F,F,F,F,T,F,F,F,F,F),]
-emp[emp$ename=="KING",] 
-# 5. select ename,sal from emp where sal>=2000
-subset(emp, select=c("ename","sal"), subset= emp$sal>= 2000)
-emp[emp$sal>=2000,c("ename","sal")]
-
-# 6. select ename,sal from emp where sal between 2000 and 3000
-subset(emp, select=c("ename","sal"), subset=(sal>=2000 & sal<=3000))
-emp[emp$sal>=2000 & emp$sal <=3000, c("ename","sal")]
-
-
-score$grade <- ifelse(score$sum >= 230,"A",
-                      ifelse(score$sum >= 215,"B", 
-                             ifelse(score$sum >=200,"C","D")))
-score
-subset(score, subset="row(score)>=3 & row(score)>=5")
-
-v1 <- c(30, 10, 20, 15, 40)
-order(v1)
-sort(v1)
-
-# emp 데이터셋에서 월급이 적은순으로 직원이름과 월급을 추출한다.
