@@ -1,3 +1,6 @@
+getwd()
+setwd("C:/Users/student/Documents/multicampus/rProject")
+
 
 # httr 패키지 사용 - GET 방식 요청
 install.packages("httr")
@@ -263,9 +266,13 @@ str(mpg)
 
 install.packages("readxl")
 library(readxl)
-setwd("C:/Users/student/Documents/multicampus/rProject")
-df_exam <- read_excel("excel_exam.xlsx")
+
+df_exam <- read_excel("datafile/excel_exam.xlsx")
 df_exam
 
-df_exam_sheet <- read_excel("excel_exam_sheet.xlsx", sheet=3)
+df_exam_sheet <- read_excel("datafile/excel_exam_sheet.xlsx", sheet=3)
 df_exam_sheet
+
+#rename 이용 -> dplyr 패키지 설치 
+install.packages("dplyr")
+library(dplyr)
