@@ -1,0 +1,10 @@
+library(ggplot2)
+library(dplyr)
+
+mpg <- as.data.frame(ggplot2::mpg)
+class_cty <- mpg %>% select(class, cty)
+head(class_cty)
+suv <- class_cty %>% filter(class =="suv")
+compact <- class_cty %>% filter(class =="compact")
+mean(suv$cty)
+mean(compact$cty)
