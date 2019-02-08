@@ -3,8 +3,18 @@
 
 ### 활용 프로그램
 - java
-- Oracle
+  * javascript
+  * servlet
+  * jsp
+  * jquery
+  * ajax 
+- SQL
+  Oracle
+  * jdbc 
+- HTML + CSS
 - linux
 - Hadoop
 - R 
 - Python
+
+
