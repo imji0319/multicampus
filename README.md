@@ -9,7 +9,7 @@
   * jquery
   * ajax 
 - SQL
-  Oracle
+  * Oracle
   * jdbc 
 - HTML + CSS
 - linux
