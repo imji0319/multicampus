@@ -39,8 +39,13 @@ writeBin(content(res, 'raw'), 'c:/Temp/httr.pdf')
 h = read_html('http://unico2013.dothome.co.kr/productlog.html')
 imgs = html_nodes(h, 'img')       #이미지 속성 img
 img.src = html_attr(imgs, 'src')  
+
+
 for(i in 1:length(img.src)){
   res = GET(paste('http://unico2013.dothome.co.kr/',img.src[i], sep=""))
+  
+  print(res)
+  
   writeBin(content(res, 'raw'), paste('c:/Temp/', img.src[i], sep=""))
 } 
 
