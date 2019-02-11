@@ -24,7 +24,7 @@
 ## 2.1 Mini Project 
 : boardproject - 미니 프로젝트로 게시판 웹페이지 프로젝트를 진행. 
 
-#### 프로잭트내용
+### 프로잭트내용
 게시판 페이지를 운영하기 위해 게시물 작성, 수정, 삭제 기능과 게시판 목록을 나타내는 기본 기능을 포함하여야 하며 
 이후 로그인 기능과 검색 기능을 추가로 생성함. 
 게시물의 수가 많아졌을 경우에 대해 페이징 처리기능 추가함.
@@ -56,9 +56,19 @@
 
 
 ## 2.2 Final Project
-: cockproject - final project로 team으로 진행.
+: cockproject
 
-#### 프로젝트 내용
+### 프로젝트 내용
+칵테일 바를 창업한다고 가정.<br/>
+바에서 고객들에게 제공할 서비스 중 하나로 **칵테일 추천 서비스** 시스템을 개발. <br/>
+**칵테일 추천 서비스**는 고객의 선호 요소를 입력받아 필터링 프로그램을 통해 고객맞춤 칵테일을 추천.
+
+
+
+#### 데이터
+웹크롤링을 통해 데이터 수집 (R)
+- doopedia 칵테일 데이터 
+- 
 
 #### 기능 
 - 회원가입
@@ -71,15 +81,18 @@
 
 #### 구성 
 - DAO
-  * getCockList
+  * getBestList
   * getPersonalList
   * login
   * insertMember
   * updateMember
   * deleteMember
+  * orderCock
+  
 - VO
   * MemberVO
   * CocktailVO
+  
 - image 
   * 칵테일 이미지 사진 저장 
 

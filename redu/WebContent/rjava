@@ -1,0 +1,13 @@
+rjava
+
+r과 java을 연동 
+
+Maven 을 이용하여 추가적으로 필요한 API 관리
+	- 프로젝트를 maven에 의해 관리되는 프로젝트로 변환 : 그 외 설정 변환 필요 없음 
+	- pom.xml bulid태그 뒤에 dependency 태그 추가 (Rserve, REngine 라이브러리 import)
+
+tomcat 서버 등록 (add and remove)
+
+톰캣서버 기동 
+크롭브라우저에서 test.html 요청 
+( http://localhost:8081/redu/test.html )
