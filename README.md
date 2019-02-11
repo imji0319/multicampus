@@ -74,39 +74,32 @@
 - Naver 
 
 **CockTable**
-- cock_id<br/>
-  primary key
-- cockname<br/>
-  NOT NULL
-- alcohol 
-- alcohol_grade<br/>
-  NOT NULL
-- base
-- taste 
-- taste_cola<br/>
-  0 / 1
-- taste_choco<br/>
-  0 / 1
-- taste_fruit<br/>
-  0 / 1
-- taste_coffee<br/>
-  0 / 1
-- contents
+
+| column | desc | feature |
+| ------ | -----| ------- |
+| `cock_id` | 칵테일 ID |primary key |
+| `cockname` | 칵테일 이름 |NOT NULL |
+| `alcohol` | 알코올 도수 | |
+| `alcohol_grade`| 알코올 등급| NOT NULL |
+| `base` | 베이스 | |
+| `taste` | 맛 | |
+| `taste_cola`| 콜라맛 | 0 or 1  |
+| `taste_choco` | 초콜릿맛 | 0 or 1 |
+| `taste_fruit` | 과일맛 | 0 or 1 |
+| `taste_coffee` | 커피맛 | 0 or 1 |
+| `contents` | 기타 설명 | |
 
 **MemberTable**
-- name<br/>
-  NOT NULL
-- phone<br/>
-  primary key 
-- choice_1<br/>
-  cock_id
-- choice_2<br/>
-  cock_id
-- choice_3<br/>
-  cock_id
-- choice_4<br/>
-  cock_id
-  
+
+| column | desc  | feature |
+| ------ | ----- | ------- |
+| `name` | 이름 | NOT NULL |
+| `phone` | 전화번호 | primary key |
+| `choice_1` | 주문이력1 | cock_id 값 |
+| `choice_2` | 주문이력2 | cock_id 값 |
+| `choice_3` | 주문이력3 | cock_id 값 |
+| `choice_4` | 주문이력4 | cock_id 값 |  
+| `choice_5` | 주문이력5 | cock_id 값 |  
   
 #### 기능 
 - 회원가입
