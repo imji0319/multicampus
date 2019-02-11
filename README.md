@@ -80,12 +80,13 @@
 
 #### 구성 
 - DAO
-  * getCockList
+  * getBestList
   * getPersonalList
   * login
   * insertMember
   * updateMember
   * deleteMember
+  * orderCock
 - VO
   * MemberVO
   * CocktailVO
