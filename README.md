@@ -24,9 +24,9 @@
 ## 2.1 Mini Project 
 : boardproject - 미니 프로젝트로 게시판 웹페이지 프로젝트를 진행. 
 
-### 프로잭트내용
-게시판 페이지를 운영하기 위해 게시물 작성, 수정, 삭제 기능과 게시판 목록을 나타내는 기본 기능을 포함하여야 하며 
-이후 로그인 기능과 검색 기능을 추가로 생성함. 
+### 프로젝트내용
+게시판 페이지를 운영하기 위해 게시물 작성, 수정, 삭제 기능과 게시판 목록을 나타내는 기본 기능을 포함하여야 하며 <br/>
+이후 로그인 기능과 검색 기능을 추가로 생성함. <br/>
 게시물의 수가 많아졌을 경우에 대해 페이징 처리기능 추가함.
 
 #### 기능 
@@ -68,30 +68,75 @@
 #### 데이터
 웹크롤링을 통해 데이터 수집 (R)
 - doopedia 칵테일 데이터 
-- 추가 칵테일 데이터 추가 (daum 칵테일백과 조회수 기준 2page (40개)
+- Daum 칵테일 백과 조회수 기준 5Page : 100개 
+- daum & doopedia 데이터 merge (by daum 칵테일 이름)
+- twitter 
+- Naver 
 
+**CockTable**
+- cock_id<br/>
+  primary key
+- cockname<br/>
+  NOT NULL
+- alcohol 
+- alcohol_grade<br/>
+  NOT NULL
+- base
+- taste 
+- taste_cola<br/>
+  0 / 1
+- taste_choco<br/>
+  0 / 1
+- taste_fruit<br/>
+  0 / 1
+- taste_coffee<br/>
+  0 / 1
+- contents
+
+**MemberTable**
+- name<br/>
+  NOT NULL
+- phone<br/>
+  primary key 
+- choice_1<br/>
+  cock_id
+- choice_2<br/>
+  cock_id
+- choice_3<br/>
+  cock_id
+- choice_4<br/>
+  cock_id
+  
+  
 #### 기능 
 - 회원가입
 - 로그인 
-- 개인 추천 / BEST 칵테일 선택 기능 
+- 전체 리스트 / 개인 추천 / BEST 칵테일 중 선택 기능 
+- 전체 칵테일 리스트 출력
 - 개인 취향 선택 기능
 - 칵테일 개인 맞춤 추천 
-- 칵테일 리스트 출력
+- 해당 메뉴별 칵테일 리스트 출력
+- 장바구니
 - 주문 
 
 #### 구성 
 - DAO
+  * getAllList
   * getBestList
   * getPersonalList
   * login
   * insertMember
   * updateMember
-  * deleteMember
   * orderCock
   
 - VO
   * MemberVO
   * CocktailVO
+
+- JSP 
+  * 전체 List : all.jsp
+  * 개인 추천 List : personal.jsp
+  * BEST List : best.jsp
   
 - image 
   * 칵테일 이미지 사진 저장 
