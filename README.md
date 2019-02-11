@@ -59,7 +59,8 @@
 : cockproject
 
 ### 프로젝트 내용
-칵테일 바를 창업한다고 가정하고 바에서 고객들에게 제공할 서비스 중 하나로 **칵테일 추천 서비스** 시스템을 개발. <br/>
+칵테일 바를 창업한다고 가정.<br/>
+바에서 고객들에게 제공할 서비스 중 하나로 **칵테일 추천 서비스** 시스템을 개발. <br/>
 **칵테일 추천 서비스**는 고객의 선호 요소를 입력받아 필터링 프로그램을 통해 고객맞춤 칵테일을 추천.
 
 
@@ -80,15 +81,18 @@
 
 #### 구성 
 - DAO
-  * getCockList
+  * getBestList
   * getPersonalList
   * login
   * insertMember
   * updateMember
   * deleteMember
+  * orderCock
+  
 - VO
   * MemberVO
   * CocktailVO
+  
 - image 
   * 칵테일 이미지 사진 저장 
 
