@@ -12,7 +12,7 @@ public class RJavaOracleDB {
 			r.eval("library(DBI)");
 			r.eval("library(RJDBC)");
 			r.eval("library(rJava)");
-			r.eval("setwd('c:/Rstudy')");
+			r.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
 			r.eval("drv <- JDBC('oracle.jdbc.driver.OracleDriver','ojdbc6.jar')");
 			r.eval("conn <- dbConnect(drv, 'jdbc:oracle:thin:@localhost:1521:xe','javatest','javatest')");
 			if (type == 1)
@@ -49,7 +49,7 @@ public class RJavaOracleDB {
 			r.eval("library(DBI)");
 			r.eval("library(RJDBC)");
 			r.eval("library(rJava)");
-			r.eval("setwd('c:/Rstudy')");
+			r.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
 			r.eval("drv <- JDBC('oracle.jdbc.driver.OracleDriver','ojdbc6.jar')");
 			r.eval("conn <- dbConnect(drv, 'jdbc:oracle:thin:@localhost:1521:xe', 'javatest','javatest')");
 			r.eval("query <- 'SELECT * FROM VISITOR WHERE NAME = " + name + "'");
@@ -83,7 +83,7 @@ public class RJavaOracleDB {
 			r.eval("library(DBI)");
 			r.eval("library(RJDBC)");
 			r.eval("library(rJava)");
-			r.eval("setwd('c:/Rstudy')");
+			r.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
 			r.eval("drv <- JDBC('oracle.jdbc.driver.OracleDriver','ojdbc6.jar')");
 			r.eval("conn <- dbConnect(drv, 'jdbc:oracle:thin:@localhost:1521:xe', 'javatest','javatest')");
 			r.eval("insertSQL <- 'INSERT INTO visitor VALUES (" + name + ",sysdate," + content + ", visitor_seq.nextval)'");

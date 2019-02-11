@@ -10,7 +10,7 @@ import org.rosuda.REngine.Rserve.RserveException;
 public class RServeExample {
 	public static void getString() throws RserveException, REXPMismatchException {
 		RConnection rc = new RConnection();
-		REXP x = rc.eval("setwd('c:/Rstudy')");
+		REXP x = rc.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
 		x = rc.eval("getwd()");
 		System.out.println("워킹디렉토리 : " + x.asString());
 		rc.close();
@@ -47,7 +47,7 @@ public class RServeExample {
 	public static void getDataFrame1() throws RserveException, REXPMismatchException {
 		RConnection rc = new RConnection();
 		REXP x = rc.eval("d<-data.frame(LETTERS[11:20],c(11:20), stringsAsFactors=F)");
-		RList list = x.asList();
+		RList list = x.asList();   //dataframe -> asList()
 		int v_size = list.size();
 		int d_length = list.at(0).length();
 		System.out.println("데이터(관측치)의 갯수 : " +d_length);
@@ -71,7 +71,7 @@ public class RServeExample {
 	}
 	public static void getDataFrame2() throws RserveException, REXPMismatchException {
 		RConnection rc = new RConnection();
-		REXP x = rc.eval("imsi<-source('c:/RStudy/test.R'); imsi$value");
+		REXP x = rc.eval("imsi<-source('C:/Users/student/Documents/multicampus/rProject/test.R'); imsi$value");
 		RList list = x.asList();
 		
 		String pid = list.at("product").asString();	

@@ -8,7 +8,7 @@ public class RJavaGraph {
 		byte retImg[] = null;
 		try {
 			r = new RConnection();
-			r.eval("setwd('c:/Rstudy')");
+			r.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
 			r.eval("jpeg('test.jpg')");
 			r.eval("x <- 1:10");
 			r.eval("barplot(x, names='SALES', col=rainbow(15))");
@@ -33,7 +33,7 @@ public class RJavaGraph {
 			r.eval("library(DBI)");
 			r.eval("library(RJDBC)");
 			r.eval("library(rJava)");
-			r.eval("setwd('c:/Rstudy')");
+			r.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
 			r.eval("drv <- JDBC('oracle.jdbc.driver.OracleDriver','ojdbc6.jar')");
 			r.eval("conn <- dbConnect(drv, 'jdbc:oracle:thin:@localhost:1521:xe', 'javatest','javatest')");
 			r.eval("result <- dbGetQuery(conn, 'select * from productlog')");
@@ -62,8 +62,8 @@ public class RJavaGraph {
 		try {
 			r = new RConnection();
 			r.eval("library(ggplot2)");
-			r.eval("setwd('c:/Rstudy')");
-			r.eval("product_click <-read.table('c:/Rstudy/product_click.log')");
+			r.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
+			r.eval("product_click <-read.table('datafile/product_click.log')");
 			r.eval("colnames(product_click)<- c('date','id')");
 			r.eval("color_cnt <- unique(product_click$id)");
 
@@ -86,7 +86,7 @@ public class RJavaGraph {
 		byte retImg[] = null;
 		try {
 			r = new RConnection();
-			r.eval("setwd('c:/RStudy')");
+			r.eval("setwd('C:/Users/student/Documents/multicampus/rProject')");
 			r.eval("jpeg('test.jpg')");
 			r.eval("library(KoNLP)");
 			r.eval("library(rJava)");
