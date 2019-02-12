@@ -220,5 +220,5 @@ gsub("[1234567890]", "", word)
 gsub("[[:digit:]]", "", word) 
 gsub("[^[:alnum:]]", "", word) 
 gsub("[[:space:]]", "", word) 
-
+gsub("[A-z]","",word)
 
