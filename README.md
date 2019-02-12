@@ -64,6 +64,11 @@
 **칵테일 추천 서비스**는 고객의 선호 요소를 입력받아 필터링 프로그램을 통해 고객맞춤 칵테일을 추천.
 
 
+**< PROJECT PROCESS >**
+
+![process_img2](https://user-images.githubusercontent.com/34160245/52607184-a6def300-2eb8-11e9-9686-5ce8428e3799.jpg)
+
+
 
 #### 데이터
 웹크롤링을 통해 데이터 수집 (R)
@@ -81,13 +86,13 @@
 | `cockname` | 칵테일 이름 |NOT NULL |
 | `alcohol` | 알코올 도수 | |
 | `alcohol_grade`| 알코올 등급| NOT NULL |
+| `main_matarial`| 주재료 | |
+| `sub_matarial`| 부재료 | |
 | `base` | 베이스 | |
-| `taste` | 맛 | |
 | `taste_cola`| 콜라맛 | 0 or 1  |
 | `taste_choco` | 초콜릿맛 | 0 or 1 |
 | `taste_fruit` | 과일맛 | 0 or 1 |
 | `taste_coffee` | 커피맛 | 0 or 1 |
-| `contents` | 기타 설명 | |
 
 **MemberTable**
 
