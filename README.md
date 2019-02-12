@@ -86,13 +86,13 @@
 | `cockname` | 칵테일 이름 |NOT NULL |
 | `alcohol` | 알코올 도수 | |
 | `alcohol_grade`| 알코올 등급| NOT NULL |
+| `main_matarial`| 주재료 | |
+| `sub_matarial`| 부재료 | |
 | `base` | 베이스 | |
-| `taste` | 맛 | |
 | `taste_cola`| 콜라맛 | 0 or 1  |
 | `taste_choco` | 초콜릿맛 | 0 or 1 |
 | `taste_fruit` | 과일맛 | 0 or 1 |
 | `taste_coffee` | 커피맛 | 0 or 1 |
-| `contents` | 기타 설명 | |
 
 **MemberTable**
 
