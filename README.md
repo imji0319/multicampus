@@ -64,6 +64,11 @@
 **칵테일 추천 서비스**는 고객의 선호 요소를 입력받아 필터링 프로그램을 통해 고객맞춤 칵테일을 추천.
 
 
+**< PROJECT PROCESS >**
+
+![process_img2](https://user-images.githubusercontent.com/34160245/52607184-a6def300-2eb8-11e9-9686-5ce8428e3799.jpg)
+
+
 
 #### 데이터
 웹크롤링을 통해 데이터 수집 (R)
