@@ -14,6 +14,7 @@
 		font-size : 0.75em;
 		color : #333;
 	}
+	
 	#loginform {width:200px;
 			margin : 100px auto;
 			border :2px solid gray;
