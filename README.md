@@ -78,7 +78,8 @@
 - twitter 
 - Naver 
 
-**CockTable** </br>
+##### DB table
+**Cocktail** </br>
 : cocktail table로 daum 백과사전 데이터 기반 
 
 | column | desc | feature |
@@ -95,7 +96,7 @@
 | `taste_fruit` | 과일맛 | 0 or 1 |
 | `taste_coffee` | 커피맛 | 0 or 1 |
 
-**MemberTable** </br>
+**Member** </br>
 : 고객의 정보를 저장하는 table
 
 | column | desc  | feature |
@@ -108,7 +109,7 @@
 | `choice_4` | 주문이력4 | cock_id 값 |  
 | `choice_5` | 주문이력5 | cock_id 값 |  
 
-**CockFrequecyTable** </br>
+**CockFrequecy** </br>
 : 초기 데이터는 SNS, 웹페이지 크롤링을 통해 얻은 각 칵테일별 출현빈도수 Table로 이후 주문이력에 따라 빈도수 변화
 
 | column | desc  | feature |
