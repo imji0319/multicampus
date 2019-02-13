@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시물 수정</title>
-<script src="jquery-3.2.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#save").on('click',function(){
