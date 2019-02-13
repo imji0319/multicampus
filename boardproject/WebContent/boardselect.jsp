@@ -17,7 +17,7 @@
 	table {border : dashed navy 2px;}
 	#line {line-height:1em }
 </style>
-<script src="jquery-3.2.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#write").on('click',function(){

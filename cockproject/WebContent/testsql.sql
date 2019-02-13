@@ -6,4 +6,5 @@ create table test (
 insert into test values (100,'홍길동');
 
 
-select * from test
+select * from cocktail
+

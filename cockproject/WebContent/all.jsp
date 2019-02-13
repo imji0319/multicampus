@@ -54,6 +54,14 @@
       
 
     </style>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	alert("1")
+});//ready
+
+</script>
+
   </head>
   <body>
   <div id = list>
