@@ -138,6 +138,7 @@
   * insertMember
   * updateMember
   * orderCock
+  * getTotalCock
   
 - VO
   * MemberVO
