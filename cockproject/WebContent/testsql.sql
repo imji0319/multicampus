@@ -8,3 +8,4 @@ insert into test values (100,'홍길동');
 
 select * from cocktail
 
+
