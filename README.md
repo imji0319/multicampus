@@ -103,11 +103,8 @@
 | ------ | ----- | ------- |
 | `name` | 이름 | NOT NULL |
 | `phone` | 전화번호 | primary key |
-| `choice_1` | 주문이력1 | cock_id 값 |
-| `choice_2` | 주문이력2 | cock_id 값 |
-| `choice_3` | 주문이력3 | cock_id 값 |
-| `choice_4` | 주문이력4 | cock_id 값 |  
-| `choice_5` | 주문이력5 | cock_id 값 |  
+| `choice` | 주문이력 | cock_id 값 |
+| `order_data`| 주문날짜 | sysdate |
 
 **CockFrequecy** </br>
 : 초기 데이터는 SNS, 웹페이지 크롤링을 통해 얻은 각 칵테일별 출현빈도수 Table로 이후 주문이력에 따라 빈도수 변화
@@ -131,26 +128,31 @@
 
 #### 구성 
 - DAO
-  * getAllList
-  * getBestList
-  * getPersonalList
-  * login
-  * insertMember
-  * updateMember
-  * orderCock
-  * getTotalCock
+  + CockDAO
+    * getAllList
+    * getBaseList
+    * getPersonalList
+    * getTotalCock
+    * getBestList
   
+  + MemberDAO
+    * insertBoard
+    * login
+
 - VO
-  * MemberVO
-  * CocktailVO
+    * MemberVO
+    * CocktailVO
+    * BestVO
+    * PersonalVO
+
 
 - JSP 
-  * 전체 List : all.jsp
-  * 개인 추천 List : personal.jsp
-  * BEST List : best.jsp
+    * 전체 List : all.jsp
+    * 개인 추천 List : personal.jsp
+    * BEST List : best.jsp
   
 - image 
-  * 칵테일 이미지 사진 저장 
+    * 칵테일 이미지 사진 저장 
 
 
 
