@@ -53,11 +53,10 @@ new Swiper('.swiper-container', {
 	align-items:center; /* 위아래 기준 중앙정렬 */
 	justify-content:center; /* 좌우 기준 중앙정렬 */
 	}
-
-
+	
 a:visited {
 	text-decoration: None;
-	text : black;
+	text:black
 }
 
 a:hover{
@@ -66,7 +65,7 @@ a:hover{
 
 #menu {
 	float:left;
-	width : 15%;
+	width:15%;
 	text-align: center;
 }
 
@@ -74,16 +73,18 @@ ul{
 	list-style-type: none;
 }
 
+
 </style>
 
 </head>
 <body>
 <div class=container>
-<div>
-	<h1 style="text-align:center">  ALL MENU </h1>
-</div>
+	<div>
+		<h1 style="text-align:center">  ALL MENU </h1>
+	</div>
+
 	<nav id=menu>
-		<h3>  BASE </h3>
+		<h3>BASE</h3>
 		<ul>
 		<li><a href="all_list.jsp">ALL</a></li>
 		<li><a href="base.jsp?base=보드카">VODCA</a></li>
@@ -95,16 +96,16 @@ ul{
 		<li><a href="base.jsp?base=논알콜">NONE</a></li>
 		</ul>
 	</nav>
-
-<!-- 클래스명은 변경하면 안 됨 -->
-<div class="swiper-container">
-	<div class="swiper-wrapper">
-
-		<%
-		
+	
+	<!-- 클래스명은 변경하면 안 됨 -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+		<% 	
+		String base = request.getParameter("base");
 		CockDAO dao = new CockDAO();
-		int total=dao.getTotalCock();
-		int pagecount ;
+		int total=dao.getTotalCock(base);
+		int pagecount;
+		
 		if (total % 6 != 0){
 			  pagecount = total/6 + 1;
 		}
@@ -112,20 +113,20 @@ ul{
 			pagecount = total/6;
 		}
 		
-			for (int i=1;i<=pagecount;i++){
-				out.println("<div class='swiper-slide'>"+
-							"<table border='1'>"+
-							"<tr><td> cock_id </td><td> cock_name </td><td> alcohol_grade </td><td> base </td></tr>"); 
+		for (int i=1;i<=pagecount;i++){
+			out.println("<div class='swiper-slide'>"+
+						"<table border='1'>"+
+						"<tr><td> cock_id </td><td> cock_name </td><td> alcohol_grade </td><td> base </td></tr>"); 
+
+			ArrayList<CocktailVO> list = dao.getBaseList(base,i);
 				
-				ArrayList<CocktailVO> list = dao.getAllList(i);
 				
-				
-				for (int j=0; j<list.size();j++){
-					CocktailVO vo = list.get(j);
-					out.println("<tr><td>" + vo.getCock_id() 
-								+"</td><td>" + vo.getCock_name() 
-								+"</td><td>" + vo.getAlcohol_grade()
-								+"</td><td>" + vo.getBase()+"</tr>" );
+			for (int j=0; j<list.size();j++){
+				CocktailVO vo = list.get(j);
+				out.println("<tr><td>" + vo.getCock_id() 
+							+"</td><td>" + vo.getCock_name() 
+							+"</td><td>" + vo.getAlcohol_grade()
+							+"</td><td>" + vo.getBase()+"</tr>" );
 				}
 		%>
 
@@ -133,19 +134,22 @@ ul{
 		} //for end  %>
 
 		
+		</div>
+
+		<!-- 네비게이션 -->
+		<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+		<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+
+		<!-- 페이징 -->
+		<div class="swiper-pagination"></div>
 	</div>
-
-	<!-- 네비게이션 -->
-	<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-	<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-
-	<!-- 페이징 -->
-	<div class="swiper-pagination"></div>
+	
 </div>
-</div>
+
 
 <!-- 예제 종료 -->
 
 
 </body>
 </html>
+

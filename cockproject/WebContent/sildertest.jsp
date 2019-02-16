@@ -20,7 +20,6 @@ new Swiper('.swiper-container', {
 		el : '.swiper-pagination',
 		clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
 	},
-	
 	navigation : { // 네비게이션
 		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
 		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
@@ -34,14 +33,13 @@ new Swiper('.swiper-container', {
 <!-- 예제 시작 -->
 
 <!-- 이 예제에서는 필요한 js, css 를 링크걸어 사용 -->
-<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
 
 <style type="text/css">
 
 .swiper-container {
-	width:75%;
-	height : 700px;
+	width:640px;
 	padding:30px 0;
 	border:5px solid silver;
 	border-radius:7px;
@@ -52,71 +50,36 @@ new Swiper('.swiper-container', {
 	display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
 	align-items:center; /* 위아래 기준 중앙정렬 */
 	justify-content:center; /* 좌우 기준 중앙정렬 */
-	}
-
-
-a:visited {
-	text-decoration: None;
-	text : black;
+}
+.swiper-slide img {
+	box-shadow:0 0 5px #555;
 }
 
-a:hover{
-	text-decoration: underline;
-}
-
-#menu {
-	float:left;
-	width : 15%;
-	text-align: center;
-}
-
-ul{
-	list-style-type: none;
-}
+/* 예제를 위한 설정 */
+.swiper-slide:nth-child(odd) img { height:400px; } /* 홀수번째 이미지 높이 400px */
+/* 참고 : 예제에서는 짝수 번째에 적용됩니다. Swiper를 적용하면 그렇게 됩니다. */
 
 </style>
 
 </head>
 <body>
-<div class=container>
 <div>
-	<h1 style="text-align:center">  ALL MENU </h1>
+	<h1>  ALL MENU </h1>
 </div>
-	<nav id=menu>
-		<h3>  BASE </h3>
-		<ul>
-		<li><a href="all_list.jsp">ALL</a></li>
-		<li><a href="base.jsp?base=보드카">VODCA</a></li>
-		<li><a href="base.jsp?base=위스키">WHISKY</a></li>
-		<li><a href="base.jsp?base=데킬라">TEQULIA</a></li>
-		<li><a href="base.jsp?base=와인">WINE</a></li>
-		<li><a href="base.jsp?base=럼">LUM</a></li>
-		<li><a href="base.jsp?base=리큐어">LIQUEUR</a></li>
-		<li><a href="base.jsp?base=논알콜">NONE</a></li>
-		</ul>
-	</nav>
 
 <!-- 클래스명은 변경하면 안 됨 -->
 <div class="swiper-container">
 	<div class="swiper-wrapper">
+		<div class="swiper-slide"><img src="http://oldmidi.cdn3.cafe24.com/p/474.jpg"></div>
 
-		<%
-		
-		CockDAO dao = new CockDAO();
-		int total=dao.getTotalCock();
-		int pagecount ;
-		if (total % 6 != 0){
-			  pagecount = total/6 + 1;
-		}
-		else{
-			pagecount = total/6;
-		}
-		
-			for (int i=1;i<=pagecount;i++){
+		<% 
+			for (int i=1;i<=17;i++){
 				out.println("<div class='swiper-slide'>"+
 							"<table border='1'>"+
 							"<tr><td> cock_id </td><td> cock_name </td><td> alcohol_grade </td><td> base </td></tr>"); 
 				
+				
+				CockDAO dao = new CockDAO();
 				ArrayList<CocktailVO> list = dao.getAllList(i);
 				
 				
@@ -142,7 +105,9 @@ ul{
 	<!-- 페이징 -->
 	<div class="swiper-pagination"></div>
 </div>
-</div>
+<div style="text-align:center; margin-top:5px;">랜덤사진 갤러리</div>
+
+
 
 <!-- 예제 종료 -->
 
