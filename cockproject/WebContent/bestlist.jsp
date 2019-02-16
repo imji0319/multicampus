@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.BestVO"%>
-<%@page import="dao.BestDAO"%>
+<%@page import="dao.CockDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ $(document).ready(function(){
 <h3 align="center">이달의 추천 리스트</h3>
 <body>
 <%
-BestDAO dao = new BestDAO();
+CockDAO dao = new CockDAO();
 ArrayList<BestVO> list = dao.getBestList();
 
 %>
