@@ -39,6 +39,14 @@ new Swiper('.swiper-container', {
 
 <style type="text/css">
 
+html { background: url(photo/backweb.jpg) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+}
+		
+		
 .swiper-container {
 	width:75%;
 	height : 700px;
@@ -80,7 +88,7 @@ ul{
 <body>
 <div class=container>
 <div>
-	<h1 style="text-align:center">  ALL MENU </h1>
+	<h1 style="text-align:center"> ALL MENU LIST </h1>
 </div>
 	<nav id=menu>
 		<h3>  BASE </h3>

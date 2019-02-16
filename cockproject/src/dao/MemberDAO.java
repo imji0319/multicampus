@@ -13,7 +13,7 @@ public class MemberDAO {
 		String result="";
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","javatest","javatest"); 
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA");
 			System.out.println("DB 연결");
 			String sql1 = 
 					"select phone from membertable where phone=?";
@@ -23,7 +23,7 @@ public class MemberDAO {
 			ResultSet rs1 = pt1.executeQuery();
 			
 			if( !rs1.next()) {
-				String sql = "insert into membertable values(?,?)";
+				String sql = "insert into membertable(phone,name) values(?,?)";
 				System.out.println("가입하러 if문 들어옴");
 				PreparedStatement pt = con.prepareStatement(sql);
 				pt.setString(1,vo.getPhone());
@@ -46,7 +46,7 @@ public class MemberDAO {
 		String name="";
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","javatest","javatest"); 
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
 			System.out.println("DB 연결");
 			String sql = "select name "
 					+ " from membertable where phone=? and name=?";
