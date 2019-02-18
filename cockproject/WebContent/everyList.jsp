@@ -7,12 +7,8 @@
 <title>Insert title here</title>
 <style>
 
-html { background: url(photo/backweb.jpg) no-repeat center center fixed; 
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-}
+html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+
 
 	.container {
 		width: 70%;

@@ -1,0 +1,50 @@
+	<div class="swiper-wrapper">
+
+		<%
+		
+		CockDAO dao = new CockDAO();
+		int total=dao.getTotalCock();
+		int pagecount ;
+		if (total % 6 != 0){
+			  pagecount = total/6 + 1;
+		}
+		else{
+			pagecount = total/6;
+		}
+		
+			for (int i=1;i<=pagecount;i++){
+				out.println("<div class='swiper-slide'> <div class='jb-table'>"); 
+				
+				ArrayList<CocktailVO> list = dao.getAllList(i);
+				
+				int num;
+				if (list.size() % 2 !=0){
+					num = list.size()/2+1;
+				}else{
+					num = list.size()/2;
+				}
+				
+				int h;
+				for (h=0;h<num;h++){
+					out.println("<div class='jb-table-row'>");
+					
+					for (int j=(h*2); j<(h*2+2);j++){
+						CocktailVO vo = list.get(j);
+						out.println("<div jb-table-cell>" + vo.getCock_id() 
+								+":" + vo.getCock_name() 
+								+":" + vo.getAlcohol_grade()
+								+":" + vo.getBase()+"</div>" );
+						}
+					
+					out.println("</div>");
+				}
+				
+			out.println("</div></div>");
+				
+		%>
+
+		<% out.println("</div></div>");
+		} //for end  %>
+
+		
+	</div>

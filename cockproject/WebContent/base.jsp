@@ -39,13 +39,25 @@ new Swiper('.swiper-container', {
 
 <style type="text/css">
 
+html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+
+@font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
+
+@font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
+
+
+.all_menu_list{
+	font-family: thefaceshop;
+	font-size: 50px;
+	text-align: center;	
+}	
+
 .swiper-container {
 	width:75%;
-	height : 700px;
+	height : 650px;
 	padding:30px 0;
-	border:5px solid silver;
 	border-radius:7px;
-	box-shadow:0 0 20px #ccc inset;
+	background-color: rgba(209,143,208,0.5)
 }
 .swiper-slide {
 	text-align:center;
@@ -53,54 +65,81 @@ new Swiper('.swiper-container', {
 	align-items:center; /* 위아래 기준 중앙정렬 */
 	justify-content:center; /* 좌우 기준 중앙정렬 */
 	}
-	
-a:visited {
-	text-decoration: None;
-	text:black
-}
 
-a:hover{
-	text-decoration: underline;
-}
 
-#menu {
+a {text-decoration: None; color : black; }
+
+.left {
 	float:left;
-	width:15%;
+	width : 20%;
+	height:850px;
 	text-align: center;
+	background-color: rgba(184,96,161,0.3);
 }
 
-ul{
+
+#base_menu {
+	padding-top: 200px;
+}
+
+
+.base_list{
 	list-style-type: none;
+	font-size: 25px;
+	font-family: yeonsung;
 }
 
+.base {
+	font-family: thefaceshop;
+	font-size: 40px;
+}
+
+
+.back_button{
+	padding-top:200px;
+	padding-right:100px;
+	width:50px;
+	height:auto;
+}
 
 </style>
 
 </head>
 <body>
-<div class=container>
-	<div>
-		<h1 style="text-align:center">  ALL MENU </h1>
-	</div>
 
-	<nav id=menu>
-		<h3>BASE</h3>
-		<ul>
-		<li><a href="all_list.jsp">ALL</a></li>
-		<li><a href="base.jsp?base=보드카">VODCA</a></li>
-		<li><a href="base.jsp?base=위스키">WHISKY</a></li>
-		<li><a href="base.jsp?base=데킬라">TEQULIA</a></li>
-		<li><a href="base.jsp?base=와인">WINE</a></li>
-		<li><a href="base.jsp?base=럼">LUM</a></li>
-		<li><a href="base.jsp?base=리큐어">LIQUEUR</a></li>
-		<li><a href="base.jsp?base=논알콜">NONE</a></li>
-		</ul>
-	</nav>
+<div class=left>
+<nav id=base_menu>
+	<p class=base>  BASE </p>
 	
-	<!-- 클래스명은 변경하면 안 됨 -->
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-		<% 	
+	<div class=base_list>
+		<a href="all_list.jsp">ALL</a><br>
+		<a href="base.jsp?base=보드카">VODCA</a><br>
+		<a href="base.jsp?base=위스키">WHISKY</a><br>
+		<a href="base.jsp?base=데킬라">TEQULIA</a><br>
+		<a href="base.jsp?base=와인">WINE</a><br>
+		<a href="base.jsp?base=럼">LUM</a><br>
+		<a href="base.jsp?base=리큐어">LIQUEUR</a><br>
+		<a href="base.jsp?base=논알콜">NONE</a><br>
+	</div>
+	
+	<div class=back>
+		<a href="everyList.jsp"> 
+			<img src="photo/Back.png" class=back_button>
+		</a>
+	</div>	
+</nav>
+
+</div>
+<div class=container>
+<div>
+	<p class=all_menu_list> ALL MENU LIST </p>
+</div>
+
+<!-- 클래스명은 변경하면 안 됨 -->
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+
+<% 	
 		String base = request.getParameter("base");
 		CockDAO dao = new CockDAO();
 		int total=dao.getTotalCock(base);
@@ -134,22 +173,19 @@ ul{
 		} //for end  %>
 
 		
-		</div>
-
-		<!-- 네비게이션 -->
-		<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-		<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-
-		<!-- 페이징 -->
-		<div class="swiper-pagination"></div>
 	</div>
-	
-</div>
 
+	<!-- 네비게이션 -->
+	<div class="swiper-button-next" style="width:50px;height:50px;background-size:45px; background-image: url('photo/rightbutton.png')"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+	<div class="swiper-button-prev" style="width:50px;height:50px;background-size:45px;  background-image: url('photo/leftbutton.png')"></div><!-- 이전 버튼 -->
+
+	<!-- 페이징 -->
+	<div class="swiper-pagination"></div>
+</div>
+</div>
 
 <!-- 예제 종료 -->
 
 
 </body>
 </html>
-
