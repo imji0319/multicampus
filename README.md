@@ -156,6 +156,7 @@
     * 개인 추천 List : personal_list.jsp
     * BEST List : bestlist.jsp
     * Base 별 List : base.jsp
+    * 장바구니 : basket.jsp
   
 - image 
     * 칵테일 이미지 사진 저장 
