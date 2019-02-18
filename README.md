@@ -147,9 +147,15 @@
 
 
 - JSP 
-    * 전체 List : all.jsp
-    * 개인 추천 List : personal.jsp
-    * BEST List : best.jsp
+    * 첫 페이지 : homepage.jsp
+    * 회원가입 : insertform.jsp , insertresult.jsp
+    * 로그인 확인 : logincheck.jsp 
+    * 전체 메뉴 : everyList.jsp
+    * 전체 List : all_list.jsp
+    * 개인 선호도 입력 : personal.jsp
+    * 개인 추천 List : personal_list.jsp
+    * BEST List : bestlist.jsp
+    * Base 별 List : base.jsp
   
 - image 
     * 칵테일 이미지 사진 저장 
