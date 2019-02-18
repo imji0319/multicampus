@@ -35,7 +35,8 @@ new Swiper('.swiper-container', {
 
 <!-- 이 예제에서는 필요한 js, css 를 링크걸어 사용 -->
 <link rel="stylesheet" href="css/swiper.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+
+<script src="js/swiper.min.js"></script>
 
 <style type="text/css">
 
@@ -45,11 +46,17 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 
 @font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
 
+.container{
+	margin-top:0px;
+	margin-buttom:0px;
+}
 
 .all_menu_list{
 	font-family: thefaceshop;
 	font-size: 50px;
 	text-align: center;	
+	margin-top: 20px;
+	margin-bottom : 20px;
 }	
 
 .swiper-container {
@@ -57,7 +64,8 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	height : 650px;
 	padding:30px 0;
 	border-radius:7px;
-	background-color: rgba(209,143,208,0.5)
+	background-color: rgba(209,143,208,0.5);
+	margin-bottom: 0px;
 }
 .swiper-slide {
 	text-align:center;
@@ -72,9 +80,10 @@ a {text-decoration: None; color : black; }
 .left {
 	float:left;
 	width : 20%;
-	height:850px;
+	height:100%;
 	text-align: center;
 	background-color: rgba(184,96,161,0.3);
+	margin-top:0px;
 }
 
 
@@ -96,15 +105,54 @@ a {text-decoration: None; color : black; }
 
 
 .back_button{
-	padding-top:200px;
+	padding-top:230px;
 	padding-right:100px;
+	padding-bottom : 20px;
 	width:50px;
 	height:auto;
 }
 
+.swiper-pagination-bullet-active{opacity:1;
+								background:rgb(112,48,160)}
+
+
+.jb-table{display:table;
+		border:solid 2px;}
+		
+.jb-table-row{display:table-row;}
+.jb-table-cell{display:table-cell;}
+
+.cock_img{
+	width : 30px;
+	height:auto;
+	border-radius : 20px;
+	border : solid 1px rgba(242,175,208,0.8) ;
+}
+
+
 </style>
 
 </head>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#cock_id").on("click", function(){
+		
+		var value = $("cock_id input[type=button]").val();
+		
+		//boardwriteform.jsp 이동
+		location.href="basket.jsp";
+		
+		
+		
+	});//on
+});//ready
+</script>
+<script>
+
+</script>
+
+
 <body>
 
 <div class=left>
@@ -131,20 +179,18 @@ a {text-decoration: None; color : black; }
 
 </div>
 <div class=container>
-<div>
+
+<div >
 	<p class=all_menu_list> ALL MENU LIST </p>
 </div>
-
 <!-- 클래스명은 변경하면 안 됨 -->
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 
-<% 	
-		String base = request.getParameter("base");
+<%
 		CockDAO dao = new CockDAO();
-		int total=dao.getTotalCock(base);
-		int pagecount;
-		
+		int total=dao.getTotalCock();
+		int pagecount ;
 		if (total % 6 != 0){
 			  pagecount = total/6 + 1;
 		}
@@ -153,24 +199,41 @@ a {text-decoration: None; color : black; }
 		}
 		
 		for (int i=1;i<=pagecount;i++){
-			out.println("<div class='swiper-slide'>"+
-						"<table border='1'>"+
-						"<tr><td> cock_id </td><td> cock_name </td><td> alcohol_grade </td><td> base </td></tr>"); 
-
-			ArrayList<CocktailVO> list = dao.getBaseList(base,i);
+			out.println("<div class='swiper-slide'>" 
+						+ "<form name='prohect' method='post' action='basket.jsp'>" 
+						+ "<div class='jb-table'>"); 
 				
+			ArrayList<CocktailVO> list = dao.getAllList(i);
 				
-			for (int j=0; j<list.size();j++){
-				CocktailVO vo = list.get(j);
-				out.println("<tr><td>" + vo.getCock_id() 
-							+"</td><td>" + vo.getCock_name() 
-							+"</td><td>" + vo.getAlcohol_grade()
-							+"</td><td>" + vo.getBase()+"</tr>" );
+			int num;
+			if (list.size() % 2 !=0){
+				num = list.size()/2+1;
+			}else{
+				num = list.size()/2;
+			}
+				
+			int h;
+			for (h=0;h<num;h++){
+				out.println("<div class='jb-table-row'>");
+					
+				for (int j=(h*2); j<(h*2+2);j++){
+					CocktailVO vo = list.get(j);
+					out.println("<div jb-table-cell>" 
+								+"<input type='checkbox' id='cock_id' name='cock_id' value='"+vo.getCock_id()+"'>"
+								+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
+								+ vo.getCock_id() 
+								+":" + vo.getCock_name() 
+								+":" + vo.getAlcohol_grade()
+								+":" + vo.getBase()+"</div>" );
+					} // cell for end;
+					
+					out.println("</div>");
 				}
+				
+			out.println("</div><input type=submit value='장바구니 추가'></form></div>");
+			};
+				
 		%>
-
-		<% out.println("</table></div>");
-		} //for end  %>
 
 		
 	</div>

@@ -1,10 +1,9 @@
-	<div class="swiper-wrapper">
-
-		<%
-		
+<% 	
+		String base = request.getParameter("base");
 		CockDAO dao = new CockDAO();
-		int total=dao.getTotalCock();
-		int pagecount ;
+		int total=dao.getTotalCock(base);
+		int pagecount;
+		
 		if (total % 6 != 0){
 			  pagecount = total/6 + 1;
 		}
@@ -12,39 +11,22 @@
 			pagecount = total/6;
 		}
 		
-			for (int i=1;i<=pagecount;i++){
-				out.println("<div class='swiper-slide'> <div class='jb-table'>"); 
+		for (int i=1;i<=pagecount;i++){
+			out.println("<div class='swiper-slide'>"+
+						"<table border='1'>"+
+						"<tr><td> cock_id </td><td> cock_name </td><td> alcohol_grade </td><td> base </td></tr>"); 
+
+			ArrayList<CocktailVO> list = dao.getBaseList(base,i);
 				
-				ArrayList<CocktailVO> list = dao.getAllList(i);
 				
-				int num;
-				if (list.size() % 2 !=0){
-					num = list.size()/2+1;
-				}else{
-					num = list.size()/2;
+			for (int j=0; j<list.size();j++){
+				CocktailVO vo = list.get(j);
+				out.println("<tr><td>" + vo.getCock_id() 
+							+"</td><td>" + vo.getCock_name() 
+							+"</td><td>" + vo.getAlcohol_grade()
+							+"</td><td>" + vo.getBase()+"</tr>" );
 				}
-				
-				int h;
-				for (h=0;h<num;h++){
-					out.println("<div class='jb-table-row'>");
-					
-					for (int j=(h*2); j<(h*2+2);j++){
-						CocktailVO vo = list.get(j);
-						out.println("<div jb-table-cell>" + vo.getCock_id() 
-								+":" + vo.getCock_name() 
-								+":" + vo.getAlcohol_grade()
-								+":" + vo.getBase()+"</div>" );
-						}
-					
-					out.println("</div>");
-				}
-				
-			out.println("</div></div>");
-				
 		%>
 
-		<% out.println("</div></div>");
+		<% out.println("</table></div>");
 		} //for end  %>
-
-		
-	</div>

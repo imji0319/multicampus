@@ -20,12 +20,7 @@
 	}
 	
 	
-	ArrayList<Integer> list = (ArrayList)session.getAttribute("productlist");
-
-	
-	if (list == null){
-		list = new ArrayList<Integer>();
-	}
+	ArrayList<Integer> list =  new ArrayList<Integer>();
 	
 	
 	for (int i : result){
@@ -34,6 +29,10 @@
 	}
 	
 	session.setAttribute("productlist",list);
+	
+	String phone = (String)session.getAttribute("phone");
+	System.out.println("phone : "+ phone );
+	
 	
 %>
 
