@@ -161,13 +161,13 @@ $(document).ready(function(){
 	
 	<div class=base_list>
 		<a href="all_list.jsp">ALL</a><br>
-		<a href="base.jsp?base=보드카">VODCA</a><br>
-		<a href="base.jsp?base=위스키">WHISKY</a><br>
-		<a href="base.jsp?base=데킬라">TEQULIA</a><br>
-		<a href="base.jsp?base=와인">WINE</a><br>
-		<a href="base.jsp?base=럼">LUM</a><br>
-		<a href="base.jsp?base=리큐어">LIQUEUR</a><br>
-		<a href="base.jsp?base=논알콜">NONE</a><br>
+		<a href="test_all.jsp?base=보드카">VODCA</a><br>
+		<a href="test_all.jsp?base=위스키">WHISKY</a><br>
+		<a href="test_all.jsp?base=데킬라">TEQULIA</a><br>
+		<a href="test_all.jsp?base=와인">WINE</a><br>
+		<a href="test_all.jsp?base=럼">LUM</a><br>
+		<a href="test_all.jsp?base=리큐어">LIQUEUR</a><br>
+		<a href="test_all.jsp?base=논알콜">NONE</a><br>
 	</div>
 	
 	<div class=back>
@@ -187,10 +187,12 @@ $(document).ready(function(){
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 
-<%
+<% 	
+		String base = request.getParameter("base");
 		CockDAO dao = new CockDAO();
-		int total=dao.getTotalCock();
-		int pagecount ;
+		int total=dao.getTotalCock(base);
+		int pagecount;
+		
 		if (total % 6 != 0){
 			  pagecount = total/6 + 1;
 		}
@@ -200,35 +202,44 @@ $(document).ready(function(){
 		
 		for (int i=1;i<=pagecount;i++){
 			out.println("<div class='swiper-slide'>" 
-						+ "<form name='prohect' method='post' action='basket.jsp'>" 
-						+ "<div class='jb-table'>"); 
-				
-			ArrayList<CocktailVO> list = dao.getAllList(i);
-				
+					+ "<form name='prohect' method='post' action='basket.jsp'>" 
+					+ "<div class='jb-table'>"); 
+
+			ArrayList<CocktailVO> list = dao.getBaseList(base,i);
+			
 			int num;
 			if (list.size() % 2 !=0){
 				num = list.size()/2+1;
 			}else{
 				num = list.size()/2;
 			}
-				
+			
+			System.out.println(num);
+			
+			
 			int h;
 			for (h=0;h<num;h++){
 				out.println("<div class='jb-table-row'>");
-					
-				for (int j=(h*2); j<(h*2+2);j++){
+			
+			int j=(h*2);
+			while (j<(h*2+2)){
 					CocktailVO vo = list.get(j);
 					out.println("<div jb-table-cell>" 
-								+"<input type='checkbox' id='cock_id' name='cock_id' value='"+vo.getCock_id()+"'>"
-								+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
-								+ vo.getCock_id() 
-								+":" + vo.getCock_name() 
-								+":" + vo.getAlcohol_grade()
-								+":" + vo.getBase()+"</div>" );
-					} // cell for end;
-					
-					out.println("</div>");
+							+"<input type='checkbox' id='cock_id' name='cock_id' value='"+vo.getCock_id()+"'>"
+							+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
+							+ vo.getCock_id() 
+							+":" + vo.getCock_name() 
+							+":" + vo.getAlcohol_grade()
+							+":" + vo.getBase()+"</div>" );
+				j++;
+				if (j == list.size()-2){
+					break;
 				}
+			} // cell for end;
+				
+							out.println("</div>");
+				
+			}
 				
 			out.println("</div><input type=submit value='장바구니 추가'></form></div>");
 			};

@@ -99,4 +99,14 @@ public class CocktailVO {
 		this.taste_coffee = taste_coffee;
 	}
 
+	@Override
+	public String toString() {
+		return "CocktailVO [cock_id=" + cock_id + ", cock_name=" + cock_name + ", alcohol=" + alcohol
+				+ ", alcohol_grade=" + alcohol_grade + ", main_matatial=" + main_matatial + ", sub_matatial="
+				+ sub_matatial + ", base=" + base + ", taste_cola=" + taste_cola + ", taste_choco=" + taste_choco
+				+ ", taste_fruit=" + taste_fruit + ", taste_coffee=" + taste_coffee + "]";
+	}
+	
+	
+
 }

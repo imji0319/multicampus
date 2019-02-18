@@ -187,10 +187,12 @@ $(document).ready(function(){
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 
-<%
+<% 	
+		String base = request.getParameter("base");
 		CockDAO dao = new CockDAO();
-		int total=dao.getTotalCock();
-		int pagecount ;
+		int total=dao.getTotalCock(base);
+		int pagecount;
+		
 		if (total % 6 != 0){
 			  pagecount = total/6 + 1;
 		}
@@ -198,37 +200,48 @@ $(document).ready(function(){
 			pagecount = total/6;
 		}
 		
+		System.out.println("pagecount : "+pagecount);
+		
 		for (int i=1;i<=pagecount;i++){
+			
 			out.println("<div class='swiper-slide'>" 
-						+ "<form name='prohect' method='post' action='basket.jsp'>" 
-						+ "<div class='jb-table'>"); 
-				
-			ArrayList<CocktailVO> list = dao.getAllList(i);
-				
+					+ "<form name='prohect' method='post' action='basket.jsp'>" 
+					+ "<div class='jb-table'>"); 
+
+			ArrayList<CocktailVO> list = dao.getBaseList(base,i);
+			System.out.println(list.size()+ "-"+i);
+			
+			
 			int num;
 			if (list.size() % 2 !=0){
 				num = list.size()/2+1;
 			}else{
 				num = list.size()/2;
 			}
-				
+			
+			System.out.println("row:"+num + "-"+i);
+			
+			
 			int h;
 			for (h=0;h<num;h++){
 				out.println("<div class='jb-table-row'>");
-					
-				for (int j=(h*2); j<(h*2+2);j++){
+			
+			
+				for (int j=(h*2); j<(h*2+2) && j<list.size(); j++){
 					CocktailVO vo = list.get(j);
-					out.println("<div jb-table-cell>" 
-								+"<input type='checkbox' id='cock_id' name='cock_id' value='"+vo.getCock_id()+"'>"
-								+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
-								+ vo.getCock_id() 
-								+":" + vo.getCock_name() 
-								+":" + vo.getAlcohol_grade()
-								+":" + vo.getBase()+"</div>" );
-					} // cell for end;
 					
-					out.println("</div>");
-				}
+					out.println("<div jb-table-cell>" 
+							+"<input type='checkbox' id='cock_id' name='cock_id' value='"+vo.getCock_id()+"'>"
+							+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
+							+ vo.getCock_id() 
+							+":" + vo.getCock_name() 
+							+":" + vo.getAlcohol_grade()
+							+":" + vo.getBase()+"</div>" );
+					} // cell for end;
+				
+							out.println("</div>");
+				
+			}
 				
 			out.println("</div><input type=submit value='장바구니 추가'></form></div>");
 			};

@@ -120,6 +120,7 @@ public class CockDAO {
 					vo.setAlcohol_grade(alcohol_grade);
 					vo.setBase(base1);
 					
+					
 					list.add(vo);
 					
 				}
