@@ -16,10 +16,8 @@
 	
 	for (int i=0;i<cock_id_test.length;i++){
 		result[i] = Integer.parseInt(cock_id_test[i]);
-
 	}
-	
-	
+
 	ArrayList<Integer> list =  new ArrayList<Integer>();
 	
 	
@@ -32,9 +30,9 @@
 	
 	String phone = (String)session.getAttribute("phone");
 	System.out.println("phone : "+ phone );
-	
-	
+
 %>
+
 
 </body>
 </html>
