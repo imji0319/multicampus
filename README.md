@@ -134,17 +134,28 @@
     * getPersonalList
     * getTotalCock
     * getBestList
+    * addBasketList
+    * deleteBasketList
+    * getBasketList
+    * getOrderList
   
   + MemberDAO
     * insertBoard
     * login
+    * updateMemberChoice
 
 - VO
     * MemberVO
     * CocktailVO
     * BestVO
     * PersonalVO
+    * BasketVO
 
+- Servlet 
+    * BasketList
+    * BasketListReset
+    * DeleteItemBasket
+    * BasketOrder
 
 - JSP 
     * 첫 페이지 : homepage.jsp
@@ -157,6 +168,7 @@
     * BEST List : bestlist.jsp
     * Base 별 List : base.jsp
     * 장바구니 : basket.jsp
+    * 주문 완료 : finally.jsp
   
 - image 
     * 칵테일 이미지 사진 저장 
