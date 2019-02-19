@@ -236,16 +236,14 @@ else{
 	pagecount = total/6;
 }
 
-System.out.println("pagecount : "+pagecount);
-
 for (int i=1;i<=pagecount;i++){
 	
 	out.println("<div class='swiper-slide'>" 
 			+ "<form name='prohect' method='post' action='BasketList'>" 
+			+ "<input type=hidden name='base' value="+base+">"
 			+ "<div class='jb-table'>"); 
-
+	System.out.println(base);
 	ArrayList<CocktailVO> list = dao.getBaseList(base,i);
-	System.out.println(list.size()+ "-"+i);
 	
 	
 	int num;
@@ -254,9 +252,6 @@ for (int i=1;i<=pagecount;i++){
 	}else{
 		num = list.size()/2;
 	}
-	
-	System.out.println("row:"+num + "-"+i);
-	
 				
 			int h;
 			for (h=0;h<num;h++){

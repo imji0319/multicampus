@@ -436,17 +436,18 @@ public class CockDAO {
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
 			//System.out.println("DB 연결성공");
 			
-			String sql = "select cock_name, alcohol_grade, base  from cocktail where cock_id=?";
+			String sql = "select cock_id, cock_name, alcohol_grade, base  from cocktail where cock_id=?";
 			PreparedStatement pt = con.prepareStatement(sql);
 			pt.setInt(1, id);
 			
 			ResultSet rs = pt.executeQuery();
 			
 			if( rs.next()) {
+				int cock_id= rs.getInt("cock_id");
 				String cock_name = rs.getString("cock_name");
 				int alcohol_grade = rs.getInt("alcohol_grade");
 				String base = rs.getString("base");
-
+				cocklist.setCock_id(cock_id);
 				cocklist.setCock_name(cock_name);
 				cocklist.setAlcohol_grade(alcohol_grade);
 				cocklist.setBase(base);
@@ -465,7 +466,42 @@ public class CockDAO {
 		return cocklist;
 	}
 		
+	//basket total list to membertable by ji 
+	
+	public ArrayList<Integer> getOrderList(){
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		try {
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//System.out.println("jdbc driver 로딩 성공");
+			
+			//1. DB 연결
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
+			//System.out.println("DB 연결성공");
+			
+			String sql = "select cock_id from basketorder ";
+			
+			PreparedStatement pt = con.prepareStatement(sql);
+			
+			ResultSet rs = pt.executeQuery();
+			
+			while (rs.next()) {
+				int cock_id = rs.getInt("cock_id");
+				list.add(cock_id);
+				
+			}
 
+			con.close();
+			//System.out.println("DB 연결해제 성공");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
 	
 	
 } // class end

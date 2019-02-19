@@ -31,12 +31,10 @@ h3{
 </style>
 
 </head>
-
+<body>
 <div id=finally>
 	<h3>주문이 완료 되었습니다.<br>감사합니다.</h3>
 </div>
-
-<body>
 
 </body>
 </html>

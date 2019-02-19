@@ -49,4 +49,14 @@
     <servlet-name>DeleteItemBasket</servlet-name>
     <url-pattern>/DeleteItemBasket</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BasketOrder</display-name>
+    <servlet-name>BasketOrder</servlet-name>
+    <servlet-class>sevletpackage.BasketOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BasketOrder</servlet-name>
+    <url-pattern>/BasketOrder</url-pattern>
+  </servlet-mapping>
 </web-app>

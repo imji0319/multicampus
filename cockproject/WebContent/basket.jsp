@@ -150,13 +150,14 @@ ArrayList<CocktailVO> cocklist = new ArrayList<CocktailVO>();
 		
 		out.println("</div>");
 	}
-
+	
+	
 	%>
 
 </div>
 
 	<form id=order>
-		<input type=button onclick="location.href='finally.jsp';" class='confirm order' value=ORDER>
+		<input type=button onclick="location.href='BasketOrder';" class='confirm order' value=ORDER>
 		<input type=button onclick="location.href='BasketListReset';" class='reset order' value=RESET>
 	</form>
 

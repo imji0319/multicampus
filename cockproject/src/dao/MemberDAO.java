@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
+import vo.CocktailVO;
 import vo.MemberVO;
 
 public class MemberDAO {
 	
+	//sign up
 	public String insertBoard(MemberVO vo) {
 		String result="";
 		try {
@@ -42,12 +45,13 @@ public class MemberDAO {
 	}
 	
 	
+	//login
 	public String login(MemberVO vo) {
 		String name="";
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
-			System.out.println("DB 연결");
+			//System.out.println("DB 연결");
 			String sql = "select name "
 					+ " from membertable where phone=? and name=?";
 			
@@ -63,13 +67,52 @@ public class MemberDAO {
 			}
 		
 			con.close();
-			System.out.println("연결해제");
+			//System.out.println("연결해제");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return name;
 	}
 	
+	
+	//order list update;
+	public void updateMemberChoice(ArrayList<Integer> list, String phone) {
+		
+		CockDAO dao = new CockDAO();
+		ArrayList<CocktailVO> cocklist = new ArrayList<CocktailVO>();
+		
+		for (int i : list) {
+			CocktailVO vo = dao.getBasketList(i);
+			System.out.println(i);
+			cocklist.add(vo);
+		}
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
+			
+			String sql = "insert into membertable(name,phone,choice,order_date)  "
+						+ " values((select distinct name from membertable where phone=?),"
+						+ "       	?, ?, sysdate)";
+			
+			for (CocktailVO  vo_m : cocklist ) {
+				PreparedStatement pt = con.prepareStatement(sql);
+				pt.setString(1,phone);
+				pt.setString(2,phone);
+				pt.setInt(3,vo_m.getCock_id());
+				System.out.println(vo_m.getCock_id());
+				
+				pt.executeUpdate();
+				
+			}
+			
+			con.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
 	
 	
 }
