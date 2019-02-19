@@ -42,6 +42,7 @@ new Swiper('.swiper-container', {
 
 html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
 
+
 @font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
 
 @font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
@@ -79,7 +80,7 @@ a {text-decoration: None; color : black; }
 
 .left {
 	float:left;
-	width : 15%;
+	width : 13%;
 	height:100%;
 	text-align: center;
 	background-color: rgba(184,96,161,0.3);
@@ -106,9 +107,9 @@ a {text-decoration: None; color : black; }
 
 .back_button{
 	padding-top:230px;
-	padding-right:100px;
+	padding-left:0;
 	padding-bottom : 20px;
-	width:50px;
+	width:60px;
 	height:auto;
 }
 
@@ -127,6 +128,7 @@ a {text-decoration: None; color : black; }
 			background-color: rgba(112,48,160,0.4);
 			width:430px;
 			height:150px;
+			color:white;
 			}
 
 .cock_img{
@@ -145,9 +147,22 @@ input[type=submit]{
 	border : none;
 	font-family: yeonsung;
 	font-size: 20px;
-	text-align: right;
+	text-align: center;
 	border-radius: 8px;
+	width : 100px;
 }
+
+.basket{
+	margin-top : 20px;
+	background-color: rgba(242,175,208,0.8);
+	border : none;
+	font-family: yeonsung;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 8px;
+	width:100px;;
+}
+
 
 .item{
 	display:inline-block;
@@ -174,7 +189,8 @@ input[type=checkbox]{
 
 </head>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+<script type='text/javascript'>
+</script>
 <body>
 
 <div class=left>
@@ -223,7 +239,7 @@ input[type=checkbox]{
 		
 		for (int i=1;i<=pagecount;i++){
 			out.println("<div class='swiper-slide'>" 
-						+ "<form name='project' method='post' action='basket.jsp'>" 
+						+ "<form name='project' method='post' action='BasketList'>" 
 						+ "<div class='jb-table'>"); 
 				
 			ArrayList<CocktailVO> list = dao.getAllList(i);
@@ -258,7 +274,9 @@ input[type=checkbox]{
 					out.println("</div>");
 				}
 				
-			out.println("</div><input type=submit value='장바구니 추가' style='text-align:right;'></form></div>");
+			out.println("</div><input type=submit value='ADD'>"
+						+"<a href='basket.jsp'><div class=basket> BASKET </div></a></form>"
+						+"</div>");
 			};
 				
 		%>

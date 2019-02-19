@@ -6,17 +6,19 @@ public class BestVO {
 	String name;   
 	int count;
 	int rank;
+	String alcohol;
 	
-	public BestVO(int num, String name, int count, int rank) {
+	public BestVO(int num, String name, int count, int rank, String alcohol) {
 		this.num = num;
 		this.name = name;
 		this.count = count;
 		this.rank = rank;
+		this.alcohol = alcohol;
 	}
 	@Override
 	public String toString() {
 
-		return num+"="+name+"="+count+"="+rank ;
+		return num+"="+name+"="+count+"="+rank+"="+alcohol ;
 	}   
 	
 	
@@ -43,6 +45,12 @@ public class BestVO {
 	}
 	public void setRank(int rank) {
 		this.rank = rank;
+	}
+	public String getAlcohol() {
+		return alcohol;
+	}
+	public void setAlcohol(String alcohol) {
+		this.alcohol = alcohol;
 	}
 
 	

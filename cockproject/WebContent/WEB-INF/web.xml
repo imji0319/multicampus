@@ -19,4 +19,34 @@
     <servlet-name>ServletTest</servlet-name>
     <url-pattern>/ServletTest</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BasketList</display-name>
+    <servlet-name>BasketList</servlet-name>
+    <servlet-class>sevletpackage.BasketList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BasketList</servlet-name>
+    <url-pattern>/BasketList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BasketListReset</display-name>
+    <servlet-name>BasketListReset</servlet-name>
+    <servlet-class>sevletpackage.BasketListReset</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BasketListReset</servlet-name>
+    <url-pattern>/BasketListReset</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteItemBasket</display-name>
+    <servlet-name>DeleteItemBasket</servlet-name>
+    <servlet-class>sevletpackage.DeleteItemBasket</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteItemBasket</servlet-name>
+    <url-pattern>/DeleteItemBasket</url-pattern>
+  </servlet-mapping>
 </web-app>

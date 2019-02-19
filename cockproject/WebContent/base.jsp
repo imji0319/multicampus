@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ALL MENU LIST</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -39,8 +39,8 @@ new Swiper('.swiper-container', {
 <script src="js/swiper.min.js"></script>
 
 <style type="text/css">
-
 html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+
 
 @font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
 
@@ -60,7 +60,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 }	
 
 .swiper-container {
-	width:75%;
+	width:83%;
 	height : 650px;
 	padding:30px 0;
 	border-radius:7px;
@@ -68,7 +68,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	margin-bottom: 0px;
 }
 .swiper-slide {
-	text-align:center;
+	text-align:left;
 	display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
 	align-items:center; /* 위아래 기준 중앙정렬 */
 	justify-content:center; /* 좌우 기준 중앙정렬 */
@@ -79,7 +79,7 @@ a {text-decoration: None; color : black; }
 
 .left {
 	float:left;
-	width : 20%;
+	width : 13%;
 	height:100%;
 	text-align: center;
 	background-color: rgba(184,96,161,0.3);
@@ -106,9 +106,9 @@ a {text-decoration: None; color : black; }
 
 .back_button{
 	padding-top:230px;
-	padding-right:100px;
+	padding-left:0;
 	padding-bottom : 20px;
-	width:50px;
+	width:60px;
 	height:auto;
 }
 
@@ -117,16 +117,70 @@ a {text-decoration: None; color : black; }
 
 
 .jb-table{display:table;
-		border:solid 2px;}
-		
+		border-spacing: 20px}
+
 .jb-table-row{display:table-row;}
-.jb-table-cell{display:table-cell;}
+			
+.jb-table-cell{display:table-cell; 
+			vertical-align: middle;
+			border-radius: 10px;
+			background-color: rgba(112,48,160,0.4);
+			width:430px;
+			height:150px;
+			color:white;
+			}
 
 .cock_img{
-	width : 30px;
+	width : 60px;
 	height:auto;
 	border-radius : 20px;
 	border : solid 1px rgba(242,175,208,0.8) ;
+	margin-left: 10px;
+	margin-right : 5px;
+	
+}
+
+input[type=submit]{
+	margin-top : 20px;
+	background-color: rgba(242,175,208,0.8);
+	border : none;
+	font-family: yeonsung;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 8px;
+	width : 100px;
+}
+
+.basket{
+	margin-top : 20px;
+	background-color: rgba(242,175,208,0.8);
+	border : none;
+	font-family: yeonsung;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 8px;
+	width:100px;;
+}
+
+
+.item{
+	display:inline-block;
+	font-family: thefaceshop;
+	margin:5px;
+	font-size : 16px;
+}
+
+.info{
+	margin-bottom:10px;
+}
+
+.name{
+	font-size: 18px;
+	color:
+}
+input[type=checkbox]{
+	position:relative;
+	top:-35px;
 }
 
 
@@ -134,24 +188,6 @@ a {text-decoration: None; color : black; }
 
 </head>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-$(document).ready(function(){
-	$("#cock_id").on("click", function(){
-		
-		var value = $("cock_id input[type=button]").val();
-		
-		//boardwriteform.jsp 이동
-		location.href="basket.jsp";
-		
-		
-		
-	});//on
-});//ready
-</script>
-<script>
-
-</script>
-
 
 <body>
 
@@ -187,64 +223,68 @@ $(document).ready(function(){
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 
-<% 	
-		String base = request.getParameter("base");
-		CockDAO dao = new CockDAO();
-		int total=dao.getTotalCock(base);
-		int pagecount;
-		
-		if (total % 6 != 0){
-			  pagecount = total/6 + 1;
-		}
-		else{
-			pagecount = total/6;
-		}
-		
-		System.out.println("pagecount : "+pagecount);
-		
-		for (int i=1;i<=pagecount;i++){
-			
-			out.println("<div class='swiper-slide'>" 
-					+ "<form name='prohect' method='post' action='basket.jsp'>" 
-					+ "<div class='jb-table'>"); 
+<%
+String base = request.getParameter("base");
+CockDAO dao = new CockDAO();
+int total=dao.getTotalCock(base);
+int pagecount;
 
-			ArrayList<CocktailVO> list = dao.getBaseList(base,i);
-			System.out.println(list.size()+ "-"+i);
-			
-			
-			int num;
-			if (list.size() % 2 !=0){
-				num = list.size()/2+1;
-			}else{
-				num = list.size()/2;
-			}
-			
-			System.out.println("row:"+num + "-"+i);
-			
-			
+if (total % 6 != 0){
+	  pagecount = total/6 + 1;
+}
+else{
+	pagecount = total/6;
+}
+
+System.out.println("pagecount : "+pagecount);
+
+for (int i=1;i<=pagecount;i++){
+	
+	out.println("<div class='swiper-slide'>" 
+			+ "<form name='prohect' method='post' action='BasketList'>" 
+			+ "<div class='jb-table'>"); 
+
+	ArrayList<CocktailVO> list = dao.getBaseList(base,i);
+	System.out.println(list.size()+ "-"+i);
+	
+	
+	int num;
+	if (list.size() % 2 !=0){
+		num = list.size()/2+1;
+	}else{
+		num = list.size()/2;
+	}
+	
+	System.out.println("row:"+num + "-"+i);
+	
+				
 			int h;
 			for (h=0;h<num;h++){
 				out.println("<div class='jb-table-row'>");
-			
-			
+					
 				for (int j=(h*2); j<(h*2+2) && j<list.size(); j++){
 					CocktailVO vo = list.get(j);
-					
-					out.println("<div jb-table-cell>" 
-							+"<input type='checkbox' id='cock_id' name='cock_id' value='"+vo.getCock_id()+"'>"
-							+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
-							+ vo.getCock_id() 
-							+":" + vo.getCock_name() 
-							+":" + vo.getAlcohol_grade()
-							+":" + vo.getBase()+"</div>" );
+					out.println("<div class=jb-table-cell>" 
+								+"<div class='item total'>"
+								+"<input type='checkbox' id='cock_id' name='cock_id' value='"+vo.getCock_id()+"'>"
+								+"<div class='item img'>"
+									+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
+								+"</div>"
+								+"<div class='item info'>"
+									+ "<p class='itme info name'>"+ vo.getCock_name() +"</p>"
+									+"ALCOHOL : " + vo.getAlcohol_grade()+"<br>"
+									+"BASE : " + vo.getBase()
+								+"</div>"
+								+"</div></div>" );
 					} // cell for end;
+					
+					out.println("</div>");
+				}
 				
-							out.println("</div>");
-				
-			}
-				
-			out.println("</div><input type=submit value='장바구니 추가'></form></div>");
-			};
+			out.println("</div><input type=submit value='ADD'>"
+					+"<a href='basket.jsp'><div class=basket> BASKET </div></a></form>"
+					+"</div>");
+		};
 				
 		%>
 
@@ -261,7 +301,6 @@ $(document).ready(function(){
 </div>
 
 <!-- 예제 종료 -->
-
 
 </body>
 </html>
