@@ -56,8 +56,9 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	font-family: thefaceshop;
 	font-size: 50px;
 	text-align: center;	
-	margin-top: 20px;
+	margin-top: 50px;
 	margin-bottom : 20px;
+	color:white;
 }	
 
 .swiper-container {
@@ -128,7 +129,6 @@ a {text-decoration: None; color : black; }
 			background-color: rgba(112,48,160,0.4);
 			width:430px;
 			height:150px;
-			color:white;
 			}
 
 .cock_img{
@@ -153,14 +153,15 @@ input[type=submit]{
 }
 
 .basket{
-	margin-top : 20px;
+	margin-top : 40px;
 	background-color: rgba(242,175,208,0.8);
 	border : none;
 	font-family: yeonsung;
 	font-size: 20px;
 	text-align: center;
 	border-radius: 8px;
-	width:100px;;
+	width:100px;
+	margin-left : 20px;
 }
 
 
@@ -184,6 +185,14 @@ input[type=checkbox]{
 	top:-35px;
 }
 
+.add{
+display:inline-block;
+}
+
+.basket{
+display:inline-block;
+}
+
 
 </style>
 
@@ -191,6 +200,7 @@ input[type=checkbox]{
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type='text/javascript'>
 </script>
+
 <body>
 
 <div class=left>
@@ -214,7 +224,6 @@ input[type=checkbox]{
 		</a>
 	</div>	
 </nav>
-
 </div>
 <div class=container>
 
@@ -274,8 +283,9 @@ input[type=checkbox]{
 					out.println("</div>");
 				}
 				
-			out.println("</div><input type=submit value='ADD'>"
-						+"<a href='basket.jsp'><div class=basket> BASKET </div></a></form>"
+			out.println("</div>"
+						+"<input type=submit value='ADD'>"
+						+"<div class=basket><a href='basket.jsp'> BASKET </a></div></form>"
 						+"</div>");
 			};
 				

@@ -87,9 +87,10 @@ input[type=button]{
 .basket{
 	font-family :thefaceshop;
 	text-align: center;
-	margin-top:30px;
+	margin-top:80px;
 	margin-bottom :10px;
 	font-size: 50px;
+	color:white;
 }
 
 .delete{

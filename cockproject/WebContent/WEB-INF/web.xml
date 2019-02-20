@@ -59,4 +59,14 @@
     <servlet-name>BasketOrder</servlet-name>
     <url-pattern>/BasketOrder</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BasketListToBest</display-name>
+    <servlet-name>BasketListToBest</servlet-name>
+    <servlet-class>sevletpackage.BasketListToBest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BasketListToBest</servlet-name>
+    <url-pattern>/BasketListToBest</url-pattern>
+  </servlet-mapping>
 </web-app>

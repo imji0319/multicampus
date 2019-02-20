@@ -100,7 +100,6 @@ public class MemberDAO {
 				pt.setString(1,phone);
 				pt.setString(2,phone);
 				pt.setInt(3,vo_m.getCock_id());
-				System.out.println(vo_m.getCock_id());
 				
 				pt.executeUpdate();
 				

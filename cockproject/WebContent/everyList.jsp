@@ -57,6 +57,19 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	}
 	
 	
+	#back{
+	float:left;
+	margin-left:20px;
+	}
+	
+	
+	.move{
+		margin-top:130px;
+		width:60px;
+		height:auto;
+	}
+	
+	
 </style>
 
 
@@ -76,6 +89,9 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 		<div class=right><a id="best" href="bestlist.jsp"><img class="menu_list" src="photo/best.png"></a></div>
 	</div>
 
+</div>
+<div>
+		<a id="back" href="homepage.jsp"><img class=move src="photo/Back.png"></a>
 </div>
 
 </body>

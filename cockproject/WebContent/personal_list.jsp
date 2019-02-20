@@ -9,17 +9,21 @@
 <head>
 <meta charset=UTF-8">
 <title>개별 추천 리스트</title>
-<script src="jquery-3.2.1.min.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
 <script>
 	$(document).ready(function(){
 		$("#back").on('click', function(){
 			location.href="personal.jsp";
 		})
+		$("#best").on('click', function(){
+			location.href="bestlist.jsp";
+		})
 	})
+	
 </script>
 <style type="text/css">
 
-	body {
+	html {
 		background:url("photo/backweb.jpg") no-repeat center center fixed;
 				-webkit-background-size:cover;
 				-moz-background-size:cover;
@@ -27,6 +31,82 @@
 				background-size:cover;
 	}
 	
+	@font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
+	@font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
+	
+	.container{
+		margin-top:0px;
+		margin-bottom:0px;
+	}
+	
+	.personal_menu_list{
+		font-family: thefaceshop;
+		font-size: 50px;
+		text-align: center;	
+		margin-top: 100px;
+		margin-bottom : 10px;
+	}
+	
+	.container {
+	width:83%;
+	height : 650px;
+	padding:30px 0;
+	border-radius:7px;
+	background-color: rgba(209,143,208,0.5);
+	margin-bottom: 0px;
+	}
+	
+	
+	.jb-table{display:table;
+		border-spacing: 20px}
+	.jb-table-row{display:table-row;}
+			
+	.jb-table-cell{display:table-cell; 
+			vertical-align: middle;
+			border-radius: 10px;
+			background-color: rgba(112,48,160,0.4);
+			width:430px;
+			height:150px;
+			}
+	
+	.cock_img{
+	width : 60px;
+	height:auto;
+	border-radius : 20px;
+	border : solid 1px rgba(242,175,208,0.8) ;
+	margin-left: 10px;
+	margin-right : 5px;
+	
+}
+
+	input[type=submit]{
+	margin-top : 20px;
+	background-color: rgba(242,175,208,0.8);
+	border : none;
+	font-family: yeonsung;
+	font-size: 20px;
+	text-align: right;
+	border-radius: 8px;
+}
+	
+	.item{
+	display:inline-block;
+	font-family: thefaceshop;
+	margin:5px;
+	font-size : 16px;
+}
+
+	.info{
+	margin-bottom:10px;
+}
+.name{
+	font-size: 18px;
+	color:
+}
+input[type=checkbox]{
+	position:relative;
+	top:-35px;
+}
 	
 	#go {
 		float:right;
@@ -36,9 +116,47 @@
 		float:left;
 	}
 	
+	.move{
+		width:60px;
+		height:auto;
+	}
+	
+.movebest{
+	font-family: thefaceshop;
+	font-size: 35px;
+	text-align: center;
+	background-color: rgba(209,143,208,0.5);
+	width:800px;
+	height:150px;
+	border-radius: 10px;
+}	
+
+h3{
+	padding-top:25px;
+}
+
+#best{
+	border:none;
+	background-color: rgba(242,175,208,0.8);
+	font-family:thefaceshop;
+	font-size:30px;
+	border-radius: 20px;
+	margin-top:10px;
+	width:100px;
+	
+}
+	
 </style>
 </head>
 <body>
+
+
+	
+
+<p class=personal_menu_list>PERSONAL MENU LIST</p>	
+
+
+<div class=contatiner align="center">	
 <% 
 	session.getAttribute("phone");
 	
@@ -79,42 +197,42 @@
 	
 	CockDAO dao = new CockDAO();
 	PersonalVO vo1 = new PersonalVO(alcohol_grade,cola,choco,fruit,coffee,base);
-	
+	CocktailVO vo = new CocktailVO();
 	
 	
 	ArrayList<CocktailVO> list = dao.getPersonalList(vo1);
 	
+	out.println("<form name='project' method='post' action='basket.jsp'>"
+			+ "<div class='jb-table'><div class='jb-table-row'>");
+	
 	%>
-<form id=personal_list action="basket.jsp">
-<table border="1" align="center" style="border-collapse:collapse; border:1px gray solid;">
-	<tr>
-		<td>주문</td>
-		<td>번호</td>
-		<td>이름</td>
-		<td>사진</td>
-	</tr>
 	
 	<%
-	for(int i = 0; i < list.size(); i++) {
-		CocktailVO vo = list.get(i);
-		out.println("<tr><td><input type=checkbox name=cock_id id=cock_id value="+vo.getCock_id()+"></td>"
-		+ "<td>" + vo.getCock_id() + "</td>"
-				+ "<td>"+ vo.getCock_name() + "</td><td><img src=" + "photo/" + vo.getCock_id()
-				+ ".jpg" + "></td></tr>");
-	}	
-	%>
-
-	<!-- <tr>
-		<td colspan=3><input type=submit id=cart name=cart value="장바구니">
-		<input type=button id=back name=back value="다시 선택"></td>
-	</tr> -->
+	if(list.size() != 0) {
+		for(int i = 0; i < 5; i++) {
+			vo = list.get(i);
+			out.println("<div class='jb-table-cell'><div class='item total'>"
+					+ "<input type=checkbox name=cock_id id=cock_id value="+vo.getCock_id()+">"
+					+ "<div class='item img'><img src=" + "photo/cocktail_image/" + vo.getCock_id()+ ".jpg class='cock_img'>" 
+					+ "</div>"
+					+ "<div class='item info'>"
+					+ "<p class='item info name'>"+vo.getCock_name()+"</p><br>"+vo.getAlcohol()+"<br>"
+					+ "</div></div></div>");
+			
+		}	
+		out.println("<a id=back class=move href=everyList.jsp><img src=photo/Back.png></a>"
+				+"<input id=go class=move type=image img src=photo/go.png></div></form>");
+	}
 	
-</table>
-	<a id="back" href="everyList.jsp"><img src="photo/Back.png"></a>
-	<input id="go" type="image" img src="photo/go.png">
-
-</form>
-
+	else {
+		out.println("<div class=movebest>"
+					+"<h3> 조건에 맞는 Cocktail 을 찾지 못했습니다.<br>"
+					+" Best 메뉴를 확인해보세요. </h3></div>"
+					+"<input type=button id=best name=best value=best>");
+	}
+	%>
+	
+</div>
 
 
 </body>

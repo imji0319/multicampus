@@ -114,14 +114,15 @@ input[type=checkbox]{
 
 
 .basket{
-	margin-top : 20px;
+	margin-top : 40px;
 	background-color: rgba(242,175,208,0.8);
 	border : none;
 	font-family: yeonsung;
 	font-size: 20px;
 	text-align: center;
 	border-radius: 8px;
-	width:100px;;
+	width:100px;
+	margin : auto;
 }
 
 
@@ -138,13 +139,12 @@ input[type=checkbox]{
 	</div>
 	
 	<div >
-		<form action='BasketList' method='post' name=cock_id>
+		<form action='BasketListToBest' method='post' name=cock_id>
 		<%
 		CockDAO dao = new CockDAO();
 		ArrayList<BestVO> list = dao.getBestList();
 		
-		out.println("<form name='project' method='post' action='basket.jsp'>" 
-				+ "<div class='jb-table'>");
+		out.println("<div class='jb-table'>");
 		
 		int h;
 		for (h=0;h<3;h++){
@@ -172,10 +172,9 @@ input[type=checkbox]{
 			out.println("</div>");
 			
 		%>
-		<input type=submit value='ADD'>
-		<a href='basket.jsp'>
-			<div class=basket> BASKET </div>
-		</a>
+		
+		<input class=add type=submit value='ADD'>
+		<input type=button onclick="location.href='basket.jsp';" class='basket' value=BASKET>
 		</form>
 	</div>
 	

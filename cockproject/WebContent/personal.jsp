@@ -5,19 +5,10 @@
 <head>
 <meta charset=UTF-8">
 <title>선택</title>
-<script src="jquery-3.2.1.min.js"></script>
-<script>
-	/* $(document).ready(function(){
-		$("#back").on('click', function(){
-			location.href="everyList.jsp";
-		})
-	}) */
-</script>
+<script src="jquery-3.3.1.min.js"></script>
 <style type="text/css">
-	
-	
 
-	body {
+	html {
 		background:url("photo/backweb.jpg") no-repeat center center fixed;
 				-webkit-background-size:cover;
 				-moz-background-size:cover;
@@ -25,40 +16,72 @@
 				background-size:cover;
 	}
 	
-	.text {
-		border: 3px solid;
-		border-radius:40px;
-		width:100px;
-		height:50px;
-		margin-left:auto; margin-right:auto;
-		background-color:silver;
-		opacity:0.3;
+	@font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
+	@font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
+	
+	.container{
+	margin:auto;	
 	}
 	
-	
-	div {
-		margin-left:auto; margin-right:auto;
-		line-height:10px;
-		position:relative;
-		text-align:center;
-	}
+	.text{
+	font-family: thefaceshop;
+	font-size: 60px;
+	text-align: center;	
+	margin-top: 100px;
+	margin-bottom : 20px;
+	color:white;
+	}	
 
-	table {
-		width:400px;
-		height:300px;
-		border-radius:40px;
-		margin-left:auto; margin-right:auto;
+	
+	table{
+		border-radius:20px;
+		margin-top:30px;
 		text-align:center;
-		border:3px solid silver;
+		margin-left:auto;
+		margin-right:auto;
+		background-color:rgba(210,96,184,0.5);
+		width:600px;
+		height:500px;
+		border-spacing: 20px}
+	
+	td{
+		background:rgb(112,48,160,0.5);
+		border-radius:25px;
+		font-family: thefaceshop;
+		font-size: 30px;
+		text-align: center;
 	}
 	
-	#go {
-		float:right;
+	#alcohol_grade{
+		margin-left : 20px;
+		padding-left : 10px;
+	}
+	
+	#taste{
+		margin-left : 15px;
+		padding-left : 10px;
+	}
+	
+	#base{
+		margin-left : 15px;
+		padding-left : 10px;
+		
+	}
+	
+	#go{
+	float:right;
 	}
 	
 	#back{
-		float:left;
+	float:left;
 	}
+	
+	
+	.move{
+		width:60px;
+		height:auto;
+	}
+	
 	
 </style>
 </head>
@@ -69,11 +92,10 @@
 	
 	%>
 	
-	<div class="text"><h2>Yours</h2></div>
-	
-	
+<p class="text">Yours</p>
+<div class=container>
+	<div class=yourform>
 	<form id=personal action="personal_list.jsp">
-	<div>
 	<table>
 		<tr>
 			<td>
@@ -106,28 +128,22 @@
 			<input type=radio id=base name=base value="논알콜">논알콜
 			<input type=radio id=base name=base value="보드카">보드카
 			<input type=radio id=base name=base value="진">진
-			<input type=radio id=base name=base value="데킬라">데킬라<br><br><br>
+			<input type=radio id=base name=base value="데킬라">데킬라<br>
 			<input type=radio id=base name=base value="럼">럼
 			<input type=radio id=base name=base value="와인">와인
 			<input type=radio id=base name=base value="브랜디">브랜디
 			<input type=radio id=base name=base value="위스키">위스키
 			</td>
 		</tr>
-		<!-- <tr>
-			<td colspan=2>
-			<input type=submit id=go value="제출">
-			<input type=button id=back name=back value="뒤로">
-			</td>
-		</tr> -->
 	</table>
-	</div>
 	
 	<div>
-		<a id="back" href="everyList.jsp"><img src="photo/Back.png"></a>
-		<input id="go" type="image" img src="photo/go.png">
+		<a id="back" href="everyList.jsp"><img class=move src="photo/Back.png"></a>
+		<input id="go" type="image" class=move src="photo/go.png">
 	</div>
+	
 	</form>
-	
-	
+	</div>
+</div>
 </body>
 </html>

@@ -184,6 +184,26 @@ input[type=checkbox]{
 }
 
 
+.basket{
+	margin-top : 40px;
+	background-color: rgba(242,175,208,0.8);
+	border : none;
+	font-family: yeonsung;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 8px;
+	width:100px;
+	margin-left : 20px;
+}
+
+.add{
+display:inline-block;
+}
+
+.basket{
+display:inline-block;
+}
+
 </style>
 
 </head>
@@ -242,7 +262,7 @@ for (int i=1;i<=pagecount;i++){
 			+ "<form name='prohect' method='post' action='BasketList'>" 
 			+ "<input type=hidden name='base' value="+base+">"
 			+ "<div class='jb-table'>"); 
-	System.out.println(base);
+
 	ArrayList<CocktailVO> list = dao.getBaseList(base,i);
 	
 	
@@ -276,8 +296,9 @@ for (int i=1;i<=pagecount;i++){
 					out.println("</div>");
 				}
 				
-			out.println("</div><input type=submit value='ADD'>"
-					+"<a href='basket.jsp'><div class=basket> BASKET </div></a></form>"
+			out.println("</div><div class=change>"
+					+"<input class=add type=submit value='ADD'>"
+					+"<div class=basket><a href='basket.jsp'> BASKET </a></div></div></form>"
 					+"</div>");
 		};
 				

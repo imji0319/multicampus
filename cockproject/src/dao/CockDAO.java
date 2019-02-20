@@ -236,10 +236,13 @@ public class CockDAO {
 				while (rs.next()) {
 					int cock_id = rs.getInt("cock_id");
 					String cock_name = rs.getString("cock_name");
+					int alcohol = rs.getInt("alcohol");
 					
 					CocktailVO vo2 = new CocktailVO();
 					vo2.setCock_id(cock_id);
 					vo2.setCock_name(cock_name);
+					vo2.setAlcohol(alcohol);
+					
 					
 					list.add(vo2);
 					
