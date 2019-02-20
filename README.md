@@ -78,7 +78,7 @@ Instagram 태그값
 : 칵테일 기본 Best 메뉴 지정을 위한 데이터로 인스타 tag의 개수로 지정 
 
 
-##### DB table
+### DB table
 **Cocktail** </br>
 : cocktail table로 daum 백과사전 데이터 기반 
 
