@@ -72,11 +72,11 @@
 
 #### 데이터
 웹크롤링을 통해 데이터 수집 (R)
-- doopedia 칵테일 데이터 
 - Daum 칵테일 백과 조회수 기준 5Page : 100개 
-- daum & doopedia 데이터 merge (by daum 칵테일 이름)
-- twitter 
-- Naver 
+
+Instagram 태그값 
+: 칵테일 기본 Best 메뉴 지정을 위한 데이터로 인스타 tag의 개수로 지정 
+
 
 ##### DB table
 **Cocktail** </br>
@@ -96,24 +96,34 @@
 | `taste_fruit` | 과일맛 | 0 or 1 |
 | `taste_coffee` | 커피맛 | 0 or 1 |
 
-**Member** </br>
+**Membertable** </br>
 : 고객의 정보를 저장하는 table
 
 | column | desc  | feature |
 | ------ | ----- | ------- |
 | `name` | 이름 | NOT NULL |
-| `phone` | 전화번호 | primary key |
+| `phone` | 전화번호 ||
 | `choice` | 주문이력 | cock_id 값 |
 | `order_data`| 주문날짜 | sysdate |
 
-**CockFrequecy** </br>
+**Cocktail_Best** </br>
 : 초기 데이터는 SNS, 웹페이지 크롤링을 통해 얻은 각 칵테일별 출현빈도수 Table로 이후 주문이력에 따라 빈도수 변화
 
 | column | desc  | feature |
-| ------ | -----| ------- |
-| `cock_id` | 칵테일 ID |primary key , foreign key (CockTable)|
+| ------ | ----- | ------- |
+| `cock_id` | 칵테일 ID |primary key , foreign key (Cocktail)|
 | `cockname` | 칵테일 이름 | NOT NULL |
 | `frequecy` | 빈도수 | |
+
+
+**Basketorder** </br>
+: 장바구니 table로 임시 데이터베이스. 주문이 되면 그 값은 Membertable로 넘어가고 이 테이블의 값은 전부 delete
+
+| column | desc  | feature |
+| ------ | ----- | ------- |
+| `cock_id` | 칵테일 ID | foregin key (Cocktail) |
+| `ordertime` | 주문시간 | 장바구니 테이블에 저장되는 시간 |
+
 
 #### 기능 
 - 회원가입
@@ -156,6 +166,7 @@
     * BasketListReset
     * DeleteItemBasket
     * BasketOrder
+    * BasketListToBest
 
 - JSP 
     * 첫 페이지 : homepage.jsp
