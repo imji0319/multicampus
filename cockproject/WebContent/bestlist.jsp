@@ -20,8 +20,9 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	font-family: thefaceshop;
 	font-size: 50px;
 	text-align: center;	
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-bottom : 20px;
+	color:gold;
 }	
 
 a {text-decoration: None; color : black; }
@@ -47,8 +48,8 @@ a {text-decoration: None; color : black; }
 			background-color: rgba(112,48,160,0.4);
 			width:430px;
 			height:150px;
-			color:white;
 			}
+			
 .cock_img{
 	width : 60px;
 	height:auto;
@@ -74,10 +75,13 @@ input[type=submit]{
 	font-family: thefaceshop;
 	margin:5px;
 	font-size : 20px;
+	color:white;
+	
 }
 .info{
 	margin-bottom:15px;
 }
+
 .name{
 	font-size: 18px;
 	color:

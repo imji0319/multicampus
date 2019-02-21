@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=UTF-8">
+<meta charset=UTF-8>
 <title>개별 추천 리스트</title>
 <script src="jquery-3.3.1.min.js"></script>
 <script>
@@ -248,7 +248,7 @@ input[type=checkbox]{
 	
 	
 	else if(list.size() != 0) {
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < 5 && i < list.size(); i++) {
 			vo = list.get(i);
 			out.println("<div class='jb-table-cell'>"
 					+"<div class='item total'>"
