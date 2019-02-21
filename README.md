@@ -53,7 +53,7 @@
   
 - WebPage src
   
-
+---
 
 ## 2.2 Final Project
 : cockproject
@@ -108,13 +108,14 @@ Instagram 태그값
 | `order_data`| 주문날짜 | sysdate |
 
 **Cocktail_Best** </br>
-: 초기 데이터는 SNS, 웹페이지 크롤링을 통해 얻은 각 칵테일별 출현빈도수 Table로 이후 주문이력에 따라 빈도수 변화
+: Instagram 의 태그값을 기본으로 각 칵테일별 출현빈도수 Table로 이후 주문이력에 따라 빈도수 변화
+
 
 | column | desc  | feature |
 | ------ | ----- | ------- |
 | `cock_id` | 칵테일 ID |primary key , foreign key (Cocktail)|
 | `cockname` | 칵테일 이름 | NOT NULL |
-| `frequecy` | 빈도수 | |
+| `frequecy` | 빈도수 | 태그값의 정규화 * 10 |
 
 
 **Basketorder** </br>
