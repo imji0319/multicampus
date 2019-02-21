@@ -102,7 +102,7 @@ Instagram 태그값
 
 | column | desc  | feature |
 | ------ | ----- | ------- |
-| `name` | 이름 | NOT NULL |
+| `name` | 이름 | |
 | `phone` | 전화번호 ||
 | `choice` | 주문이력 | cock_id 값 |
 | `order_data`| 주문날짜 | sysdate |
