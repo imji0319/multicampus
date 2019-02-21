@@ -75,7 +75,8 @@
 - Daum 칵테일 백과 조회수 기준 5Page : 100개 
 
 Instagram 태그값 
-: 칵테일 기본 Best 메뉴 지정을 위한 데이터로 인스타 tag의 개수로 지정 
+: 칵테일 기본 Best 메뉴 지정을 위한 데이터로 인스타 tag의 개수로 지정
+- 0 ~ 200000 사이의 값으로 나타나 정규화를 거쳐 정규분포상의 값으로 변경하고 이에 10을 곱하여 초기값 생성 
 
 
 ### DB table
@@ -167,6 +168,7 @@ Instagram 태그값
     * DeleteItemBasket
     * BasketOrder
     * BasketListToBest
+    * BasketListToPersonal
 
 - JSP 
     * 첫 페이지 : homepage.jsp
