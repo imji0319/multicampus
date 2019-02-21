@@ -170,6 +170,7 @@ Instagram 태그값
     * BasketOrder
     * BasketListToBest
     * BasketListToPersonal
+    * DeleteItemBasketToLogin
 
 - JSP 
     * 첫 페이지 : homepage.jsp
