@@ -23,28 +23,21 @@
 </script>
 <style type="text/css">
 
-	html {
-		background:url("photo/backweb.jpg") no-repeat center center fixed;
-				-webkit-background-size:cover;
-				-moz-background-size:cover;
-				-o-background-size:cover;
-				background-size:cover;
-	}
-	
-	@font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
-	@font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
-	
-	.container{
-		margin-top:0px;
-		margin-bottom:0px;
-	}
+html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+
+
+@font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
+
+@font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
+
 	
 	.personal_menu_list{
 		font-family: thefaceshop;
 		font-size: 50px;
 		text-align: center;	
-		margin-top: 100px;
-		margin-bottom : 10px;
+		padding-top: 100px;
+		padding-bottom: 10px;
+		color:white;
 	}
 	
 	.container {
@@ -59,6 +52,7 @@
 	
 	.jb-table{display:table;
 		border-spacing: 20px}
+		
 	.jb-table-row{display:table-row;}
 			
 	.jb-table-cell{display:table-cell; 
@@ -79,33 +73,32 @@
 	
 }
 
-	input[type=submit]{
-	margin-top : 20px;
-	background-color: rgba(242,175,208,0.8);
-	border : none;
-	font-family: yeonsung;
-	font-size: 20px;
-	text-align: right;
-	border-radius: 8px;
-}
 	
 	.item{
 	display:inline-block;
 	font-family: thefaceshop;
 	margin:5px;
-	font-size : 16px;
-}
+	}
 
 	.info{
 	margin-bottom:10px;
-}
-.name{
-	font-size: 18px;
-	color:
-}
-input[type=checkbox]{
-	position:relative;
-	top:-35px;
+	}
+	.info_name{
+	font-size: 20px;
+	font-weight: bold;
+	}
+	.alcohol{
+	font-size:16px;
+	}
+input[type=submit]{
+	margin-top : 20px;
+	background-color: rgba(242,175,208,0.8);
+	border : none;
+	font-family: yeonsung;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 8px;
+	width:100px;
 }
 	
 	#go {
@@ -145,18 +138,50 @@ h3{
 	width:100px;
 	
 }
+	.back_button{
+	width:40px;
+	height:auto;
+	float:right;
+	margin-top:20px;
+	margin-right:30px;
+	}
 	
+	.choice{
+		text-align: center;
+		margin:auto;
+	}
+	
+.basket{
+	margin-top : 40px;
+	background-color: rgba(242,175,208,0.8);
+	border : none;
+	font-family: yeonsung;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 8px;
+	width:100px;
+	margin : auto;
+	margin-left:10px;
+	
+}	
+
+input[type=checkbox]{
+	position:relative;
+	top:-35px;
+}
 </style>
 </head>
 <body>
 
 
-	
-
-<p class=personal_menu_list>PERSONAL MENU LIST</p>	
+<div class=personal>
+	<a href="everyList.jsp"><img class=back_button src="photo/menu.png"></a>
+	<p class=personal_menu_list>PERSONAL MENU LIST</p>	
+</div>
 
 
 <div class=contatiner align="center">	
+
 <% 
 	session.getAttribute("phone");
 	
@@ -168,8 +193,8 @@ h3{
 	String base = request.getParameter("base");
 	String[] taste = request.getParameterValues("taste");
 	
-	if(base == null) {
-		base = "리큐어";
+	if(base == null || base == "") {
+		base = "";
 	}
 	
 	if(taste == null) {
@@ -202,26 +227,41 @@ h3{
 	
 	ArrayList<CocktailVO> list = dao.getPersonalList(vo1);
 	
-	out.println("<form name='project' method='post' action='basket.jsp'>"
+	out.println("<form name='project' method='post' action='BasketListToPersonal'>"
 			+ "<div class='jb-table'><div class='jb-table-row'>");
 	
 	%>
 	
 	<%
-	if(list.size() != 0) {
-		for(int i = 0; i < 5; i++) {
-			vo = list.get(i);
-			out.println("<div class='jb-table-cell'><div class='item total'>"
-					+ "<input type=checkbox name=cock_id id=cock_id value="+vo.getCock_id()+">"
+	if(list.size() == 1){
+		vo = list.get(0);
+		out.println("<div class='jb-table-cell'>"
+				+"<div class='item total'>"
+				+ "<input type=checkbox name=cock_id id=cock_id value="+vo.getCock_id()+">"
 					+ "<div class='item img'><img src=" + "photo/cocktail_image/" + vo.getCock_id()+ ".jpg class='cock_img'>" 
 					+ "</div>"
 					+ "<div class='item info'>"
-					+ "<p class='item info name'>"+vo.getCock_name()+"</p><br>"+vo.getAlcohol()+"<br>"
-					+ "</div></div></div>");
+					+ "<p class='item info_name'>"+vo.getCock_name()+"</p><p class='alcohol'> ALCOHOL : "+vo.getAlcohol()+"</p>"
+					+ "</div>"
+				+"</div></div>");
+	}
+	
+	
+	else if(list.size() != 0) {
+		for(int i = 0; i < 5; i++) {
+			vo = list.get(i);
+			out.println("<div class='jb-table-cell'>"
+					+"<div class='item total'>"
+					+ "<input type=checkbox name=cock_id id=cock_id value="+vo.getCock_id()+">"
+						+ "<div class='item img'><img src=" + "photo/cocktail_image/" + vo.getCock_id()+ ".jpg class='cock_img'>" 
+						+ "</div>"
+						+ "<div class='item info'>"
+						+ "<p class='item info_name'>"+vo.getCock_name()+"</p><p class='alcohol'> ALCOHOL : "+vo.getAlcohol()+"</p>"
+						+ "</div>"
+					+"</div></div>");
 			
 		}	
-		out.println("<a id=back class=move href=everyList.jsp><img src=photo/Back.png></a>"
-				+"<input id=go class=move type=image img src=photo/go.png></div></form>");
+
 	}
 	
 	else {
@@ -230,10 +270,16 @@ h3{
 					+" Best 메뉴를 확인해보세요. </h3></div>"
 					+"<input type=button id=best name=best value=best>");
 	}
+	
+	out.println("</div></div>");
+	out.println("<div class=choice>"
+			+"<input class=add type=submit value='ADD'>"
+			+"<input type=button onclick='location.href='basket.jsp';' class='basket' value='BASKET'>"
+			+"</div>");
 	%>
+	<% out.println("</form>");%>
 	
 </div>
-
 
 </body>
 </html>

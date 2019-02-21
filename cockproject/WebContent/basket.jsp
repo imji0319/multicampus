@@ -65,7 +65,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 #orderpage{
 	margin:auto;
 	border-radius : 20px;
-	padding-top:20px;
+	margin-top:20px;
 	padding-bottom:20px;
 	width:70%;
 	text-align: center;
@@ -87,7 +87,7 @@ input[type=button]{
 .basket{
 	font-family :thefaceshop;
 	text-align: center;
-	margin-top:80px;
+	padding-top:20px;
 	margin-bottom :10px;
 	font-size: 50px;
 	color:white;
@@ -99,10 +99,12 @@ input[type=button]{
 	height:auto;
 }
 
-#back{
-	float:left;
-	padding-left : 100px;
-	padding-bottom: 30px;
+.back_button{
+	width:40px;
+	height:auto;
+	float:right;
+	margin-top:20px;
+	margin-right:30px;
 }
 
 
@@ -122,10 +124,12 @@ ArrayList<BasketVO> list = dao.getBasketList();
 ArrayList<CocktailVO> cocklist = new ArrayList<CocktailVO>();
 	
 %>
-
-<p class=basket>BASKET</p>
-<div id=orderpage>
-<div class=ordertable>
+<div>
+<a href='everyList.jsp'><img src='photo/menu.png' id=back class='back_button'></a> 
+</div>
+<p class=basket>BASKET </p>
+<div id=orderpage>	
+	<div class=ordertable>
 	<div class='row'>
 		<div class='th_cell'> 주문 리스트 </div>
 		<div class='th_cell'> 주문 개수 </div>
@@ -163,7 +167,6 @@ ArrayList<CocktailVO> cocklist = new ArrayList<CocktailVO>();
 	</form>
 
 </div>
-	<a href='all_list.jsp' id=back class='button'><img src='photo/Back.png' style='width:60px;'></a>
 
 </body>
 

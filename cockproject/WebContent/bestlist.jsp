@@ -15,10 +15,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 @font-face{font-family : thefaceshop;src : url("fonts/THEFACESHOP INKLIPQUID.TTF");}		
 @font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
 
-.container{
-	margin-top:0px;
-	margin-buttom:0px;
-}
+
 .all_menu_list{
 	font-family: thefaceshop;
 	font-size: 50px;
@@ -38,19 +35,6 @@ a {text-decoration: None; color : black; }
 	font-size: 25px;
 	font-family: yeonsung;
 }
-.base {
-	font-family: thefaceshop;
-	font-size: 40px;
-}
-.back_button{
-	padding-top:230px;
-	padding-right:100px;
-	padding-bottom : 20px;
-	width:50px;
-	height:auto;
-}
-
-
 
 .jb-table{display:table;
 		border-spacing: 20px}
@@ -74,6 +58,7 @@ a {text-decoration: None; color : black; }
 	margin-right : 5px;
 	
 }
+
 input[type=submit]{
 	margin-top : 20px;
 	background-color: rgba(242,175,208,0.8);
@@ -107,11 +92,13 @@ input[type=checkbox]{
 	padding-right:10px;
 }
 
-#back{
-	float:left;
-	padding-left: 100px;
-}
-
+.back_button{
+	width:40px;
+	height:auto;
+	float:right;
+	margin-top:20px;
+	margin-right:30px;
+	}
 
 .basket{
 	margin-top : 40px;
@@ -132,14 +119,13 @@ input[type=checkbox]{
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <body>
-
+<div class=choice>
+	<a href='everyList.jsp'><img src='photo/menu.png' id=back class='back_button' > </a> 
+</div>
 <div class=container align="center">
-	<div >
+
 		<p class=all_menu_list> BEST MENU LIST </p>
-	</div>
-	
-	<div >
-		<form action='BasketListToBest' method='post' name=cock_id>
+	<form action='BasketListToBest' method='post' name=cock_id>
 		<%
 		CockDAO dao = new CockDAO();
 		ArrayList<BestVO> list = dao.getBestList();
@@ -159,7 +145,7 @@ input[type=checkbox]{
 									+"<img src='photo/cocktail_image/"+vo.getNum()+".jpg' class='cock_img'>"
 								+"</div>"
 								+"<div class='item info'>"
-									+ "<p class='itme info name'>"+"<img src='photo/crown.png' class=crown>"+"RANK : " + vo.getRank()+"</p>"
+									+ "<p class='itme info name'>"+"<img src='photo/crown.png' class=crown>"+"RANK : " +(i+1)+"</p>"
 											+ vo.getName() +"<br>"
 										+"ALCOHOL : " + vo.getAlcohol()+"<br>"
 								+"</div>"
@@ -176,10 +162,7 @@ input[type=checkbox]{
 		<input class=add type=submit value='ADD'>
 		<input type=button onclick="location.href='basket.jsp';" class='basket' value=BASKET>
 		</form>
-	</div>
-	
-	<a href='all_list.jsp' id=back class='button'><img src='photo/Back.png' style='width:60px;'></a>
-	
+
 </div>
 
 </body>

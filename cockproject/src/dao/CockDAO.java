@@ -220,13 +220,13 @@ public class CockDAO {
 				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
 				//System.out.println("DB 연결성공");
 				
-				String sql = "select * from (select * from cocktail where alcohol_grade = ? and base = ?) "
+				String sql = "select * from (select * from cocktail where alcohol_grade = ? and base like ?) "
 						+ "where taste_cola = ? or taste_choco = ? or taste_fruit = ? or taste_coffee = ?";
 				
 				PreparedStatement pt = con.prepareStatement(sql);
 				
 				pt.setInt(1, vo.getAlcohol_grade());
-				pt.setString(2, vo.getBase());
+				pt.setString(2, "%"+vo.getBase()+"%");
 				pt.setInt(3, vo.getTaste_cola());
 				pt.setInt(4, vo.getTaste_choco());
 				pt.setInt(5, vo.getTaste_fruit());
@@ -246,7 +246,7 @@ public class CockDAO {
 					
 					list.add(vo2);
 					
-					System.out.println(cock_id+":"+cock_name);
+					//System.out.println(cock_id+":"+cock_name);
 					
 				}
 				
@@ -264,10 +264,10 @@ public class CockDAO {
 		ArrayList<BestVO> list = new ArrayList<BestVO>();
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("jdbc driver 로딩 성공");
+			//System.out.println("jdbc driver 로딩 성공");
 			
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe", "NA", "NA");
-			System.out.println("DB 연결성공");
+			//System.out.println("DB 연결성공");
 			
 			String sql = "select * from (select * from COCKTAIL_BEST ORDER BY insta DESC) WHERE ROWNUM < 7";
 			PreparedStatement pt = con.prepareStatement(sql);
@@ -278,15 +278,13 @@ public class CockDAO {
 			while(rs.next()) {
 				int num = rs.getInt("best_id");
 				String name = rs.getString("best_name");
-				int count = rs.getInt("insta");
-				int rank = rs.getInt("rank");
+				double count = rs.getDouble("insta");
 				String alcohol = rs.getString("alcohol");
 				
-				BestVO vo = new BestVO(num, name, count, rank, alcohol);
+				BestVO vo = new BestVO(num, name, count, alcohol);
 				vo.setNum(num);
 				vo.setName(name);
 				vo.setCount(count);
-				vo.setRank(rank);
 				vo.setAlcohol(alcohol);
 				
 				list.add(vo);
@@ -294,7 +292,7 @@ public class CockDAO {
 				
 			}
 			con.close();
-			System.out.println("DB 연결해제 성공");
+			//System.out.println("DB 연결해제 성공");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -312,13 +310,16 @@ public class CockDAO {
 			//1. DB 연결
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
 			//System.out.println("DB 연결성공");
-			
 			String sql = "insert into basketorder values(?,sysdate)";
+
+			
 			
 			PreparedStatement pt = con.prepareStatement(sql);
 			pt.setInt(1, cock_id);
 			
 			pt.executeUpdate();
+;
+			
 			
 			con.close();
 			//System.out.println("DB 연결해제 성공");
@@ -341,12 +342,17 @@ public class CockDAO {
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
 			//System.out.println("DB 연결성공");
 			
+			
 			String sql = "delete basketorder where cock_id=?";
 			
+		
 			PreparedStatement pt = con.prepareStatement(sql);
+
 			pt.setInt(1, cock_id);
+
 			
 			pt.executeUpdate();
+		
 			
 			con.close();
 			//System.out.println("DB 연결해제 성공");
@@ -356,6 +362,8 @@ public class CockDAO {
 		}
 		
 	}
+	
+	
 	
 	public void deleteBasketList() {
 		
@@ -367,9 +375,9 @@ public class CockDAO {
 			//1. DB 연결
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
 			//System.out.println("DB 연결성공");
-			
+
 			String sql = "delete basketorder";
-			
+
 			PreparedStatement pt = con.prepareStatement(sql);
 			
 			pt.executeUpdate();
@@ -383,6 +391,34 @@ public class CockDAO {
 		
 	}
 	
+	//cocktail best update by hoon
+	public void UpdateBasketList() {
+		
+		try {
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//System.out.println("jdbc driver 로딩 성공");
+			
+			//1. DB 연결
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@70.12.111.101:1521:xe","NA","NA"); 
+			//System.out.println("DB 연결성공");
+
+			String sql = "update cocktail_best set insta=insta+1 where best_id in (select cock_id from basketorder)";
+
+
+			PreparedStatement pt = con.prepareStatement(sql);
+	
+			pt.executeUpdate();
+		
+			
+			con.close();
+			//System.out.println("DB 연결해제 성공");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	//get total basket list - cock_id by ji   
 	public ArrayList<BasketVO> getBasketList() {
@@ -484,10 +520,14 @@ public class CockDAO {
 			//System.out.println("DB 연결성공");
 			
 			String sql = "select cock_id from basketorder ";
+
+			
 			
 			PreparedStatement pt = con.prepareStatement(sql);
+
 			
 			ResultSet rs = pt.executeQuery();
+			
 			
 			while (rs.next()) {
 				int cock_id = rs.getInt("cock_id");
@@ -505,6 +545,7 @@ public class CockDAO {
 		
 		return list;
 	}
+
 	
 	
-} // class end
+}// class end

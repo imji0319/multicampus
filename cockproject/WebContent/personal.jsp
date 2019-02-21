@@ -20,29 +20,30 @@
 	@font-face{font-family : yeonsung; src : url("fonts/BMYEONSUNG_TTF.TTF");}
 	
 	.container{
-	margin:auto;	
+		margin:auto;	
+		text-align: center;
 	}
 	
 	.text{
-	font-family: thefaceshop;
-	font-size: 60px;
-	text-align: center;	
-	margin-top: 100px;
-	margin-bottom : 20px;
-	color:white;
+		font-family: thefaceshop;
+		font-size: 60px;
+		text-align: center;	
+		padding-top: 80px;
+		margin:auto;
+		margin-bottom : 20px;
+		color:white;
 	}	
 
 	
 	table{
 		border-radius:20px;
-		margin-top:30px;
+		padding-top:30px;
 		text-align:center;
-		margin-left:auto;
-		margin-right:auto;
+		margin : auto;
 		background-color:rgba(210,96,184,0.5);
 		width:600px;
 		height:500px;
-		border-spacing: 20px}
+		border-spacing: 20px;}
 	
 	td{
 		background:rgb(112,48,160,0.5);
@@ -67,21 +68,26 @@
 		padding-left : 10px;
 		
 	}
-	
-	#go{
-	float:right;
-	}
-	
-	#back{
-	float:left;
-	}
-	
+
 	
 	.move{
-		width:60px;
+		width:250px;
 		height:auto;
+		font-family: thefaceshop;
+		border:none;
+		border-radius:10px;
+		background-color: rgba(242,175,208,0.8);
+		font-size:30px;
+		margin-top:20px;
 	}
 	
+	.back_button{
+	width:40px;
+	height:auto;
+	float:right;
+	margin-top:20px;
+	margin-right:30px;
+	}
 	
 </style>
 </head>
@@ -90,12 +96,14 @@
 	<% 
 	session.getAttribute("phone");
 	
-	%>
-	
-<p class="text">Yours</p>
+	%>	
+
 <div class=container>
-	<div class=yourform>
-	<form id=personal action="personal_list.jsp">
+<div class=basket>
+	<a href="everyList.jsp"><img class=back_button src="photo/menu.png"></a>
+</div>
+<form id=personal action="personal_list.jsp">
+	<p class="text">Yours</p>
 	<table>
 		<tr>
 			<td>
@@ -128,7 +136,8 @@
 			<input type=radio id=base name=base value="논알콜">논알콜
 			<input type=radio id=base name=base value="보드카">보드카
 			<input type=radio id=base name=base value="진">진
-			<input type=radio id=base name=base value="데킬라">데킬라<br>
+			<input type=radio id=base name=base value="데킬라">데킬라
+			<input type=radio id=base name=base value="리큐어">리큐어<br>
 			<input type=radio id=base name=base value="럼">럼
 			<input type=radio id=base name=base value="와인">와인
 			<input type=radio id=base name=base value="브랜디">브랜디
@@ -136,14 +145,10 @@
 			</td>
 		</tr>
 	</table>
-	
-	<div>
-		<a id="back" href="everyList.jsp"><img class=move src="photo/Back.png"></a>
-		<input id="go" type="image" class=move src="photo/go.png">
-	</div>
-	
+		<input id="go" type="submit" class=move value="Personal Recommendation">
 	</form>
+	
 	</div>
-</div>
+
 </body>
 </html>

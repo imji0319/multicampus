@@ -11,7 +11,7 @@ import vo.MemberVO;
 
 public class MemberDAO {
 	
-	//sign up
+	//sign up by na
 	public String insertBoard(MemberVO vo) {
 		String result="";
 		try {
@@ -20,14 +20,14 @@ public class MemberDAO {
 			System.out.println("DB 연결");
 			String sql1 = 
 					"select phone from membertable where phone=?";
-			System.out.print(vo.getPhone());
+			//System.out.print(vo.getPhone());
 			PreparedStatement pt1 = con.prepareStatement(sql1);
 			pt1.setString(1, vo.getPhone());
 			ResultSet rs1 = pt1.executeQuery();
 			
 			if( !rs1.next()) {
 				String sql = "insert into membertable(phone,name) values(?,?)";
-				System.out.println("가입하러 if문 들어옴");
+				//System.out.println("가입하러 if문 들어옴");
 				PreparedStatement pt = con.prepareStatement(sql);
 				pt.setString(1,vo.getPhone());
 				pt.setString(2,vo.getName());
@@ -45,7 +45,7 @@ public class MemberDAO {
 	}
 	
 	
-	//login
+	//login by na
 	public String login(MemberVO vo) {
 		String name="";
 		try {
@@ -75,7 +75,7 @@ public class MemberDAO {
 	}
 	
 	
-	//order list update;
+	//order list update by ji;
 	public void updateMemberChoice(ArrayList<Integer> list, String phone) {
 		
 		CockDAO dao = new CockDAO();
@@ -83,7 +83,7 @@ public class MemberDAO {
 		
 		for (int i : list) {
 			CocktailVO vo = dao.getBasketList(i);
-			System.out.println(i);
+			//System.out.println(i);
 			cocklist.add(vo);
 		}
 		

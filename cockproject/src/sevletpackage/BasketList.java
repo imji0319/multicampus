@@ -20,7 +20,7 @@ public class BasketList extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String [] cock_id = request.getParameterValues("cock_id");
 		String base = (String)request.getParameter("base");
-		System.out.println(base);
+		//System.out.println(base);
 		
 		CockDAO dao = new CockDAO(); 	
 		for (String i : cock_id) {

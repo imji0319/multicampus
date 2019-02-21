@@ -14,7 +14,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 		width: 70%;
 		height : 70%;
 		margin:auto;
-		margin-top:200px;
+		padding-top:200px;
 		posistion:relative;
 		
 		text-align: center;
@@ -57,15 +57,23 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	}
 	
 	
-	#back{
-	float:left;
-	margin-left:20px;
+	.button{
+		float:right;
+		margin-right:30px;
+		margin-top:20px;
 	}
 	
+	#back{
+		display:inline-block;
+		padding-left:10px;
+	}
 	
+	#basket{
+		display:inline-block;
+	}
+
 	.move{
-		margin-top:130px;
-		width:60px;
+		width:40px;
 		height:auto;
 	}
 	
@@ -76,6 +84,10 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 </head>
 <body>
 <%	session.getAttribute("phone"); %>
+<div class=button>
+	<a id="back" href="homepage.jsp"><img class=move src="photo/login.png"></a>
+	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
+</div>
 
 <div class=container>
 
@@ -90,9 +102,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	</div>
 
 </div>
-<div>
-		<a id="back" href="homepage.jsp"><img class=move src="photo/Back.png"></a>
-</div>
+
 
 </body>
 </html>

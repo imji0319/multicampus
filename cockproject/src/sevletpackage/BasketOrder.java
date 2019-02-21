@@ -24,17 +24,15 @@ public class BasketOrder extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		MemberDAO m_dao = new MemberDAO(); 	
 		CockDAO c_dao = new CockDAO();
-
-		ArrayList<Integer> list = c_dao.getOrderList();
 		
-		for (int i : list) {
-			System.out.println(i);
-		}
+		ArrayList<Integer> list = c_dao.getOrderList();	
 		
 		HttpSession session = request.getSession();
 		String phone = (String)session.getAttribute("phone");
 		
 		m_dao.updateMemberChoice(list,phone);
+		
+		c_dao.UpdateBasketList();
 		
 		c_dao.deleteBasketList();
 		
@@ -45,8 +43,6 @@ public class BasketOrder extends HttpServlet {
 		rd.forward(request, response);
 		
 		
-		
-		
-		
+
 }
 }

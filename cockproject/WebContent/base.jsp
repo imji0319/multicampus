@@ -39,6 +39,7 @@ new Swiper('.swiper-container', {
 <script src="js/swiper.min.js"></script>
 
 <style type="text/css">
+
 html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
 
 
@@ -55,8 +56,10 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	font-family: thefaceshop;
 	font-size: 50px;
 	text-align: center;	
-	margin-top: 20px;
-	margin-bottom : 20px;
+	padding-bottom : 20px;
+	color:white;
+	margin-top:0px;
+	margin-bottom: 10px;
 }	
 
 .swiper-container {
@@ -67,6 +70,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	background-color: rgba(209,143,208,0.5);
 	margin-bottom: 0px;
 }
+
 .swiper-slide {
 	text-align:left;
 	display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
@@ -80,7 +84,7 @@ a {text-decoration: None; color : black; }
 .left {
 	float:left;
 	width : 13%;
-	height:100%;
+	height:900px;;
 	text-align: center;
 	background-color: rgba(184,96,161,0.3);
 	margin-top:0px;
@@ -105,11 +109,11 @@ a {text-decoration: None; color : black; }
 
 
 .back_button{
-	padding-top:230px;
-	padding-left:0;
-	padding-bottom : 20px;
-	width:60px;
+	width:40px;
 	height:auto;
+	float:right;
+	margin-top:20px;
+	margin-right:30px;
 }
 
 .swiper-pagination-bullet-active{opacity:1;
@@ -127,7 +131,6 @@ a {text-decoration: None; color : black; }
 			background-color: rgba(112,48,160,0.4);
 			width:430px;
 			height:150px;
-			color:white;
 			}
 
 .cock_img{
@@ -152,39 +155,6 @@ input[type=submit]{
 }
 
 .basket{
-	margin-top : 20px;
-	background-color: rgba(242,175,208,0.8);
-	border : none;
-	font-family: yeonsung;
-	font-size: 20px;
-	text-align: center;
-	border-radius: 8px;
-	width:100px;;
-}
-
-
-.item{
-	display:inline-block;
-	font-family: thefaceshop;
-	margin:5px;
-	font-size : 16px;
-}
-
-.info{
-	margin-bottom:10px;
-}
-
-.name{
-	font-size: 18px;
-	color:
-}
-input[type=checkbox]{
-	position:relative;
-	top:-35px;
-}
-
-
-.basket{
 	margin-top : 40px;
 	background-color: rgba(242,175,208,0.8);
 	border : none;
@@ -196,6 +166,29 @@ input[type=checkbox]{
 	margin-left : 20px;
 }
 
+
+.item{
+	display:inline-block;
+	font-family: thefaceshop;
+	margin:5px;
+}
+
+.info{
+	display:inline-block;
+	font-family: thefaceshop;
+	margin:5px;
+	font-size : 16px;
+	font-weight:bold;
+}
+
+.info_name{
+	font-size: 18px;
+}
+input[type=checkbox]{
+	position:relative;
+	top:-35px;
+}
+
 .add{
 display:inline-block;
 }
@@ -204,13 +197,17 @@ display:inline-block;
 display:inline-block;
 }
 
-</style>
 
+</style>
 </head>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <body>
-
+<div class=back>
+	<a href="everyList.jsp"> 
+		<img src="photo/menu.png" class=back_button>
+	</a>
+</div>	
 <div class=left>
 <nav id=base_menu>
 	<p class=base>  BASE </p>
@@ -225,12 +222,6 @@ display:inline-block;
 		<a href="base.jsp?base=리큐어">LIQUEUR</a><br>
 		<a href="base.jsp?base=논알콜">NONE</a><br>
 	</div>
-	
-	<div class=back>
-		<a href="everyList.jsp"> 
-			<img src="photo/Back.png" class=back_button>
-		</a>
-	</div>	
 </nav>
 
 </div>
@@ -286,7 +277,7 @@ for (int i=1;i<=pagecount;i++){
 									+"<img src='photo/cocktail_image/"+vo.getCock_id()+".jpg' class='cock_img'>"
 								+"</div>"
 								+"<div class='item info'>"
-									+ "<p class='itme info name'>"+ vo.getCock_name() +"</p>"
+									+ "<p class='itme info_name'>"+ vo.getCock_name() +"</p>"
 									+"ALCOHOL : " + vo.getAlcohol_grade()+"<br>"
 									+"BASE : " + vo.getBase()
 								+"</div>"

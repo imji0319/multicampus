@@ -23,9 +23,6 @@ public class BasketListReset extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("everyList.jsp"); //
 		rd.forward(request, response);
 		
-		
-		
-		
 	}
 
 }
