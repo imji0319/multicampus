@@ -11,21 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import dao.CockDAO;
 
 /**
- * Servlet implementation class DeleteItemBasket
+ * Servlet implementation class DeleteItemBasketToLogin
  */
-public class DeleteItemBasket extends HttpServlet {
+public class DeleteItemBasketToLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
-		String cock_id = request.getParameter("cock_id");
-
 		CockDAO dao = new CockDAO(); 	
 	
-		dao.deleteBasketList(Integer.parseInt(cock_id));
+		dao.deleteBasketList();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("basket.jsp"); //
+		RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp"); //
 		rd.forward(request, response);
 		
 		
-	}
+}
 }

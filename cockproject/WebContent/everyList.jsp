@@ -85,7 +85,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 <body>
 <%	session.getAttribute("phone"); %>
 <div class=button>
-	<a id="back" href="homepage.jsp"><img class=move src="photo/login.png"></a>
+	<a id="back" href="DeleteItemBasketToLogin"><img class=move src="photo/login.png"></a>
 	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
 </div>
 

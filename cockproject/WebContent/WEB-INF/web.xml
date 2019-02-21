@@ -79,4 +79,14 @@
     <servlet-name>BasketListToPersonal</servlet-name>
     <url-pattern>/BasketListToPersonal</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteItemBasketToLogin</display-name>
+    <servlet-name>DeleteItemBasketToLogin</servlet-name>
+    <servlet-class>sevletpackage.DeleteItemBasketToLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteItemBasketToLogin</servlet-name>
+    <url-pattern>/DeleteItemBasketToLogin</url-pattern>
+  </servlet-mapping>
 </web-app>
