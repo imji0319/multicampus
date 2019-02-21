@@ -53,7 +53,7 @@
   
 - WebPage src
   
-
+---
 
 ## 2.2 Final Project
 : cockproject
@@ -75,7 +75,8 @@
 - Daum 칵테일 백과 조회수 기준 5Page : 100개 
 
 Instagram 태그값 
-: 칵테일 기본 Best 메뉴 지정을 위한 데이터로 인스타 tag의 개수로 지정 
+: 칵테일 기본 Best 메뉴 지정을 위한 데이터로 인스타 tag의 개수로 지정
+- 0 ~ 200000 사이의 값으로 나타나 정규화를 거쳐 정규분포상의 값으로 변경하고 이에 10을 곱하여 초기값 생성 
 
 
 ### DB table
@@ -107,13 +108,14 @@ Instagram 태그값
 | `order_data`| 주문날짜 | sysdate |
 
 **Cocktail_Best** </br>
-: 초기 데이터는 SNS, 웹페이지 크롤링을 통해 얻은 각 칵테일별 출현빈도수 Table로 이후 주문이력에 따라 빈도수 변화
+: Instagram 의 태그값을 기본으로 각 칵테일별 출현빈도수 Table로 이후 주문이력에 따라 빈도수 변화
+
 
 | column | desc  | feature |
 | ------ | ----- | ------- |
 | `cock_id` | 칵테일 ID |primary key , foreign key (Cocktail)|
 | `cockname` | 칵테일 이름 | NOT NULL |
-| `frequecy` | 빈도수 | |
+| `frequecy` | 빈도수 | 태그값의 정규화 * 10 |
 
 
 **Basketorder** </br>
@@ -167,6 +169,8 @@ Instagram 태그값
     * DeleteItemBasket
     * BasketOrder
     * BasketListToBest
+    * BasketListToPersonal
+    * DeleteItemBasketToLogin
 
 - JSP 
     * 첫 페이지 : homepage.jsp
