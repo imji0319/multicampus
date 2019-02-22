@@ -131,57 +131,82 @@ h3{
 #best{
 	border:none;
 	background-color: rgba(242,175,208,0.8);
-	font-family:thefaceshop;
-	font-size:30px;
-	border-radius: 20px;
-	margin-top:10px;
+	font-family:yeonsung;
+	font-size: 20px;
+	border-radius: 6px;
 	width:100px;
+	color:black;
+	display:inline-block;
+	text-align: center;
 	
 }
-	.back_button{
-	width:40px;
-	height:auto;
-	float:right;
-	margin-top:20px;
-	margin-right:30px;
-	}
-	
+
 	.choice{
 		text-align: center;
 		margin:auto;
 	}
 	
 .basket{
-	margin-top : 40px;
 	background-color: rgba(242,175,208,0.8);
 	border : none;
 	font-family: yeonsung;
 	font-size: 20px;
 	text-align: center;
-	border-radius: 8px;
+	border-radius: 6px;
 	width:100px;
-	margin : auto;
-	margin-left:10px;
-	
+	display:inline-block;
+	color:black;
+	margin-left:20px;
 }	
 
 input[type=checkbox]{
 	position:relative;
 	top:-35px;
 }
+
+	.button{
+		float:right;
+		margin-right:30px;
+		margin-top:20px;
+	}
+	
+	
+	#back{
+		display:inline-block;
+		padding-left:10px;
+	}
+	
+	#basket{
+		display:inline-block;
+	}
+	
+	.back_button{
+		display:inline-block;
+	}
+
+	.move{
+		width:40px;
+		height:auto;
+	}
+	
+	.add{
+		display:inline-block;
+	}
+
+
+
+
 </style>
 </head>
 <body>
-
-
-<div class=personal>
-	<a href="everyList.jsp"><img class=back_button src="photo/menu.png"></a>
-	<p class=personal_menu_list>PERSONAL MENU LIST</p>	
+<div class=button>
+	<a id="back" href="DeleteItemBasketToLogin"><img class=move src="photo/login.png"></a>
+	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
+	<a id='back_button' href="everyList.jsp"> <img src="photo/menu.png" class=move></a>
 </div>
 
-
 <div class=contatiner align="center">	
-
+	<p class=personal_menu_list>PERSONAL MENU LIST</p>	
 <% 
 	session.getAttribute("phone");
 	
@@ -244,6 +269,12 @@ input[type=checkbox]{
 					+ "<p class='item info_name'>"+vo.getCock_name()+"</p><p class='alcohol'> ALCOHOL : "+vo.getAlcohol()+"</p>"
 					+ "</div>"
 				+"</div></div>");
+		out.println("</div></div>");
+		out.println("<div class=choice>"
+				+"<input class=add type=submit value='ADD'>"
+				+"<a href='personal.jsp'><div class='basket'>YOURS</div></a>"
+				+"</div>");
+		
 	}
 	
 	
@@ -259,23 +290,28 @@ input[type=checkbox]{
 						+ "<p class='item info_name'>"+vo.getCock_name()+"</p><p class='alcohol'> ALCOHOL : "+vo.getAlcohol()+"</p>"
 						+ "</div>"
 					+"</div></div>");
-			
-		}	
+		}
+		out.println("</div></div>");
+		out.println("<div class=choice>"
+				+"<input class=add type=submit value='ADD'>"
+				+"<a href='personal.jsp'><div class='basket'>YOURS</div></a>"
+				+"</div>");
 
 	}
 	
 	else {
 		out.println("<div class=movebest>"
 					+"<h3> 조건에 맞는 Cocktail 을 찾지 못했습니다.<br>"
-					+" Best 메뉴를 확인해보세요. </h3></div>"
-					+"<input type=button id=best name=best value=best>");
+					+" Best 메뉴를 확인해보세요. </h3></div>");
+		
+		out.println("</div></div>");
+		out.println("<div class=choice>"
+				+"<input type=button id=best name=best value=BEST>"
+				+"<a href='personal.jsp'><div class='basket'>YOURS</div></a>"
+				+"</div>");
+		
 	}
-	
-	out.println("</div></div>");
-	out.println("<div class=choice>"
-			+"<input class=add type=submit value='ADD'>"
-			+"<input type=button onclick='location.href='basket.jsp';' class='basket' value='BASKET'>"
-			+"</div>");
+
 	%>
 	<% out.println("</form>");%>
 	

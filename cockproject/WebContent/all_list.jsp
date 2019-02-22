@@ -108,14 +108,6 @@ a {text-decoration: None; color : black; }
 }
 
 
-.back_button{
-	width:40px;
-	height:auto;
-	float:right;
-	margin-top:20px;
-	margin-right:30px;
-}
-
 .swiper-pagination-bullet-active{opacity:1;
 								background:rgb(112,48,160)}
 
@@ -189,13 +181,30 @@ input[type=checkbox]{
 	top:-35px;
 }
 
-.add{
-display:inline-block;
-}
 
-.basket{
-display:inline-block;
-}
+	.button{
+		float:right;
+		margin-right:30px;
+		margin-top:20px;
+	}
+	
+	#back{
+		display:inline-block;
+		padding-left:10px;
+	}
+	
+	#basket{
+		display:inline-block;
+	}
+	
+	.back_button{
+		display:inline-block;
+	}
+
+	.move{
+		width:40px;
+		height:auto;
+	}
 
 
 </style>
@@ -206,10 +215,10 @@ display:inline-block;
 </script>
 
 <body>
-<div class=back>
-	<a href="everyList.jsp"> 
-		<img src="photo/menu.png" class=back_button>
-	</a>
+<div class=button>
+	<a id="back" href="DeleteItemBasketToLogin"><img class=move src="photo/login.png"></a>
+	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
+	<a id='back_button' href="everyList.jsp"> <img src="photo/menu.png" class=move></a>
 </div>	
 <div class=left>
 <nav id=base_menu>
@@ -287,7 +296,7 @@ display:inline-block;
 				
 			out.println("</div>"
 						+"<input type=submit value='ADD'>"
-						+"<div class=basket><a href='basket.jsp'> BASKET </a></div></form>"
+						+"</form>"
 						+"</div>");
 			};
 				

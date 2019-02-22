@@ -91,6 +91,7 @@ input[type=button]{
 	margin-bottom :10px;
 	font-size: 50px;
 	color:white;
+	margin-left: 200px;
 }
 
 .delete{
@@ -99,13 +100,31 @@ input[type=button]{
 	height:auto;
 }
 
-.back_button{
-	width:40px;
-	height:auto;
-	float:right;
-	margin-top:20px;
-	margin-right:30px;
-}
+
+	.button{
+		float:right;
+		margin-right:30px;
+		margin-top:20px;
+	}
+	
+	#back{
+		display:inline-block;
+		padding-left:10px;
+	}
+	
+	#basket{
+		display:inline-block;
+	}
+	
+	.back_button{
+		display:inline-block;
+	}
+
+	.move{
+		width:40px;
+		height:auto;
+	}
+
 
 
 </style>
@@ -124,9 +143,12 @@ ArrayList<BasketVO> list = dao.getBasketList();
 ArrayList<CocktailVO> cocklist = new ArrayList<CocktailVO>();
 	
 %>
-<div>
-<a href='everyList.jsp'><img src='photo/menu.png' id=back class='back_button'></a> 
+<div class=button>
+	<a id="back" href="DeleteItemBasketToLogin"><img class=move src="photo/login.png"></a>
+	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
+	<a id='back_button' href="everyList.jsp"> <img src="photo/menu.png" class=move></a>
 </div>
+
 <p class=basket>BASKET </p>
 <div id=orderpage>	
 	<div class=ordertable>

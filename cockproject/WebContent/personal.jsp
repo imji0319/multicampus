@@ -70,7 +70,7 @@
 	}
 
 	
-	.move{
+	.move_all{
 		width:250px;
 		height:auto;
 		font-family: thefaceshop;
@@ -81,12 +81,29 @@
 		margin-top:20px;
 	}
 	
+	.button{
+		float:right;
+		margin-right:30px;
+		margin-top:20px;
+	}
+	
+	
+	#back{
+		display:inline-block;
+		padding-left:10px;
+	}
+	
+	#basket{
+		display:inline-block;
+	}
+	
 	.back_button{
-	width:40px;
-	height:auto;
-	float:right;
-	margin-top:20px;
-	margin-right:30px;
+		display:inline-block;
+	}
+
+	.move{
+		width:40px;
+		height:auto;
 	}
 	
 </style>
@@ -97,11 +114,13 @@
 	session.getAttribute("phone");
 	
 	%>	
+<div class=button>
+	<a id="back" href="DeleteItemBasketToLogin"><img class=move src="photo/login.png"></a>
+	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
+	<a id='back_button' href="everyList.jsp"> <img src="photo/menu.png" class=move></a>
+</div>
 
 <div class=container>
-<div class=basket>
-	<a href="everyList.jsp"><img class=back_button src="photo/menu.png"></a>
-</div>
 <form id=personal action="personal_list.jsp">
 	<p class="text">Yours</p>
 	<table>
@@ -145,7 +164,7 @@
 			</td>
 		</tr>
 	</table>
-		<input id="go" type="submit" class=move value="Personal Recommendation">
+		<input id="go" type="submit" class=move_all value="Personal Recommendation">
 	</form>
 	
 	</div>

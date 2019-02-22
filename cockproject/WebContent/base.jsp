@@ -189,13 +189,29 @@ input[type=checkbox]{
 	top:-35px;
 }
 
-.add{
-display:inline-block;
-}
+	.button{
+		float:right;
+		margin-right:30px;
+		margin-top:20px;
+	}
+	
+	#back{
+		display:inline-block;
+		padding-left:10px;
+	}
+	
+	#basket{
+		display:inline-block;
+	}
+	
+	.back_button{
+		display:inline-block;
+	}
 
-.basket{
-display:inline-block;
-}
+	.move{
+		width:40px;
+		height:auto;
+	}
 
 
 </style>
@@ -203,10 +219,10 @@ display:inline-block;
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <body>
-<div class=back>
-	<a href="everyList.jsp"> 
-		<img src="photo/menu.png" class=back_button>
-	</a>
+<div class=button>
+	<a id="back" href="DeleteItemBasketToLogin"><img class=move src="photo/login.png"></a>
+	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
+	<a id='back_button' href="everyList.jsp"> <img src="photo/menu.png" class=move></a>
 </div>	
 <div class=left>
 <nav id=base_menu>
@@ -287,9 +303,9 @@ for (int i=1;i<=pagecount;i++){
 					out.println("</div>");
 				}
 				
-			out.println("</div><div class=change>"
+			out.println("</div>"
 					+"<input class=add type=submit value='ADD'>"
-					+"<div class=basket><a href='basket.jsp'> BASKET </a></div></div></form>"
+					+"</form>"
 					+"</div>");
 		};
 				

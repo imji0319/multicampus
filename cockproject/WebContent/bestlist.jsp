@@ -22,6 +22,7 @@ html { background: url(photo/backweb.jpg) no-repeat center center fixed; -webkit
 	text-align: center;	
 	margin-top: 40px;
 	margin-bottom : 20px;
+	margin-left:200px;
 	color:gold;
 }	
 
@@ -96,25 +97,32 @@ input[type=checkbox]{
 	padding-right:10px;
 }
 
-.back_button{
-	width:40px;
-	height:auto;
-	float:right;
-	margin-top:20px;
-	margin-right:30px;
+
+	.button{
+		float:right;
+		margin-right:30px;
+		margin-top:20px;
+	}
+	
+	
+	#back{
+		display:inline-block;
+		padding-left:10px;
+	}
+	
+	#basket{
+		display:inline-block;
+	}
+	
+	.back_button{
+		display:inline-block;
 	}
 
-.basket{
-	margin-top : 40px;
-	background-color: rgba(242,175,208,0.8);
-	border : none;
-	font-family: yeonsung;
-	font-size: 20px;
-	text-align: center;
-	border-radius: 8px;
-	width:100px;
-	margin : auto;
-}
+	.move{
+		width:40px;
+		height:auto;
+	}
+
 
 
 </style>
@@ -123,12 +131,14 @@ input[type=checkbox]{
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <body>
-<div class=choice>
-	<a href='everyList.jsp'><img src='photo/menu.png' id=back class='back_button' > </a> 
+<div class=button>
+	<a id="back" href="DeleteItemBasketToLogin"><img class=move src="photo/login.png"></a>
+	<a id="basket" href="basket.jsp"><img class=move src="photo/shopping-basket.png"></a>
+	<a id='back_button' href="everyList.jsp"> <img src="photo/menu.png" class=move></a>
 </div>
 <div class=container align="center">
 
-		<p class=all_menu_list> BEST MENU LIST </p>
+	<p class=all_menu_list> BEST MENU LIST </p>
 	<form action='BasketListToBest' method='post' name=cock_id>
 		<%
 		CockDAO dao = new CockDAO();
@@ -164,7 +174,6 @@ input[type=checkbox]{
 		%>
 		
 		<input class=add type=submit value='ADD'>
-		<input type=button onclick="location.href='basket.jsp';" class='basket' value=BASKET>
 		</form>
 
 </div>
